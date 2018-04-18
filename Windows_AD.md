@@ -1,6 +1,5 @@
-* Question1. What Is Active Directory?
-Answer : 
-    Active Directory (AD) is a directory service developed by Microsoft and used to store objects like User, Computer, printer, Network information, It facilitate to manage your network effectively with multiple Domain Controllers in different location with AD database, able to manage/change AD from any Domain Controllers and this will be replicated to all other DC’s, centralized Administration with multiple geographical location and authenticates users and computers in a Windows domain.
+- **Question1. What Is Active Directory?**
+ -**Answer** Active Directory (AD) is a directory service developed by Microsoft and used to store objects like User,     Computer, printer, Network information, It facilitate to manage your network effectively with multiple Domain Controllers in different location with AD database, able to manage/change AD from any Domain Controllers and this will be replicated to all other DC’s, centralized Administration with multiple geographical location and authenticates users and computers in a Windows domain.
 
 * Question2. What Is Tree?
 Answer :

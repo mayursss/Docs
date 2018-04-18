@@ -1,9 +1,8 @@
-- **Question1. What Is Active Directory?**
- -**Answer** Active Directory (AD) is a directory service developed by Microsoft and used to store objects like User,     Computer, printer, Network information, It facilitate to manage your network effectively with multiple Domain Controllers in different location with AD database, able to manage/change AD from any Domain Controllers and this will be replicated to all other DC’s, centralized Administration with multiple geographical location and authenticates users and computers in a Windows domain.
+* **Question1. What Is Active Directory?**
+>Active Directory (AD) is a directory service developed by Microsoft and used to store objects like User,     Computer, printer, Network information, It facilitate to manage your network effectively with multiple Domain Controllers in different location with AD database, able to manage/change AD from any Domain Controllers and this will be replicated to all other DC’s, centralized Administration with multiple geographical location and authenticates users and computers in a Windows domain.
 
-* Question2. What Is Tree?
-Answer :
-    Tree is a hierarchical arrangement of windows Domain that share a contiguous name space.
+* **What Is Tree?**
+Tree is a hierarchical arrangement of windows Domain that share a contiguous name space.
 * Question3. What Is Domain?
 Answer :
     Active Directory Domain Services is Microsoft’s Directory Server. It provides authentication and authorization mechanisms as                                            well as a framework within which other related services can be deployed.
@@ -19,7 +18,7 @@ Question4. What Is Active Directory Domain Controller (dc)?
 
     Forest consists of multiple Domains trees. The Domain trees in a forest do not form a contiguous name space however share a common schema and global catalog (GC)
 
-     
+
 
     Question6. What Is Schema?
 
@@ -208,7 +207,7 @@ Question4. What Is Active Directory Domain Controller (dc)?
 
     Any GPO can be set to No Override. If the No Override configuration is set to a GPO, no policy configured in the GPO can be overridden. If more than one GPO has been set to No Override, then the one that is the highest in the Active Directory hierarchy takes precedence
 
-    Block Policy Inheritance: 
+    Block Policy Inheritance:
 
     The Block Policy Inheritance option can be applied to the site, domain, or OU. It deflects all group policy settings that reach the site, domain, or OU from the object higher in the hierarchy. However, the GPOs configured with the No Override option are always applied.
     Question29. Is Group Policy From Parent Domain Can Be Inherited To Child Domain?

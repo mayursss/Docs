@@ -18,24 +18,43 @@ Active directory schema is the set of definitions that define the kinds of objec
 
 * Active directory schema is Collection of object class and there attributes
   - Object Class = User
-  - Attributes = first name, last name, email, and others
+  - Attributes = First Name, Last Name, Email and others
 
-### Can We Restore A Schema Partition?
+### Can we restore a Schema Partition?
 Straightforward answer is NO, Any change done in the schema can’t be revert back by deletion or restore, however we can deactivate the change (like attribute), there is no supported way of restoring schema from the backup and you can’t do authoritative restore of schema partition, the only option is to do the forest recovery
 
 ### Tel Me About The FSMO Roles?
-- Schema Master
-- Domain Naming Master
-- Infrastructure Master
-- RID Master
-- PDC
+##### Multi-Master Model
+AD replication is multi master replication and changes done on any Domain Controller will get replicated to all other Domain Controllers. This sometime can create conflicts.
 
-Schema Master and Domain Naming Master are forest wide role and only available one on each Forest, Other roles are Domain wide and one for each Domain.
-AD replication is multi master replication and change can be done in any Domain Controller and will get replicated to others Domain Controllers, except above file roles, this will be flexible single master operations (FSMO), these changes only be done on dedicated Domain Controller so it’s single master replication.
+##### single-master model
+In a single-master model, only one DC in the entire directory is allowed to process updates. This is similar to the role given to a primary domain controller (PDC) in earlier versions of Windows.
+Because an Active Directory role is not bound to a single DC, it is referred to as a **`Flexible Single Master Operation (FSMO)`** role.
+
+Currently in Windows there are five FSMO roles:
+- ###### Forest wide Roles
+  - Schema Master <br>
+    >- The schema master FSMO role holder is the DC responsible for performing updates to the directory schema
+
+  - Domain Naming Master
+    >- The domain naming master FSMO role holder is the DC responsible for making changes to the forest-wide domain name space of the directory (that is, the Partitions\Configuration naming context or LDAP://CN=Partitions, CN=Configuration, DC=<domain>).
+
+- ###### Domain wide Roles
+  - Infrastructure Master
+    >- When an object in one domain is referenced by another object in another domain, it represents the reference by the GUID, the SID (for references to security principals), and the DN of the object being referenced. The infrastructure FSMO role holder is the DC responsible for updating an object's SID and distinguished name in a cross-domain object reference.
+
+  - RID Master
+    >- The RID master FSMO role holder is the single DC responsible for processing RID Pool requests from all DCs within a given domain. It is also responsible for removing an object from its domain and putting it in another domain during an object move.
+
+  - PDC Emulator
+    >- The PDC emulator is necessary to synchronize time in an enterprise. Windows includes the W32Time (Windows Time) time service that is required by the Kerberos authentication protocol. All Windows-based computers within an enterprise use a common time. The purpose of the time service is to ensure that the Windows Time service uses a hierarchical relationship that controls authority and does not permit loops to ensure appropriate common time usage.
+
+see link for details
+  https://support.microsoft.com/en-in/help/197132/active-directory-fsmo-roles-in-windows
 
 ### How To Check Which Server Holds Which Role?
 ``` command
-Netdom query FSMO.
+Netdom query FSMO
 ```
 ###  Tel Me About Active Directory Database And List The Active Directory Database Files?
 - `NTDS.DIT`

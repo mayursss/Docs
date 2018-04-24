@@ -53,9 +53,37 @@ see link for details
   https://support.microsoft.com/en-in/help/197132/active-directory-fsmo-roles-in-windows
 
 ### How To Check Which Server Holds Which Role?
+There are two ways using Netdom command and second via Powershell cmdlets.  
+
+** Using windows command line tool**
 ``` command
 Netdom query FSMO
 ```
+** Using powershell **
+```powershell
+## Forest wide roles
+Get-ADForest contoso.com | ft DomainNamingMaster, SchemaMaster
+## Domain wide roles
+Get-ADDomain contoso.com | ft InfrastructureMaster, PDCEmulator, RIDMaster
+```
+###  How to transfer FSMO roles using PowerShell ?
+To transfer FSMO roles between Active Directory domain controllers use the
+PowerShell cmdlet `Move-ADDirectoryServerOperationMasterRole`
+
+**Example:** To transfer the PDC Emulator role to a domain controller named dc2, use the command:
+```powershell
+Move-ADDirectoryServerOperationMasterRole -Identity "dc2" PDCEmulator
+```
+To transfer several roles at once:
+``` PowerShell
+Move-ADDirectoryServerOperationMasterRole -Identity "dc2" –OperationMasterRole `
+DomainNamingMaster,
+PDCEmulator,
+RIDMaster,
+SchemaMaster,
+InfrastructureMaster
+```
+
 ###  Tel Me About Active Directory Database And List The Active Directory Database Files?
 - `NTDS.DIT`
 - `EDB.Log`

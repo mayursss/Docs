@@ -112,7 +112,7 @@
   overflow: auto;
 }
 .codeheader{
-  width: calc(100% - 10%);
+  /* width: calc(100% - 10%); */
   max-width: 100%;
   display: flex;
 }

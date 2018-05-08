@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <title>Windows_AD</title>
+      <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class='markdown-preview' data-use-github-style><h3 id="what-is-active-directory-">What Is Active Directory?</h3>
+<p>Active Directory (AD) is a directory service developed by Microsoft and used to store objects like User, Computer, printer, Network information, It facilitate to manage your network effectively with multiple Domain Controllers in different location with AD database, able to manage/change AD from any Domain Controllers and this will be replicated to all other DC’s, centralized Administration with multiple geographical location and authenticates users and computers in a Windows domain.</p>
+<h3 id="what-is-tree-">What Is Tree?</h3>
+<p>Tree is a hierarchical arrangement of windows Domain that share a contiguous name space.</p>
+<h3 id="what-is-domain-">What Is Domain?</h3>
+<p>Active Directory Domain Services is Microsoft’s Directory Server. It provides authentication and authorization mechanisms as well as a framework within which other related services can be deployed.</p>
+<h3 id="what-is-active-directory-domain-controller-dc-">What Is Active Directory Domain Controller (DC)?</h3>
+<p>Domain Controller is the server which holds the AD database, All AD changes get replicated to other DC and vise vase.</p>
+<h3 id="what-is-forest-">What Is Forest?</h3>
+<p>Forest consists of multiple Domains trees. The Domain trees in a forest do not form a contiguous name space however share a common schema and global catalog (GC)</p>
+<h3 id="what-is-schema-">What Is Schema?</h3>
+<p>Active directory schema is the set of definitions that define the kinds of object and the type of information about those objects that can be stored in Active Directory.</p>
+<ul>
+<li>Active directory schema is Collection of object class and there attributes<ul>
+<li>Object Class = User</li>
+<li>Attributes = First Name, Last Name, Email and others</li>
+</ul>
+</li>
+</ul>
+<h3 id="can-we-restore-a-schema-partition-">Can we restore a Schema Partition?</h3>
+<p>Straightforward answer is NO, Any change done in the schema can’t be revert back by deletion or restore, however we can deactivate the change (like attribute), there is no supported way of restoring schema from the backup and you can’t do authoritative restore of schema partition, the only option is to do the forest recovery</p>
+<h3 id="tel-me-about-the-fsmo-roles-">Tel Me About The FSMO Roles?</h3>
+<h5 id="multi-master-model">Multi-Master Model</h5>
+<p>AD replication is multi master replication and changes done on any Domain Controller will get replicated to all other Domain Controllers. This sometime can create conflicts.</p>
+<h5 id="single-master-model">single-master model</h5>
+<p>In a single-master model, only one DC in the entire directory is allowed to process updates. This is similar to the role given to a primary domain controller (PDC) in earlier versions of Windows.
+Because an Active Directory role is not bound to a single DC, it is referred to as a <strong><code>Flexible Single Master Operation (FSMO)</code></strong> role.</p>
+<p>Currently in Windows there are five FSMO roles:</p>
+<ul>
+<li><h6 id="forest-wide-roles">Forest wide Roles</h6>
+<ul>
+<li><p>Schema Master <br></p>
+<blockquote>
+<ul>
+<li>The schema master FSMO role holder is the DC responsible for performing updates to the directory schema</li>
+</ul>
+</blockquote>
+</li>
+<li><p>Domain Naming Master</p>
+<blockquote>
+<ul>
+<li>The domain naming master FSMO role holder is the DC responsible for making changes to the forest-wide domain name space of the directory (that is, the Partitions\Configuration naming context or LDAP://CN=Partitions, CN=Configuration, DC=).</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><h6 id="domain-wide-roles">Domain wide Roles</h6>
+<ul>
+<li><p>Infrastructure Master</p>
+<blockquote>
+<ul>
+<li>When an object in one domain is referenced by another object in another domain, it represents the reference by the GUID, the SID (for references to security principals), and the DN of the object being referenced. The infrastructure FSMO role holder is the DC responsible for updating an object's SID and distinguished name in a cross-domain object reference.</li>
+</ul>
+</blockquote>
+</li>
+<li><p>RID Master</p>
+<blockquote>
+<ul>
+<li>The RID master FSMO role holder is the single DC responsible for processing RID Pool requests from all DCs within a given domain. It is also responsible for removing an object from its domain and putting it in another domain during an object move.</li>
+</ul>
+</blockquote>
+</li>
+<li><p>PDC Emulator</p>
+<blockquote>
+<ul>
+<li>The PDC emulator is necessary to synchronize time in an enterprise. Windows includes the W32Time (Windows Time) time service that is required by the Kerberos authentication protocol. All Windows-based computers within an enterprise use a common time. The purpose of the time service is to ensure that the Windows Time service uses a hierarchical relationship that controls authority and does not permit loops to ensure appropriate common time usage.</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<p>see link for details
+  <a href="https://support.microsoft.com/en-in/help/197132/active-directory-fsmo-roles-in-windows">https://support.microsoft.com/en-in/help/197132/active-directory-fsmo-roles-in-windows</a></p>
+<h3 id="how-to-check-which-server-holds-which-role-">How To Check Which Server Holds Which Role?</h3>
+<p>There are two ways using Netdom command and second via Powershell cmdlets.  </p>
+<p><strong> Using windows command line tool</strong></p>
+<pre class="editor-colors lang-command"><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>Netdom&nbsp;query&nbsp;FSMO</span></span></div></pre>
+<p><strong> Using powershell </strong></p>
+<pre class="editor-colors lang-powershell"><div class="line"><span class="syntax--source syntax--powershell"><span class="syntax--comment syntax--line syntax--number-sign syntax--powershell"><span>#</span><span>#&nbsp;Forest&nbsp;wide&nbsp;roles</span></span></span></div><div class="line"><span class="syntax--source syntax--powershell"><span class="syntax--support syntax--function syntax--powershell"><span>Get-ADForest</span></span><span>&nbsp;contoso.com&nbsp;</span><span class="syntax--keyword syntax--operator syntax--other syntax--powershell"><span>|</span></span><span>&nbsp;ft&nbsp;DomainNamingMaster</span><span class="syntax--keyword syntax--operator syntax--other syntax--powershell"><span>,</span></span><span>&nbsp;SchemaMaster</span></span></div><div class="line"><span class="syntax--source syntax--powershell"><span class="syntax--comment syntax--line syntax--number-sign syntax--powershell"><span>#</span><span>#&nbsp;Domain&nbsp;wide&nbsp;roles</span></span></span></div><div class="line"><span class="syntax--source syntax--powershell"><span class="syntax--support syntax--function syntax--powershell"><span>Get-ADDomain</span></span><span>&nbsp;contoso.com&nbsp;</span><span class="syntax--keyword syntax--operator syntax--other syntax--powershell"><span>|</span></span><span>&nbsp;ft&nbsp;InfrastructureMaster</span><span class="syntax--keyword syntax--operator syntax--other syntax--powershell"><span>,</span></span><span>&nbsp;PDCEmulator</span><span class="syntax--keyword syntax--operator syntax--other syntax--powershell"><span>,</span></span><span>&nbsp;RIDMaster</span></span></div></pre>
+<h3 id="how-to-transfer-fsmo-roles-using-powershell-">How to transfer FSMO roles using PowerShell ?</h3>
+<p>To transfer FSMO roles between Active Directory domain controllers use the
+PowerShell cmdlet <code>Move-ADDirectoryServerOperationMasterRole</code></p>
+<p><strong>Example:</strong> To transfer the PDC Emulator role to a domain controller named dc2, use the command:</p>
+<pre class="editor-colors lang-powershell"><div class="line"><span class="syntax--source syntax--powershell"><span class="syntax--support syntax--function syntax--powershell"><span>Move-ADDirectoryServerOperationMasterRole</span></span><span>&nbsp;</span><span class="syntax--keyword syntax--operator syntax--assignment syntax--powershell"><span>-</span></span><span>Identity&nbsp;</span><span class="syntax--string syntax--quoted syntax--double syntax--powershell"><span>"</span><span>dc2</span><span>"</span></span><span>&nbsp;PDCEmulator</span></span></div></pre>
+<p>To transfer several roles at once:</p>
+<pre class="editor-colors lang-PowerShell"><div class="line"><span class="syntax--source syntax--powershell"><span class="syntax--support syntax--function syntax--powershell"><span>Move-ADDirectoryServerOperationMasterRole</span></span><span>&nbsp;</span><span class="syntax--keyword syntax--operator syntax--assignment syntax--powershell"><span>-</span></span><span>Identity&nbsp;</span><span class="syntax--string syntax--quoted syntax--double syntax--powershell"><span>"</span><span>dc2</span><span>"</span></span><span>&nbsp;–OperationMasterRole&nbsp;</span><span class="syntax--keyword syntax--operator syntax--other syntax--powershell"><span>`</span></span></span></div><div class="line"><span class="syntax--source syntax--powershell"><span>DomainNamingMaster</span><span class="syntax--keyword syntax--operator syntax--other syntax--powershell"><span>,</span></span></span></div><div class="line"><span class="syntax--source syntax--powershell"><span>PDCEmulator</span><span class="syntax--keyword syntax--operator syntax--other syntax--powershell"><span>,</span></span></span></div><div class="line"><span class="syntax--source syntax--powershell"><span>RIDMaster</span><span class="syntax--keyword syntax--operator syntax--other syntax--powershell"><span>,</span></span></span></div><div class="line"><span class="syntax--source syntax--powershell"><span>SchemaMaster</span><span class="syntax--keyword syntax--operator syntax--other syntax--powershell"><span>,</span></span></span></div><div class="line"><span class="syntax--source syntax--powershell"><span>InfrastructureMaster</span></span></div></pre>
+<h3 id="tel-me-about-active-directory-database-and-list-the-active-directory-database-files-">Tel Me About Active Directory Database And List The Active Directory Database Files?</h3>
+<ul>
+<li><code>NTDS.DIT</code></li>
+<li><code>EDB.Log</code></li>
+<li><code>EDB.Che</code></li>
+<li><code>Res1.log</code></li>
+<li><code>Res2.log</code></li>
+</ul>
+<p>All AD changes didn’t write directly to <code>NTDS.DIT</code> database file, first write to <code>EDB.Log</code> and from log file to database, <code>EDB.Che</code> used to track the database update from log file, to know what changes are copied to database file.</p>
+<p><strong>NTDS.DIT</strong>: <code>NTDS.DIT</code> is the AD database and store all AD objects, Default location is the <code>%system root%\nrdsnrds.dit</code>, Active Directory database engine is the extensible storage engine which us based on the Jet database</p>
+<p><strong>EDB.Log</strong>: <code>EDB.Log</code> is the transaction log file when <code>EDB.Log</code> is full, it is renamed to <code>EDB&lt;num&gt;.log</code> where <em>'num'</em> is the increasing number starting from 1, like <code>EDB1.Log</code></p>
+<p><strong>EDB.Che</strong>: <code>EDB.Che</code> is the checkpoint file used to trace the data not yet written to database file this indicate the starting point from which data is to be recovered from the log file in case if failure</p>
+<p><strong>Res1.log and Res2.log</strong>:  <code>Res</code> is reserved transaction log file which provide the transaction log file enough time to shutdown if the disk didn’t have enough space.</p>
+<h3 id="what-is-active-directory-partitions-">What Is Active Directory Partitions?</h3>
+<p>Active Directory partition is how and where the AD information logically stored.</p>
+<h3 id="what-are-all-the-active-directory-partitions-">What Are All The Active Directory Partitions?</h3>
+<ul>
+<li>Schema</li>
+<li>Configuration</li>
+<li>Domain</li>
+<li>Application partition</li>
+</ul>
+<h3 id="what-is-use-active-directory-partitions-and-how-to-find-the-active-directory-partitions-and-there-location-">What Is Use Active Directory Partitions? And How To Find The Active Directory Partitions And There Location?</h3>
+<ul>
+<li><p><strong>Schema Partition</strong> – It store details about objects and attributes. Replicates to all domain controllers in the Forest</p>
+<p><code>DN location is CN=Schema,CN=Configuration,DC=Domainname, DC=com</code></p>
+</li>
+<li><p><strong>Configuration Partition</strong> – It store details about the AD configuration information like, Site, site-link, subnet and other replication topology information. Replicates to all domain controllers in the Forest</p>
+<p><code>DN Location is CN=Configuration,DC=Domainname,DC=com</code></p>
+</li>
+<li><p><strong>Domain Partitions</strong> – object information for a domain like user, computer, group, printer and other Domain specific information. Replicates to all domain controllers within a domain</p>
+<p><code>DN Location is DC=Domainname,DC=com</code></p>
+</li>
+<li><p><strong>Application Partition</strong> – information about applications in Active Directory. Like AD integrated DNS is used there are two application partitions for DNS zones – ForestDNSZones and DomainDNSZones.</p>
+</li>
+</ul>
+<h3 id="how-to-configure-active-directory-partitions-">How To Configure Active Directory Partitions?</h3>
+<p>You can only configure the Application partition manually to use with AD integrated applications.</p>
+<h3 id="how-to-take-active-directory-backup-">How To Take Active Directory Backup?</h3>
+<p>System state backup will backup the Active Directory, <code>NTbackup</code> can be used to backup active directory.</p>
+<h3 id="active-directory-restores-types-">Active Directory Restores Types?</h3>
+<ul>
+<li>Authoritative restore</li>
+<li>Non-authoritative restore</li>
+</ul>
+<h3 id="non-authoritative-restore-of-active-directory-">Non-authoritative Restore Of Active Directory?</h3>
+<p><strong> Non-authoritative restore </strong> is restore the domain controller to its state at the time of backup, and allows normal replication to overwrite restored domain controller with any changes that have occurred after the backup.</p>
+<p>After system state restore, domain controller queries its replication partners and get the changes after backup date, to ensure that the domain controller has an accurate and updated copy of the Active Directory database.</p>
+<p>Non-authoritative restore is the default method for restoring Active Directory, just a restore of system state is non-authoritative restore and mostly we use this for Active Directory data loss or corruption.</p>
+<h3 id="how-perform-a-non-authoritative-restore-">How Perform A Non-authoritative Restore?</h3>
+<p>Just start the domain controller in Directory Services Restore Mode and perform system state restore from backup</p>
+<h3 id="authoritative-restore-of-active-directory-">Authoritative Restore Of Active Directory?</h3>
+<p><strong>Authoritative restore</strong> is next step of the non-authoritative restore process. We have do non-authoritative restore before you can perform an authoritative restore. The main difference is that an authoritative restore has the ability to increment the version number of the attributes of all objects or an individual object in an entire directory, this will make it authoritative restore an object in the directory. This can be used to restore a single deleted user/group and event an entire OU.</p>
+<p>In a non-authoritative restore, after a domain controller is back online, it will contact its replication partners to determine any changes since the time of the last backup. However the version number of the object attributes that you want to be authoritative will be higher than the existing version numbers of the attribute, the object on the restored domain controller will appear to be more recent and therefore, restored object will be replicated to other domain controllers in the Domain.</p>
+<h3 id="what-are-active-directory-partitions-can-be-restored-">What Are Active Directory Partitions Can Be Restored?</h3>
+<p>You can authoritatively restore only objects from configuration and domain partition. Authoritative restores of schema-naming contexts are not supported.</p>
+<h3 id="how-many-domain-controllers-need-to-back-up-or-which-domain-controllers-to-back-up-">How Many Domain Controllers Need To Back Up? Or Which Domain Controllers To Back Up?</h3>
+<p>Minimum requirement is to back up two domain controllers in each domain, one should be an operations master role holder DC, no need to backup RID Master (relative ID) because RID master should not be restored.</p>
+<h3 id="can-we-restore-backup-of-domain-controller-to-other-different-domain-controller-">Can We Restore Backup Of Domain Controller To Other/different Domain Controller?</h3>
+<p>Backup of one domain controller can’t be restoring to other domain controller, should be restored to same domain controller.</p>
+<h3 id="what-are-group-policies-">What Are Group Policies?</h3>
+<p>Group policies specify how programs, network resources, and the operating system work for users and computers in an organization. They are collections of user and computer configuration settings that are applied on the users and computers (not on groups). For better administration of group policies in the Windows environment, the group policy objects (GPOs) are used.</p>
+<h3 id="what-is-gpo-">What Is Gpo?</h3>
+<p>Group policy object (GPO) is a collection of group policy settings. It can be created using a Windows utility known as the Group Policy snap-in. GPO affects the user and computer accounts located in sites, domains, and organizational units (OUs). The Windows 2000/2003 operating systems support two types of GPOs, local and non-local (Active Directory-based) GPOs.</p>
+<h3 id="what-is-local-gpos-policy-">What Is Local Gpos/policy?</h3>
+<p>Local GPOs are used to control policies on a local server running Windows 2000/2003 Server. On each Windows 2000/2003 server, a local GPO is stored. The local GPO affects only the computer on which it is stored.</p>
+<p>By default, only Security Settings nodes are configured. The rest of the settings are either disabled or not enabled. The local GPO is stored in the <code>%systemroot%\SYSTEM32\GROUPPOLICY</code> folder.</p>
+<h3 id="what-is-non-local-policy-">What Is Non-local Policy?</h3>
+<p>Non-local GPOs are used to control policies on an Active Directory-based network. A Windows 2000/2003 server needs to be configured as a domain controller on the network to use a non-local GPO. The non-local GPOs must be linked to a site, domain, or organizational unit (OU) to apply group policies to the user or computer objects.</p>
+<p>The non-local GPOs are stored in <code>%systemroot%\SYSVOL\POLICIESADM</code>, where is the GPO’s globally unique identifier. Two non-local GPOs are created by default when the Active Directory is installed:</p>
+<ol>
+<li><p>Default Domain Policy: This GPO is linked to the domain and it affects all users and computers in the domain.</p>
+</li>
+<li><p>Default Domain Controllers Policy: This GPO is linked to the Domain Controllers OU and it affects all domain controllers placed in this OU. Multiple GPOs.</p>
+</li>
+</ol>
+<h3 id="gpo-apply-order-when-multiple-group-policy-objects-are-assigned-the-group-policies-are-applied-in-the-following-order-">Gpo apply order when multiple Group Policy objects are assigned, The Group Policies are applied In The Following Order:?</h3>
+<ul>
+<li>The local group policy object is applied first</li>
+<li>Then, the group policy objects linked to sites are applied</li>
+<li>If multiple GPOs exist for a site, they are applied in the order specified by an administrator</li>
+<li>GPOs linked to the domains are applied in the specified order</li>
+<li>Finally, GPOs linked to OUs are applied</li>
+</ul>
+<p>The OU group policy objects are set from the largest to the smallest organizational unit, i.e., first the parent OU and then the child OU.</p>
+<p>By default, a policy applied later overwrites a policy that was applied earlier. Hence, the settings in a child OU can override the settings in the parent OU</p>
+<p>Group policy settings are cumulative if they are compatible with each other. In case they conflict with each other, the GPO processed later takes precedence.</p>
+<h3 id="what-is-no-override-block-policy-inheritance-">What Is No Override? Block Policy Inheritance?</h3>
+<p>The following are the exceptions with regard to the above-mentioned settings:</p>
+<p><strong>No Override</strong>:
+Any GPO can be set to No Override. If the No Override configuration is set to a GPO, no policy configured in the GPO can be overridden. If more than one GPO has been set to No Override, then the one that is the highest in the Active Directory hierarchy takes precedence</p>
+<p><strong>Block Policy Inheritance</strong>:
+The Block Policy Inheritance option can be applied to the site, domain, or OU. It deflects all group policy settings that reach the site, domain, or OU from the object higher in the hierarchy. However, the GPOs configured with the No Override option are always applied.</p>
+<h3 id="is-group-policy-from-parent-domain-can-be-inherited-to-child-domain-">Is Group Policy From Parent Domain Can Be Inherited To Child Domain?</h3>
+<p><strong>Group Policy Inheritance</strong>:
+The group policies are inherited from parent to child within a domain. They are not inherited from parent domain to child domain.</p>
+<h3 id="following-are-the-rules-regarding-group-policy-inheritance-">Following Are The Rules Regarding Group Policy Inheritance:</h3>
+<ul>
+<li>A policy setting is configured (Enabled or Disabled) for a parent OU, and the same policy setting is not configured for its child OUs. The child OUs inherit the parent’s policy.</li>
+<li>A policy setting is configured (Enabled or Disabled) for a parent OU, and the same policy setting is configured for its child OUs. The child OUs settings override the settings inherited from the parent’s OU.</li>
+<li>If any policy is not configured, no inheritance takes place.</li>
+<li>Compatible policy settings configured at the parent and child OUs are accumulated.
+Incompatible policy settings from the parent OU are not inherited.</li>
+</ul>
+<h3 id="what-is-security-filtering-filtering-scope-of-gpos-">What Is Security Filtering? Filtering Scope Of Gpos?</h3>
+<p>Although GPOs are linked to the site, domain, or OUs, and they cannot be linked to the security groups directly, applying permissions to the GPO can filter its scope. The policies in a non-local GPO apply only to users who have the Read and Apply Group Policy permissions set to Allow By specifying appropriate permissions to the security groups, the administrators can filter a GPO’s scope for the computers and users.</p>
+<h3 id="what-is-netlogon-folder-">What Is Netlogon Folder?</h3>
+<p>Netlogon folder contain logon/logoff/startup/shutdown scripts which is inside the <code>SYSVOL</code> folder.</p>
+<h3 id="any-sysvol-issues-which-you-have-faced-in-your-environment-">Any <code>SYSVOL</code> Issues Which You Have Faced In Your Environment?</h3>
+<ul>
+<li>USN journal wrap Error on <code>SYSVOL</code></li>
+<li>Morphed folder on <code>SYSVOL</code></li>
+<li>FRS replication issues</li>
+<li><code>SYSVOL</code> share not sharing on.</li>
+</ul>
+<h3 id="tel-me-about-non-authoritative-restore-of-sysvol-or-d2-restore-">Tel Me about Non-authoritative restore Of <code>SYSVOL</code> Or D2 Restore?</h3>
+<p>D2 is the default method for restoring <code>SYSVOL</code> and occurs automatically when you do a non-authoritative restore of the Active Directory</p>
+<p>When you non-authoritatively restore the <code>SYSVOL</code>, the local copy of <code>SYSVOL</code> on the restored domain controller is compared with that of its replication partners. After the domain controller restarts, it replicates the any necessary changes, bringing it up-to-date with the other domain controllers within the domain.</p>
+<h3 id="tel-me-about-authoritative-restore-of-sysvol-or-d4-restore-">Tel Me about Authoritative restore of <code>SYSVOL</code> or D4 restore?</h3>
+<p>IN D4 restore a copy of <code>SYSVOL</code> that is restored from backup is authoritative for the domain. After the necessary configurations have been made, Active Directory marks the local <code>SYSVOL</code> as authoritative and it is replicated to the other domain controllers within the domain.</p>
+<h3 id="how-to-d2-and-d4-restore-">How To D2 And D4 Restore?</h3>
+<p>Enable BurFlags registry to D2 or D4</p>
+<p><code>HKEY_LOCAL_MACHINESYSTEMCurrentControlSetServicesNtFrsParametersBackup/RestoreProcess at Startup</code></p>
+<p><code>BurFlags</code></p>
+<ul>
+<li><code>D2</code>, for nonauthoritative mode restore</li>
+<li><code>D4</code>, for an authoritative mode restore</li>
+</ul>
+<h3 id="what-is-dns-scavenging-">What Is Dns Scavenging?</h3>
+<p>DNS Scavenging is to cleanup and removal of stale DNS records, like housekeeping activity to delete unwanted or unused DNS entries in DNS server/zone, it only cleanup the dynamic DNS record not the record created manually.</p>
+<h3 id="what-is-dynamic-dns-record-">What Is Dynamic DNS Record?</h3>
+<p>The record created dynamically by client/server on DNS zone, automatically added to zones when computers start on the network.</p>
+<h3 id="how-to-force-the-dns-dynamic-update-">How To Force The Dns Dynamic Update?</h3>
+<p>Simple way is restart the system which trigger the DNS Dynamic Update, we can user the below command to force DNS Dynamic Update</p>
+<p><code>Ipconfig /registerdns</code></p>
+<p>You can also restart the netlogon service on service.msc</p>
+<h3 id="if-dns-dynamic-updates-not-working-what-are-the-checks-needs-to-do-">If Dns Dynamic Updates Not Working What Are The Checks Needs To Do?</h3>
+<p>Check the primary DNS configuration on the system, Primary DNS server should be reachable from client in order to register DNS record.
+Register this connections addresses in DNS should be selected on network card properties (advance options where you configure the IP Address).
+Also Check the DHCP configuration if the managed through DHCP.</p>
+<h3 id="what-are-prerequisites-to-do-the-dns-scavenging-">What Are Prerequisites To Do The Dns Scavenging?</h3>
+<p>Scavenging must be enabled on DNS server and on the zone you want to scavenging.
+DNS records must be dynamically added to zones or you can manually modified the timestamp configuration.</p>
+<h3 id="what-is-scavenging-period-">What Is Scavenging Period?</h3>
+<p>Default value for Scavenging is seven days (the minimum allowed value for this is one hour)
+scavenging time on DNS zone is the server to determine when a zone becomes available for scavenging
+So 7 + 7, every 14 days</p>
+<h3 id="when-the-record-refreshes-happen-dynamic-updates-of-record-">When The Record Refreshes Happen? (dynamic Updates Of Record)?</h3>
+<p>Every DNS record time stamp been updated While the time of computer restart
+A periodic refresh is sent by the computer every 24 hours.
+Network services make refresh attempts, like DHCP servers, which renew client address, cluster servers, which register and update records for a cluster, and the Net Logon service, which can register and update resource records that are used by AD domain controllers So that the record not taken as a stale DNS record.</p>
+<h3 id="what-is-scavenging-servers-is-dns-scavenging-configured-in-all-domain-controllers-">What Is Scavenging Servers? Is Dns Scavenging Configured In All Domain Controllers?</h3>
+<p>Not all DNS servers are Scavenging servers, you can configure/promote DNS server to Scavenging servers.
+Zone parameter on advanced settings that enables you to specify a restricted list of IP addresses for DNS servers that are enabled to perform scavenging.</p></body>
+</html>

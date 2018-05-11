@@ -12,4 +12,4 @@
 ### Windows AD
 
 - [Windows AD](../Docs/html/Windows_AD.md.html)
-- [Windows AD](../Docs/html/PowerShell_AD_Commands.md.html)
+- [PowerShell_AD](../Docs/html/PowerShell_AD_Commands.md)

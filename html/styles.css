@@ -84,7 +84,7 @@
 .markdown-preview[data-use-github-style] del code { text-decoration: inherit; }
 .markdown-preview[data-use-github-style] pre > code { padding: 0px; margin: 0px; font-size: 100%; word-break: normal; white-space: pre; background: transparent; border: 0px; }
 .markdown-preview[data-use-github-style] .highlight { margin-bottom: 16px; }
-.markdown-preview[data-use-github-style] .highlight pre, .markdown-preview[data-use-github-style] pre { padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: #282c34; border-radius: 3px; }
+.markdown-preview[data-use-github-style] .highlight pre, .markdown-preview[data-use-github-style] pre { padding: 16px; font-size: 85%; line-height: 1.45; background-color: #282c34; border-radius: 3px; }
 .markdown-preview[data-use-github-style] .highlight pre { margin-bottom: 0px; word-break: normal; }
 .markdown-preview[data-use-github-style] pre { word-wrap: normal; }
 .markdown-preview[data-use-github-style] pre code, .markdown-preview[data-use-github-style] pre tt { display: inline; max-width: initial; padding: 0px; margin: 0px; overflow: initial; line-height: inherit; word-wrap: normal; background-color: transparent; border: 0px; }
@@ -92,10 +92,11 @@
 .markdown-preview[data-use-github-style] kbd { display: inline-block; padding: 3px 5px; font-size: 11px; line-height: 10px; color: rgb(85, 85, 85); vertical-align: middle; background-color: rgb(252, 252, 252); border-width: 1px; border-style: solid; border-color: rgb(204, 204, 204) rgb(204, 204, 204) rgb(187, 187, 187); border-image: initial; border-radius: 3px; box-shadow: rgb(187, 187, 187) 0px -1px 0px inset; }
 .markdown-preview[data-use-github-style] a { color: rgb(51, 122, 183); }
 .markdown-preview[data-use-github-style] code { color: inherit; }
-.markdown-preview[data-use-github-style] pre.editor-colors { padding: 1em; font-size: 0.85em; border-radius: 4px;overflow: auto; align-content: center;}
+.markdown-preview[data-use-github-style] pre.editor-colors { padding: 1em; font-size: 0.85em; border-radius: 4px; align-content: center;}
 .scrollbars-visible-always .markdown-preview pre.editor-colors .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors .horizontal-scrollbar { visibility: hidden; }
 .scrollbars-visible-always .markdown-preview pre.editor-colors:hover .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors:hover .horizontal-scrollbar { visibility: visible; }
 .markdown-preview .task-list-item-checkbox { position: absolute; margin: 0.25em 0px 0px -1.4em; }
+
 @keyframes RotatingBackground {
   0% {
     background-position-x: 0%;
@@ -107,15 +108,31 @@
 
 .test {
   width: calc(100% - 50%);
+  max-height: 250px;
   margin: 4px;
   display: grid;
   overflow: auto;
 }
+.test[codeheader-span] {
+  background-color: mediumaquamarine;
+  padding-left: 4px;
+  border-radius: 4px;
+}
+/* .output {
+  width: calc(100% - 50%);
+  height: 200px;
+  margin: 4px;
+  display: grid;
+  overflow: auto;
+} */
+
 .codeheader{
   /* width: calc(100% - 10%); */
   max-width: 100%;
   display: flex;
+  /* overflow: auto; */
 }
+
 .debugger-breakpoint-icon::before,
 .debugger-shadow-breakpoint-icon::before {
   font-family: 'Octicons Regular';

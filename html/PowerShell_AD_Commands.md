@@ -30,7 +30,7 @@
   ciscoEcsbuUnityAttributes
   City
   CN
-  CN=INHINAC3,OU=_Assigned_Local_Admin_Rights,OU=Workstations,DC=ap,DC=att,DC=com
+  CN=INHINAC3,OU=_Assigned_Local_Admin_Rights,OU=Workstations,DC=test,DC=local,DC=com
   co
   codePage
   Company
@@ -175,7 +175,7 @@
   ```
   - To get only specific information for user store output to variable and then access user account attributes, see below example.
   ``` powershell
-  $user =  Get-ADUser -Identity ms458j -Properties *
+  $user =  Get-ADUser -Identity user1 -Properties *
   ## Now access the specific details as below
   "Account Expiry Date :`t$($user.AccountExpirationDate)"  ## Account Expiry date
   "User Name :`t$($user.Name)" ## Gives user name
@@ -207,7 +207,7 @@
   Failed Logon attempt count :	0
   User Login ID :	user1
   Account Locked :	False
-  Account OU :	CN=user1,OU=User Accounts,OU=Accounts,DC=ap,DC=att,DC=com
+  Account OU :	CN=user1,OU=User Accounts,OU=Accounts,DC=test,DC=local,DC=com
   ```
 
 ## 2. Get-ADComputer
@@ -421,7 +421,7 @@ IsGlobalCatalog            : True
 IsReadOnly                 : False
 LdapPort                   : 389
 Name                       : DC03
-NTDSSettingsObjectDN       : CN=NTDS Settings,CN=DC03,CN=Servers,CN=Sites,CN=Configuration,DC=intl,DC=att,DC=com
+NTDSSettingsObjectDN       : CN=NTDS Settings,CN=DC03,CN=Servers,CN=Sites,CN=Configuration,DC=test,DC=local,DC=com
 OperatingSystem            : Windows Server 2012 R2 Standard
 OperatingSystemHotfix      :
 OperatingSystemServicePack :
@@ -451,7 +451,7 @@ New-ADUser -Name "User2" `
 -ChangePasswordAtLogon $true `
 -UserPrincipalName "user2@test.local.com"
 ```
-Creating users in bulk with Microsoft cmdlets
+## Creating users in bulk with Microsoft cmdlets
 ``` powershell
 Import-Csv -Path users2.csv | foreach {
 New-ADUser -Name "$($_.Given) $($_.Surname)" `
@@ -466,40 +466,40 @@ New-ADUser -Name "$($_.Given) $($_.Surname)" `
 -UserPrincipalName "$($_.Id)@test.local.com"
 }
 ```
-Modifying user attributes.
+## Modifying user attributes.
 ```powershell
 Get-ADUser -Identity user1 | Set-ADUser -Department Geology
 ```
-Searching for a user account.
+## Searching for a user account.
 ```powershell
 Get-ADUser -Identity user1
 ```
-List Disabled user accounts
+## List Disabled user accounts
 ```powershell
 Search-ADAccount -AccountDisabled -UsersOnly |
 select Name, distinguishedName
 ```
-Locked user accounts
+## Locked user accounts
 ```powershell
 Search-ADAccount -LockedOut | select Name,SamAccountName |ft
 ```
-Enabling and disabling accounts
+## Enabling and disabling accounts
 ``` powershell
 Disable-ADAccount -Identity HSorby
 Enable-ADAccount -Identity HSorby
 ```
-Moving accounts
+## Moving accounts
 ``` powershell
 Move-ADObject
 -Identity "CN=HUXLEY Thomas,ou=starking,dc=manticore,dc=org"
 -TargetPath "ou=england,dc=manticore,dc=org"
 ```
-Last logon times on each DC
+## Last logon times on each DC
 ``` powershell
 $servers = Get-ADDomainController -Filter * | select Name
 foreach ($server in $servers){
 $user = Get-ADUser `
-    -Identity ms458j `
+    -Identity user1 `
     -Properties SamAccountName, lastlogon, lastlogondate, lastlogontimestamp `
     -Server $($server.Name)
     if ($user.lastLogon -eq $null){
@@ -520,7 +520,7 @@ Format-Table `
     @{Name="LastLogonTimeStamp"; Expression={$d2}
 }}
 ```
-Get Last logon details for user1
+## Get Last logon details for user1
 ``` powershell
 Get-ADUser user1 -Properties * | select `
 @{Name="ID"; Expression={$($_.samAccountName)}},
@@ -528,43 +528,64 @@ Get-ADUser user1 -Properties * | select `
 lastlogondate,
 @{Name="lastlogontimestamp"; Expression={$([DateTime]::FromFileTime($_.lastlogontimestamp))}}
 ```
-Password expiration check
+## Password expiration check
 ``` powershell
 Get-ADUser -Filter {PasswordLastSet -le $expired_date}  -Properties PasswordLastSet |
     select SamAccountName,PasswordLastSet |
     Sort-Object -Property PasswordLastSet
 ```
-New-ADGroup
+## New-ADGroup
 ``` powershell
 New-ADGroup -Name "English Scientists" -SamAccountName EngSci `
 -GroupCategory Security -GroupScope Global `
 -DisplayName "English Scientists" `
 -Path "OU=England,dc=manticore,dc=org" `
 ```
-Changing Active Directory group membership
+## Changing Active Directory group membership
 ``` powershell
 Get-ADUser -Filter {Title -eq "Scientist"} `
 -SearchBase "OU=England,dc=manticore,dc=org" |
 foreach {Add-ADGroupMember -Identity EngSci -Members $($_.DistinguishedName) }
 ```
-Changing Active Directory group scope
+## Changing Active Directory group scope
 ``` powershell
 Get-ADGroup -Identity testgrp ## get scope
 Set-ADGroup -Identity testgrp -GroupScope Universal ## change scope
 Get-ADGroup -Identity testgrp ## check scope again
 ```
-Finding group members
+## Finding group members
 ``` powershell
 Get-ADGroupMember -Identity testgrp | select Name, distinguishedname
 ```
-Get nested group membership
+## Get nested group membership
 ``` powershell
 Get-ADGroupMember -Identity testgrp -Recursive | select Name, distinguishedname
 ```
-Finding a user’s group membership
+## Finding a user’s group membership
 ``` powershell
 $user = Get-ADUser user1 -Properties *
 foreach ($group in $user.memberof){
     Get-ADGroup $group | select Name
     }
+```
+## Finding user details from other domain.
+- Example checking details for user2 from domain b.test.com
+``` Powershell
+Get-ADUser -Server dc1.b.test.com `
+  -Identity user2 -Properties homedirectory
+```
+Output
+```
+DistinguishedName : CN=USER2,OU=Users,OU=CorporateDesktop,OU=Desktop,DC=b
+                    ,DC=test,DC=com
+Enabled           : True
+GivenName         : USER2
+HomeDirectory     : \\FILE13.b.test.com\USER2$
+Name              : USER2
+ObjectClass       : user
+ObjectGUID        : 918704b3-2a95-4191-8ca0-33b3b578a797
+SamAccountName    : USER2
+SID               : S-1-5-21-2057499049-1289676208-1959431660-3864311
+Surname           :
+UserPrincipalName : USER2@b.test.com
 ```

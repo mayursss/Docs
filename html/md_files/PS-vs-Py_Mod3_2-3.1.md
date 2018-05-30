@@ -321,6 +321,18 @@ print(search, "in default cities is", city_search(search))
 print(search, "in visited_cites list is", city_search(search,visited_cities))
 ```
 ``` powershell
+function city_search($search_item, $cities = ("New York", "Shanghai", "Munich", "Tokyo")){
+    foreach ($city in $cities){
+        if ($city -eq $search_item){
+            return $true
+        }
+        else{
+            # go to the next item
+        }
+    }
+    return $false # no more items in list
+}
+# a list of cities
 $visited_cities = ("New York", "Shanghai", "Munich", "Tokyo",
 "Dubai", "Mexico City", "São Paulo", "Hyderabad")
 $search = read-host "enter a city visited"
@@ -407,25 +419,18 @@ bones_quiz("cuboide",foot_bones)
 [System.Collections.ArrayList]$foot_bones = ("calcaneus", "talus", "cuboid",
 "navicular", "lateral cuneiform", "intermediate cuneiform", "medial cuneiform")
 function bones_quiz($input_bone,$foot_bones){
-    [System.Collections.ArrayList]$result = @()
-    try{
-        foreach ($bone in $foot_bones){
-            if ($input_bone -eq $bone){
-                $result.add("correct") | Out-Null
-                $foot_bones.remove($bone)
-            }
-            else{
-                $result.add("incorrect") | Out-Null
-            }
+    try{       
+        if ($input_bone -in $foot_bones){
+            $bone_count = ($foot_bones | Where-Object {$_ -eq $input_bone}).count
+            $foot_bones.remove($input_bone)
+            return "Correct, Total # of foot bones identified $bone_count"            
         }
+        else{
+            "incorrect"
+        }        
     }
-    catch {}
-    if ("correct" -in $result){
-      return "correct, Total # of foot bones identified $($($result |
-      Where-Object {$_ -eq "correct"}).count)"
-    }
-    else{
-        return "incorrect"
+    catch {
+        $Error
     }
 }
 bones_quiz -foot_bones $foot_bones -input_bone "talus"

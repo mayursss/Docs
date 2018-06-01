@@ -134,6 +134,10 @@ else{
     "Enter at least 2 char name"
 }
 ```
+```
+Please enter team name with second letter 'i', 'o' , or 'u': timber
+team name has i
+```
 
 <font size="6" color="#00A0B2"  face="verdana"> <B>Concepts</B></font>
 ## Using a negative index

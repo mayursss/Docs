@@ -22,9 +22,14 @@ function hideContent(obj){
   clearElementSiblingStyle(obj)
   var grid_item = obj.parentNode.parentNode.children;
     if (obj.innerText == "Python"){
-      grid_item[1].style.display='block'; //Python
-      grid_item[2].style.display='none';  //PowerShell
-      grid_item[3].style.display='none';  //Output
+      if (grid_item[1].className == "editor-colors lang-python"){
+        grid_item[1].style.display='block'; //Python
+        grid_item[2].style.display='none';  //PowerShell
+        grid_item[3].style.display='none';  //Output
+      }
+      else{
+        obj.style.display = 'none'
+      }
     }
     if (obj.innerText == "PowerShell"){
       grid_item[1].style.display='none'; //Python

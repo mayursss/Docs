@@ -24,5 +24,5 @@
 - [emmet](../Docs/html/emmet.html)
 
 ### VMWare
-- [Manage_vSphere_PowerCLI](../Docs/html/VMWare_html/Manage_vSphere_PowerCLI.md.html)
+- [Manage_vSphere_PowerCLI](../Docs/html/VMware_html/Manage_vSphere_PowerCLI.md.html)
 - [PowerCli](../Docs/html/PowerCli.md.html)

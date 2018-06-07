@@ -155,9 +155,9 @@
   display: none;
 } */
 
-.lang-powershell,.lang-Powershell,.lang-{
+/* .lang-powershell,.lang-Powershell,.lang-{
     display: none;
-}
+} */
 
 .button{
   display: table-cell;

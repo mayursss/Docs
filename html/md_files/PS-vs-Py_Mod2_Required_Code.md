@@ -17,12 +17,11 @@ program has 2 parts
 - **program flow** which can be modified to ask for a specific type of item.  This is the programmers choice.  Add a list of fish, trees, books, movies, songs.... your choice.  
 - **list-o-matic** Function which takes arguments of a string and a list.  The function modifies the list and returns a message as seen below.  
 
-![TODO: upload image to blob](https://q4tiyg-ch3302.files.1drv.com/y4mkvwrxHSIqinTvp_nNGFiMn_yyJ0dsEtCzPpG_hsFMRdyEED4ExPdsWmbdPIKRpgU25VxFIUAGBdz0yzqumtxw7wy_pAJMJ3MeZ6PJQKyej6UwN6N6zOmnRq6106aqvXJB43RKRJgB2oMmidb9Zl0OBjmvFVowm-XtD2wUW5bJrgd4LS8I5Nso_vXqfpNCANRYcKe4WnjIWds4KoV4sjPIg?width=717&height=603&cropmode=none)
-
-**[ ]** initialize a list with several strings at the beginning of the program flow and follow the flow chart and output examples
+- initialize a list with several strings at the beginning of the program flow and follow the flow chart and output examples
 
  *example input/output*  
- ```
+
+```
 look at all the animals ['cat', 'goat', 'cat']
 enter the name of an animal: horse
 1 instance of horse appended to list
@@ -42,7 +41,6 @@ horse popped from list
 look at all the animals ['goat']
 enter the name of an animal:          (<-- entered empty string)
 goat popped from list
-
 Goodbye!
 ```  
 
@@ -53,8 +51,6 @@ enter the name of an animal: Quit
 Goodbye!
 ```
 ``` python
-# [] create list-o-matic
-# [] copy and paste in edX assignment page
 animals = ["dog","goat","cat"]
 def list_o_matic():
     if animals == []:
@@ -67,12 +63,11 @@ def list_o_matic():
         elif stringtocheck == "":
             return print(animals.pop(),"popped from list")
         elif stringtocheck.lower() in animals:
-            animals.remove(stringtocheck)
+            animals.remove(stringtocheck.lower())
             return print("1 instance of",stringtocheck,"removed from list")
         else:
-            animals.append(stringtocheck)
+            animals.append(stringtocheck.lower())
             return print("1 instance of",stringtocheck,"appended to list")
-list_o_matic()
 ```
 ``` powershell
 [System.Collections.ArrayList]$animals = ("dog","goat","cat")
@@ -89,15 +84,20 @@ function list_o_matic(){
         elseif ($stringtocheck -eq $null){
             return "$($animals[-1];$animals.RemoveAt($animals.Count-1)) popped from list"
         }
-        elseif ($stringtocheck -in $animals){
-            $animals.remove($stringtocheck)
+        elseif ($stringtocheck -in $animals){            
+            $animals.remove($stringtocheck.ToLower())            
             return "1 instance of $stringtocheck removed from list"
         }
         else{
-            $animals.Add($stringtocheck) | Out-Null
+            $animals.Add($stringtocheck.ToLower()) | Out-Null
             return "1 instance of $stringtocheck appended to list"
         }
     }
 }
 list_o_matic
+```
+```
+look at all the animals dog goat cat
+enter the name of an animal:: cat
+1 instance of cat removed from list
 ```

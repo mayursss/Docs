@@ -20,7 +20,9 @@ function unhidefirstItem(){
   var grid_item = document.getElementsByClassName('grid-item')
   for(i=0;i < grid_item.length;i++){
     grid_item[i].children[1].style.display = "block";
-    grid_item[i].children[2].style.display = "none";
+    if (grid_item[i].children[2] != null){
+      grid_item[i].children[2].style.display = "none";
+    }
     if (grid_item[i].children[3] != null){
       grid_item[i].children[3].style.display = "none";
     }

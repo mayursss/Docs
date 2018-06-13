@@ -13,7 +13,7 @@
 - String Methods
   - [PS-vs-Py_Mod1_2-1.4](../Docs/html/Ps-vs-Py-html/PS-vs-Py_Mod1_2-1.4.md.html) <!--not created yet-->
 - Module 1 Practice
-  - [PS-vs-Py_Mod1_2-1.Practice](../Docs/html/Ps-vs-Py-html/PS-vs-Py_Mod1_2-1.Practice.md.html)
+  - [PS-vs-Py_Mod1_2-1.Practice](../Docs/html/Ps-vs-Py-html/PS-vs-Py_Mod1_2-1.Practice.md.html) <!--old format-->
 - end of Mod coding assignment
   - [PS-vs-Py_Mod1_Required_Code](../Docs/html/Ps-vs-Py-html/PS-vs-Py_Mod1_Required_Code.md.html)
 
@@ -23,11 +23,11 @@
 - List Append
   - [PS-vs-Py_Mod2_2-2.2](../Docs/html/Ps-vs-Py-html/PS-vs-Py_Mod2_2-2.2.md.html) <!--not created yet-->
 - List Insert
-  - [PS-vs-Py_Mod2_2-2.3](../Docs/html/Ps-vs-Py-html/PS-vs-Py_Mod2_2-2.3.md.html)
+  - [PS-vs-Py_Mod2_2-2.3](../Docs/html/Ps-vs-Py-html/PS-vs-Py_Mod2_2-2.3.md.html) <!--old format-->
 - List Delete
   - [PS-vs-Py_Mod2_2-2.4](../Docs/html/Ps-vs-Py-html/PS-vs-Py_Mod2_2-2.4.md.html)
 - Module 2 Practice
-  - [PS-vs-Py_Mod2_2-2.Practice](../Docs/html/Ps-vs-Py-html/PS-vs-Py_Mod2_2-2.Practice.md.html)
+  - [PS-vs-Py_Mod2_2-2.Practice](../Docs/html/Ps-vs-Py-html/PS-vs-Py_Mod2_2-2.Practice.md.html) <!--old format-->
 - end of Mod coding assignment
   - [PS-vs-Py_Mod2_Required_Code](../Docs/html/Ps-vs-Py-html/PS-vs-Py_Mod2_Required_Code.md.html)
 
@@ -43,7 +43,7 @@
 - Module 3 Practice
   - [PS-vs-Py_Mod3_2-3.Practice](../Docs/html/Ps-vs-Py-html/PS-vs-Py_Mod3_2-3.Practice.md.html) <!--not created yet-->
 - end of Mod coding assignment
-  - [PS-vs-Py_Mod3_Required_code](../Docs/html/Ps-vs-Py-html/PS-vs-Py_Mod3_Required_code.md.html)
+  - [PS-vs-Py_Mod3_Required_code](../Docs/html/Ps-vs-Py-html/PS-vs-Py_Mod3_Required_Code.md.html)
 
 #### Module 4 Files
 - Files import, open & read
@@ -71,4 +71,4 @@
 
 ## VMWare
 - [Manage_vSphere_PowerCLI](../Docs/html/VMware_html/Manage_vSphere_PowerCLI.md.html)
-- [PowerCli](../Docs/html/PowerCli.md.html)
+- [PowerCli](../Docs/html/VMware_html/PowerCli.md.html)

@@ -38,21 +38,10 @@ function addEvent(){
   }
 }
 
-function clearElementSiblingStyle(e){
-  // select all child element of div with class name of 'b_head'
-    var children = e.target.parentNode.children;
-    for (i = 0 ; i < children.length; i++) {
-      // assign selected child node a 'button' style
-    children[i].className = "button";
-    }
-    // assign current element 'button active' style
-    e.target.className = "button active"
-}
-
 function hideContent(e){
   // run clearElementSiblingStyle() on current element
-  clearElementSiblingStyle(e)
-  //button>>
+  // clearElementSiblingStyle(e)
+  //button
   var grid_item = e.target.parentNode.parentNode.children;
   if (e.target.innerText == "Python"){
     for(i=0;i < grid_item.length;i++){
@@ -91,3 +80,14 @@ if (e.target.innerText == "Output"){
     }
   }
 }
+
+// function clearElementSiblingStyle(e){
+//   // select all child element of div with class name of 'b_head'
+//     var children = e.target.parentNode.children;
+//     for (i = 0 ; i < children.length; i++) {
+//       // assign selected child node a 'button' style
+//     children[i].className = "button";
+//     }
+//     // assign current element 'button active' style
+//     e.target.className = "button active"
+// }

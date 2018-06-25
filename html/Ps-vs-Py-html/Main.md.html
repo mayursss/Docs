@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <title>Main</title>
+      <link rel="stylesheet" href="styles.css">
+      <script type="text/javascript">
+        window.addEventListener('load', function (){
+        addEvent()
+        }, false);
+        function addEvent(){
+        var elh4 = document.getElementsByTagName("h4")
+        for(i=0; i<elh4.length;i++){
+          elh4[i].addEventListener('click',hideContent);
+        }
+      }
+        function hideContent(e){
+          // select all child element of div with class name of 'b_head'
+          var selDiv = e.target.nextElementSibling;
+          if (selDiv.style.display == "none"){
+            selDiv.style.display = "block";
+          }
+          else if(selDiv.style.display == ""){
+            selDiv.style.display = "block";
+          }
+          else{
+            selDiv.style.display = "none";
+          }
+        }
+
+      </script>
+      <style media="screen">
+        h4 {
+        text-decoration: underline;
+        cursor: pointer;
+        color: black;
+        margin: 2px;
+        }
+        div {
+          display: none;
+        }
+        h4:hover{
+        background-color: mediumaquamarine;
+        display:inline;
+        padding: 8px;
+        border-radius: 4px;
+        }
+      </style>
+  </head>
+  <body class='markdown-preview' data-use-github-style><h2 id="powershell-vs-python-python-fundamentals-">PowerShell Vs Python (Python Fundamentals)</h2>
+<h4 id="module-1-sequence-index">Module 1 Sequence Index</h4>
+<div>
+<ul>
+<li>String Sequences<ul>
+<li><a href="./PS-vs-Py_Mod1_2-1.1.md.html">PS-vs-Py_Mod1_2-1.1</a></li>
+</ul>
+</li>
+<li>Index Slicing<ul>
+<li><a href="./PS-vs-Py_Mod1_2-1.2.md.html">PS-vs-Py_Mod1_2-1.2</a></li>
+</ul>
+</li>
+<li>Iterating String<ul>
+<li><a href="./PS-vs-Py_Mod1_2-1.3.md.html">PS-vs-Py_Mod1_2-1.3</a> </li>
+</ul>
+</li>
+<li>String Methods<ul>
+<li><a href="./PS-vs-Py_Mod1_2-1.4.md.html">PS-vs-Py_Mod1_2-1.4</a> </li>
+</ul>
+</li>
+<li>Module 1 Practice<ul>
+<li><a href="./PS-vs-Py_Mod1_2-1.Practice.md.html">PS-vs-Py_Mod1_2-1.Practice</a> </li>
+</ul>
+</li>
+<li>end of Mod coding assignment<ul>
+<li><a href="./PS-vs-Py_Mod1_Required_Code.md.html">PS-vs-Py_Mod1_Required_Code</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h4 id="module-2-sequence-manipulation">Module 2 Sequence Manipulation</h4>
+<div>
+<ul>
+<li>List Sequences<ul>
+<li><a href="./PS-vs-Py_Mod2_2-2.1.md.html">PS-vs-Py_Mod2_2-2.1</a> </li>
+</ul>
+</li>
+<li>List Append<ul>
+<li><a href="./PS-vs-Py_Mod2_2-2.2.md.html">PS-vs-Py_Mod2_2-2.2</a> </li>
+</ul>
+</li>
+<li>List Insert<ul>
+<li><a href="./PS-vs-Py_Mod2_2-2.3.md.html">PS-vs-Py_Mod2_2-2.3</a> </li>
+</ul>
+</li>
+<li>List Delete<ul>
+<li><a href="./PS-vs-Py_Mod2_2-2.4.md.html">PS-vs-Py_Mod2_2-2.4</a></li>
+</ul>
+</li>
+<li>Module 2 Practice<ul>
+<li><a href="./PS-vs-Py_Mod2_2-2.Practice.md.html">PS-vs-Py_Mod2_2-2.Practice</a> </li>
+</ul>
+</li>
+<li>end of Mod coding assignment<ul>
+<li><a href="./PS-vs-Py_Mod2_Required_Code.md.html">PS-vs-Py_Mod2_Required_Code</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h4 id="module-3-sequence-iteration">Module 3 Sequence Iteration</h4>
+<div>
+<ul>
+<li>Power of List Iteration<ul>
+<li><a href="./PS-vs-Py_Mod3_2-3.1.md.html">PS-vs-Py_Mod3_2-3.1</a></li>
+</ul>
+</li>
+<li>Range Iteration<ul>
+<li><a href="./PS-vs-Py_Mod3_2-3.2.md.html">PS-vs-Py_Mod3_2-3.2</a></li>
+</ul>
+</li>
+<li>extend, reverse, sort methods<ul>
+<li><a href="./PS-vs-Py_Mod3_2-3.3.md.html">PS-vs-Py_Mod3_2-3.3</a></li>
+</ul>
+</li>
+<li>between strings &amp; lists<ul>
+<li><a href="./PS-vs-Py_Mod3_2-3.4.md.html">PS-vs-Py_Mod3_2-3.4</a></li>
+</ul>
+</li>
+<li>Module 3 Practice<ul>
+<li><a href="./PS-vs-Py_Mod3_2-3.Practice.md.html">PS-vs-Py_Mod3_2-3.Practice</a> </li>
+</ul>
+</li>
+<li>end of Mod coding assignment<ul>
+<li><a href="./PS-vs-Py_Mod3_Required_Code.md.html">PS-vs-Py_Mod3_Required_code</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h4 id="module-4-files">Module 4 Files</h4>
+<div>
+<ul>
+<li>Files import, open &amp; read<ul>
+<li><a href="./PS-vs-Py_Mod4_2-4.1.md.html">PS-vs-Py_Mod4_2-4.1</a> </li>
+</ul>
+</li>
+<li>File .readlines() and .close() methods<ul>
+<li><a href="./PS-vs-Py_Mod4_2-4.2.md.html">PS-vs-Py_Mod4_2-4.2</a> </li>
+</ul>
+</li>
+<li>File .readline() &amp; .strip() methods<ul>
+<li><a href="./PS-vs-Py_Mod4_2-4.3.md.html">PS-vs-Py_Mod4_2-4.3</a> </li>
+</ul>
+</li>
+<li>File .write() &amp; .seek() methods<ul>
+<li><a href="./PS-vs-Py_Mod4_2-4.4.md.html">PS-vs-Py_Mod4_2-4.4</a> </li>
+</ul>
+</li>
+<li>Module 4 Practice<ul>
+<li><a href="./PS-vs-Py_Mod4_2-4.Practice.md.html">PS-vs-Py_Mod4_2-4.Practice</a> </li>
+</ul>
+</li>
+<li>end of Mod coding assignment 0 of 1 possible points<ul>
+<li><a href="./PS-vs-Py_Mod4_Required_Code.md.html">PS-vs-Py_Mod4_Required_Code</a> </li>
+</ul>
+</li>
+</ul>
+</div>
+</body>
+</html>

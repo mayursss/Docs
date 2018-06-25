@@ -62,7 +62,11 @@
 ## Windows AD
 
 - [Windows AD](../Docs/html/Windows/Windows_AD.md.html)
-- [PowerShell_AD](../Docs/html/Windows/PowerShell_AD_Commands.md.html)
+- [PowerShell_AD_Commands](../Docs/html/Windows/PowerShell_AD_Commands.md.html)
+- [Powershell_Profiles](../Docs/html/Windows/Powershell_Profiles.md.html)
+- [Powershell_Prompt](../Docs/html/Windows/Powershell_Prompt.md.html)
+- [Powershell](../Docs/md_files/Windows/Powershell.md)
+
 
 ## Other
 

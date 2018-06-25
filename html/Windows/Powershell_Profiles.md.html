@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <title>Powershell_Profiles</title>
+      <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body class='markdown-preview' data-use-github-style><h1 id="about-profiles">About Profiles</h1>
+<h2 id="short-description">SHORT DESCRIPTION</h2>
+<p>Describes how to create and use a PowerShell profile.</p>
+<h1 id="what-is-powershell-profile-">What is PowerShell profile?</h1>
+You can create a PowerShell profile to customize your environment and to add
+session-specific elements to every PowerShell session that you start.</br>
+You can add commands, aliases, functions, variables, snap-ins, modules, and PowerShell
+drives.
+
+<h1 id="what-are-the-different-profile-files-">What are the different profile files?</h1>
+PowerShell supports several profile files. Also, PowerShell host programs can
+support their own host-specific profiles.
+The profiles are listed in precedence order. The first
+profile has the highest precedence.
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Current user, Current Host</td>
+<td>$Home\[My]Documents\WindowsPowerShell\Profile.ps1</td>
+</tr>
+<tr>
+<td>Current User, All Hosts</td>
+<td>$Home\[My]Documents\Profile.ps1</td>
+</tr>
+<tr>
+<td>All Users, Current Host</td>
+<td>$PsHome\Microsoft.PowerShell_profile.ps1</td>
+</tr>
+<tr>
+<td>All Users, All Hosts</td>
+<td>$PsHome\Profile.ps1</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>The profile paths include the following variables:</p>
+<ul>
+<li>The <code>$PsHome</code> variable, which stores the installation directory for
+PowerShell</li>
+<li>The <code>$Home</code> variable, which stores the current user's home directory</li>
+</ul>
+</blockquote>
+<p>In addition, other programs that host PowerShell can support their own
+profiles. For example, PowerShell Integrated Scripting Environment (ISE)
+supports the following host-specific profiles.</p>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Current user, Current Host</td>
+<td>$Home\[My]Documents\WindowsPowerShell\Microsoft.PowerShellISE_profile.ps1</td>
+</tr>
+<tr>
+<td>All users, Current Host</td>
+<td>$PsHome\Microsoft.PowerShellISE_profile.ps1</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>In PowerShell Help, the "CurrentUser, Current Host" profile is the profile</li>
+<li>most often referred to as "your PowerShell profile".</li>
+</ul>
+<h1 id="what-is-the-profile-variable">What is the profile variable</h1>
+<p>The <code>$Profile</code> automatic variable stores the paths to the PowerShell profiles
+that are available in the current session.</p>
+<p>To view a profile path, display the value of the <code>$Profile</code> variable. You can
+also use the <code>$Profile</code> variable in a command to represent a path.</p>
+<p>The <code>$Profile</code> variable stores the path to the "Current User, Current Host"
+profile. The other profiles are saved in note properties of the <code>$Profile</code>
+variable.</p>
+<p>For example, the <code>$Profile</code> variable has the following values in the Windows
+PowerShell console.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$Profile</td>
+<td>Current User, Current Host</td>
+</tr>
+<tr>
+<td>$Profile.CurrentUserCurrentHost</td>
+<td>Current User, Current Host</td>
+</tr>
+<tr>
+<td>$Profile.CurrentUserAllHosts</td>
+<td>Current User, All Hosts</td>
+</tr>
+<tr>
+<td>$Profile.AllUsersCurrentHost</td>
+<td>All Users, Current Host</td>
+</tr>
+<tr>
+<td>$Profile.AllUsersAllHosts</td>
+<td>All Users, All Hosts</td>
+</tr>
+</tbody>
+</table>
+<p>Because the values of the <code>$Profile</code> variable change for each user and in each
+host application, ensure that you display the values of the profile variables
+in each PowerShell host application that you use.</p>
+</body>
+</html>

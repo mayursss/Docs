@@ -13,9 +13,10 @@
 - [Powershell_Prompt](../Docs/html/Windows/Powershell_Prompt.md.html)
 - [Powershell](../Docs/md_files/Windows/Powershell.md)
 
+## DevOps
+- [DevOps](../Docs/html/DevOps/Main.md.html)
 
 ## Other
-
 - [IMP-Ports](../Docs/html/Network/IMP-Ports.md.html)
 - [emmet](../Docs/html/emmet.html)
 

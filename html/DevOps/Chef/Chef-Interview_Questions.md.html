@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <title>Chef-Interview_Questions</title>
+      <link rel="stylesheet" href="../../styles.css">
+  </head>
+  <body class='markdown-preview' data-use-github-style><h1 id="what-is-chef-">What is Chef?</h1>
+<ul>
+<li>Chef is IT Automation Software and Configuration Management tool used by System Admin and Infra support teams.</li>
+<li>Chef automates how infrastructure is configured, deployed, and managed across your network, no matter its size.</li>
+<li>Chef is a thin DSL (domain-specific language) built on top of Ruby.</li>
+</ul>
+<h1 id="what-are-the-major-components-in-chef-">What are the major components in Chef?</h1>
+<ul>
+<li>Chef Workstation</li>
+<li>Chef Node</li>
+<li>Chef Server</li>
+<li>Chef Client</li>
+<li>Chef Cookbook</li>
+<li>Chef Supermarket</li>
+<li>Ruby</li>
+</ul>
+<h1 id="what-is-workstation-">What is workstation?</h1>
+<ul>
+<li>A workstation is a computer running the Chef Development Kit (Chef DK) that is used to author cookbooks, interact with the Chef server, and interact with nodes.</li>
+</ul>
+<h1 id="what-is-cookbook-">What is Cookbook?</h1>
+<ul>
+<li>Cookbooks contain recipes, attributes, custom resources, libraries, files, templates, tests, and meta-data.</li>
+</ul>
+<h1 id="what-is-use-of-ruby-in-chef-">What is use of ruby in Chef?</h1>
+<ul>
+<li>Ruby is the programming language that is the authoring syntax for cookbooks.</li>
+<li>The chef-client uses Ruby as its reference language for creating cookbooks and defining recipes, with an extended DSL for specific resources.</li>
+<li>A reasonable set of resources are available to the chef-client, enough to support many of the most common infrastructure automation scenarios; however, this DSL can also be extended when additional resources and capabilities are required.</li>
+</ul>
+<h1 id="what-is-chef-node-">What is Chef node?</h1>
+<h1 id="what-is-chef-client-">What is Chef client?</h1>
+<ul>
+<li>A chef-client is an agent that runs locally on every node that is under management by Chef. When a chef-client is run, it will perform all of the steps that are required to bring the node into the expected state</li>
+</ul>
+<h1 id="what-is-chef-server-">What is Chef server?</h1>
+<h1 id="what-is-chef-supermarket-">What is Chef Supermarket?</h1>
+<h1 id="what-are-the-command-line-tools-included-in-chef-">What are the command-line tools included in Chef?</h1>
+<ul>
+<li>ChefDK includes two important command-line tools <code>Chef</code> &amp; <code>Knife</code>.</li>
+</ul>
+<h1 id="what-is-chef-repo-">What is Chef-Repo?</h1>
+<ul>
+<li>The chef-repo is the repository structure in which cookbooks are authored, tested, and maintained.</li>
+<li>The chef-repo should be synchronized with a version control system (such as git), and then managed as if it were source code.</li>
+</ul>
+<h1 id="what-is-test-kitchen-in-chef-">What is Test kitchen in Chef?</h1>
+<ul>
+<li>Test Kitchen is testing tool used to automatically test cookbook.</li>
+<li>Supports cookbook testing across many cloud providers and virtualization technologies</li>
+<li>Defined in a .kitchen.yml file.</li>
+</ul>
+<h1 id="what-is-chefspec">What is ChefSpec</h1>
+<ul>
+<li>ChefSpec is used to simulate the convergence of resources on a node.</li>
+<li>Is the fastest way to test resources and recipes.</li>
+</ul>
+<h1 id="what-is-node-bootstrapping-">What is Node Bootstrapping?</h1>
+<ul>
+<li>We call the process that installs Chef-Client on a node and the initial check-in to the Chef server Bootstrapping the node.</li>
+<li><code>knife bootstrap</code> is the command you use to bootstrap a node.-</li>
+<li>As part of the <code>knife bootstrap</code> command, you specify arguments depending on how you would normally connect to your node over SSH.</li>
+</ul>
+<h1 id="knife-bootstrap-example">Knife bootstrap example</h1>
+<pre class="editor-colors lang-bash"><div class="line"><span class="syntax--source syntax--shell"><span>knife&nbsp;bootstrap&nbsp;192.168.0.1&nbsp;--ssh-password&nbsp;</span><span class="syntax--string syntax--quoted syntax--single syntax--shell"><span class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--shell"><span>'</span></span><span>xxxx</span><span class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--shell"><span>'</span></span></span><span>&nbsp;--sudo&nbsp;--use-sudo-password&nbsp;--node-name&nbsp;node1&nbsp;--run-list&nbsp;</span><span class="syntax--string syntax--quoted syntax--single syntax--shell"><span class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--shell"><span>'</span></span><span>recipe[starter]</span><span class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--shell"><span>'</span></span></span></span></div></pre></body>
+</html>

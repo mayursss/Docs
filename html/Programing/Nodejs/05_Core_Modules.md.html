@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <title>05_Core_Modules</title>
+    <link rel="stylesheet" href="../../styles.css">
+  </head>
+  <body class='markdown-preview' data-use-github-style><p>Node.js comes with batteries included.
+It means they are core modules that you can
+use and you don't have to install them with npm.
+They're already part of Node.js,
+you don't need to put them in your project folder,
+they are not in Node underscore modules,
+they're just somewhere where
+your platform has been installed.
+And it's good because there are a lot of useful modules.
+Let me give you an example.
+There is an OS module which allows you to
+get information about your operating system.
+There's the Child Process module which allows
+you to spawn other processes and
+execute other programs and
+binary code outside of your Node.js code.
+There are two modules on which I want to
+focus more in this lesson.
+First module it's called FS.
+FS stands for File System and that's
+exactly what this module allows you to work with.
+You can create a file,
+you can create a folder,
+you can read from a file,
+you can write to a file.
+So, you can perform all the
+needed operations on your file system.
+As you can assume,
+this does not exist in the browser JavaScript
+because browser JavaScript it's a different environment.
+But in Node.js, we can work with the file system.
+The second important core module
+it's called Path, P-A-T-H.
+Path, why it's important?
+Because you will use it a lot.
+You will use it a lot to build
+cross-platform applications, cross-platform code.
+You see, the reason why path is different on
+different system is because
+it needs different separators,
+different type of slashes,
+either forward slash or backward slash.
+And with path dot join method,
+you can easily convert
+your path folders into the appropriate format.
+So, those two core modules,
+you would see them often in this project then another
+Node.js code but there are more and more core modules.
+For example, http, we will cover it
+in few last lessons of this module.
+It's also a core module.
+So, the bottom line,
+you can build a lot of things
+just with core Node.js modules.
+You don't even need to have to go to npm.
+Of course, they might be not as
+advanced but in some systems they are good enough.
+So, that's it and I'll see you in the next video.</p>
+<h2 id="core-modules">Core Modules</h2>
+<p>Core modules come with Node.js and don't need to be installed. Core modules provide low-level functionality and helper methods. They allow Node.js to work with the filesystem, networking, binary data, streams, spawn external processes, parse query strings, file paths and URLs, and perform other helpful tasks such as creating HTTP(S) agents/clients and servers.</p>
+<h2 id="here-s-the-list-of-main-core-modules-">Here's the list of main core modules:</h2>
+<ul>
+<li><code>fs:</code> module to work with the file system, files and folders</li>
+<li><code>path:</code> module to parse file system paths across platforms</li>
+<li><code>querystring:</code> module to parse query string data</li>
+<li><code>net:</code> module to work with networking for various protocols</li>
+<li><code>stream:</code> module to work with data streams</li>
+<li><code>events:</code> module to implement event emitters (Node observer pattern)</li>
+<li><code>child_process:</code> module to spawn external processes</li>
+<li><code>os:</code> module to access OS-level information including platform, number of CPUs,   memory, uptime, etc.</li>
+<li><code>url:</code> module to parse URLs</li>
+<li><code>http:</code> module to make requests (client) and accept requests (server)</li>
+<li><code>https:</code> module to do the same as http only for HTTPS</li>
+<li><code>util:</code> various utilities including promosify which turns any standard Node core method into a promise-base API</li>
+<li><code>assert:</code> module to perform assertion based testing</li>
+<li><code>crypto:</code> module to encrypt and hash information</li>
+</ul>
+<p>There is no need to install or download core modules. To include them in your application, all you need is to use the following syntax:</p>
+<pre class="editor-colors lang-js"><div class="line"><span class="syntax--source syntax--js"><span class="syntax--storage syntax--type syntax--const syntax--js"><span>const</span></span><span>&nbsp;</span><span class="syntax--constant syntax--other syntax--js"><span>http</span></span><span>&nbsp;</span><span class="syntax--keyword syntax--operator syntax--assignment syntax--js"><span>=</span></span><span>&nbsp;</span><span class="syntax--meta syntax--function-call syntax--js"><span class="syntax--support syntax--function syntax--js"><span>require</span></span><span class="syntax--meta syntax--arguments syntax--js"><span class="syntax--punctuation syntax--definition syntax--arguments syntax--begin syntax--bracket syntax--round syntax--js"><span>(</span></span><span class="syntax--string syntax--quoted syntax--single syntax--js"><span class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--js"><span>'</span></span><span>http</span><span class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--js"><span>'</span></span></span><span class="syntax--punctuation syntax--definition syntax--arguments syntax--end syntax--bracket syntax--round syntax--js"><span>)</span></span></span></span><span>&nbsp;</span><span class="syntax--comment syntax--line syntax--double-slash syntax--js"><span class="syntax--punctuation syntax--definition syntax--comment syntax--js"><span>//</span></span><span>replace&nbsp;`http`&nbsp;with&nbsp;the&nbsp;core&nbsp;module&nbsp;you&nbsp;want&nbsp;to&nbsp;use</span></span></span></div></pre></body>
+</html>

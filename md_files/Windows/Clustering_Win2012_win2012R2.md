@@ -6,7 +6,7 @@ Some of the many ways that Failover Clustering was enhanced in `Windows Server 2
 #### Cluster Shared Volumes enhancements
 - In Windows Server 2008 R2, `Cluster Shared Volumes (CSV)` were introduced   to provide common storage for clustered virtual machines.
 - In Windows Server 2012, CSV was enhanced and enabled to provide
-storage for additional clustered roles such as the new Scale-out File Server (`SoFS`) feature, which can provide continuously available and scalable file-based (SMB 3.0) server storage for Hyper-V and applications such as SQL Server.
+storage for additional clustered roles such as the new `Scale-out File Server (SoFS`) feature, which can provide continuously available and scalable file-based (SMB 3.0) server storage for Hyper-V and applications such as SQL Server.
 - CSV could also be integrated with the new Storage Spaces feature of Windows Server 2012 to enable scale-out access to data by virtualizing cluster storage on groups of inexpensive disks (`JBODs`).
 - CSV in Windows Server 2012 was also integrated with new `SMB 3.0` features like `SMB Multichannel` and `SMB Direct`, which allow CSV traffic to stream across multiple networks in the cluster and leverage network adapters
 that support Remote Direct Memory Access (RDMA).
@@ -29,3 +29,5 @@ removal of external authentication dependencies, and improved file backup.
   - Clustered tasks
   - New clustered roles like iSCSI Target, guest clusters using virtual Fibre Channel, and more.
   - Many of the Hyper-V enhancements in Windows Server 2012 are also relevant to Failover Clustering, for example, virtual machine prioritization, pre-emption to shut down low-priority virtual machines, virtual machine health monitoring, Hyper-V Replica Broker, and so on.
+
+# Guest clustering using shared virtual disks

@@ -125,7 +125,19 @@
   display: grid;
   overflow: auto;
 } */
-
+.prePS1 {
+  white-space: pre;
+  word-wrap: normal;
+  display: block;
+  overflow: auto;
+  background-color: rgb(0,128,128);
+  color:yellow;
+  padding:1em;
+  font-family: monospace;
+  line-height: 1.15;
+  font-size: 0.85em;
+  border-radius: 4px;
+}
 .codeheader{
   /* width: calc(100% - 10%); */
   max-width: 100%;

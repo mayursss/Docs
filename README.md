@@ -2,16 +2,18 @@
 
 
 ## PowerShell Vs Python (Python Fundamentals)
+  - [PS-vs-Py](../Docs/html/Ps-vs-Py-html/Main.md.html)
 
-  - [PS-vs-Py](../Docs/html/Ps-vs-Py-html/Main.md.html) <!--not created yet-->
+## PowerShell
+- [PowerShell Main html](../Docs/html/PowerShell/Main.md.html)
+- [PowerShell_AD_Commands](../Docs/html/PowerShell/PowerShell_AD_Commands.md.html)
+- [Powershell Profiles](../Docs/html/PowerShell/Powershell_Profiles.md.html)
+- [Powershell Prompt Changes](../Docs/html/PowerShell/Powershell_Prompt.md.html)
+- [Powershell IMP Points](../Docs/md_files/PowerShell/Powershell.md)
+- [Powershell Progress Bar](../Docs/md_files/PowerShell/Progress_Bar.md.html)
 
-## Windows AD
-
+## Windows
 - [Windows AD](../Docs/html/Windows/Windows_AD.md.html)
-- [PowerShell_AD_Commands](../Docs/html/Windows/PowerShell_AD_Commands.md.html)
-- [Powershell_Profiles](../Docs/html/Windows/Powershell_Profiles.md.html)
-- [Powershell_Prompt](../Docs/html/Windows/Powershell_Prompt.md.html)
-- [Powershell](../Docs/md_files/Windows/Powershell.md)
 
 ## DevOps
 - [DevOps](../Docs/html/DevOps/Main.md.html)

@@ -10,7 +10,7 @@
 - [Powershell Profiles](../Docs/html/PowerShell/Powershell_Profiles.md.html)
 - [Powershell Prompt Changes](../Docs/html/PowerShell/Powershell_Prompt.md.html)
 - [Powershell IMP Points](../Docs/md_files/PowerShell/Powershell.md)
-- [Powershell Progress Bar](../Docs/md_files/PowerShell/Progress_Bar.md.html)
+- [Powershell Progress Bar](../Docs/html/PowerShell/Progress_Bar.md.html)
 
 ## Windows
 - [Windows AD](../Docs/html/Windows/Windows_AD.md.html)

@@ -14,3 +14,8 @@ There are two types of clusters as below:
 - Network tests and Storage tests.
 
 # How cluster quorum works
+# What is Scale-out File Server (SoFS)
+# What is SMB 3.0
+# What is SMB Multichannel
+# What is SMB Direct
+# What is Cluster-Aware Updating (CAU)

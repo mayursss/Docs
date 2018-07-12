@@ -1,3 +1,14 @@
+<styles>
+.steps {
+  display: block;
+  background-color: lightgray;
+  overflow: auto;
+  padding: 1em;
+  font-family: monospace;
+  line-height: 1.15;
+  border-radius: 4px;
+  }
+</styles>
 # What is Clustering?
 - A cluster is a group of independent computer systems (nodes) working together as a unified computing resource.
 - cluster provides `high availability` and s`calability` to many types of server workloads including Hyper-V hosts, file servers, and different server applications such as Microsoft SQL Server and Microsoft Exchange Server that can run on both physical servers and virtual machines.
@@ -19,3 +30,72 @@ There are two types of clusters as below:
 # What is SMB Multichannel
 # What is SMB Direct
 # What is Cluster-Aware Updating (CAU)
+# What are the requirements for clustering?
+- Need a minimum of two servers (physical
+or virtual) that meet the minimum requirements of Windows Server 2012.
+- Should have identical hardware components.
+- Servers must run the same Windows Server 2012 Standard or Windows Server 2012 Datacenter including the same hardware version, 64-bit.
+- should have the same software updates and service packs.
+- The servers must also be part of the same domain.
+- Cluster virtual server network name, and IP address assigned to it.
+
+# What are the failover cluster components?
+- `Nodes` : Node are the servers that make up the cluster and that run the Cluster service and host the resources and applications associated to cluster.
+- `Network` : A common network that connects the cluster nodes. Three types of networks can be used in a cluster:
+  - public
+  - private
+  - public-and-private.
+- `Cluster storage` : A storage system that is shared between cluster nodes and usually connects
+using fiber channel or iSCSI.
+- `Cluster service` : The service that runs on Windows servers that manages and coordinates cluster resources to provide high availability
+
+# What is Cluster heartbeats?
+- Cluster nodes are kept aware of the status of the other nodes and services through the use of heartbeats.
+- Heartbeats transmit and receive using UDP `port 3343` unicast (legacy clusters used UDP broadcast).
+
+# what happens if cluster private network fails?
+The Windows Server 2012 Failover Cluster uses a virtual network adapter called `Microsoft Failover Cluster Virtual Adapter` to communicate between nodes in the cluster.
+- It is assigned an APIPA address (169.254.0.0/16) and an fe80::/10 prefix.
+- The `Microsoft Failover Cluster Virtual Adapter` is used as an alternative network if the private network or connection fails.
+
+# What are the possible quorum configurations
+- there are `four` possible quorum configurations
+- `Node Majority` : Recommended for clusters with an odd number of nodes. It can sustain failures of half the nodes (rounding up) minus one.
+- `Node and Disk Majority` : Recommended for clusters with an even number of nodes. It can sustain failures of half the nodes (rounding up) if the disk witness remains online.
+- `Node and File Share Majority` : Used for clusters with special configurations. Instead of using a disk witness, it uses a file share witness.
+- `No Majority (Disk Only)` : Allows the cluster to function as long as one node is available and the disks are online. However, this configuration is not recommended because the disk might be a single point of failure.
+>If you use a witness disk, the disk must be at least 512 MB. It must be dedicated for cluster
+use and not assigned to a clustered role. It cannot be a volume that is a CSV.
+
+# Cluster storage guidelines
+- For the disk type, use basic disks, not dynamic disks.
+- For the file system type, format the disk as `New Technology File System (NFTS)`.
+- For the partition style of the disk, you can use either master boot record (MBR) or globally unique identifier (GUID) partition table (GPT).
+- The storage device must follow the `SCSI Primary Commands-3 (SPC-3)` standard including supporting Persistent Reservations.
+- The miniport driver used for the storage must work with the Storport storage driver.
+- A storage device can be assigned to only one cluster. This is usually accomplished with logical unit number (LUN) masking or zoning.
+
+# What are the most common maintenance tasks performed on cluster.
+- To drain the roles (change roles to other nodes gracefully).
+> right-click a node, click Pause , and click Drain Roles
+- To resume a node
+ > right-click the node, click Resume , and choose either Fail Roles Back or Do Not Fail Roles Back .
+- To stop the Cluster service.
+ > right-click the node, click More Actions , and then click Stop
+Cluster Service .
+- To take a shared storage device offline used by a cluster.
+> right-click the disk and click Take Offline . When it asks if you are sure, click Yes .
+- To bring a shared storage device that has been taken offline.
+> right-click the drive and click Bring Online.
+- To manually change a shared disk or role.
+> right-click the shared disk or role, click Move , select
+Best Possible Node , or Select Node . When you choose Select Node, you will then be
+prompted for the node to change the disk or resource to.
+- To add a new node to the cluster.
+> right-click Node and click Add Node to run the Add
+Node Wizard.
+- To permanently remove a node from the cluster.
+> right-click the server that you want to
+remove, click More Actions and click Evict .
+- To delete a cluster.
+> right-click the cluster, click More Actions , and click Destroy Cluster .

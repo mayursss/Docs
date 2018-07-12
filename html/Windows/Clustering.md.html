@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <title>Clustering</title>
+
+  </head>
+  <body class='markdown-preview' data-use-github-style><h1 id="what-is-clustering-">What is Clustering?</h1>
+<ul>
+<li>A cluster is a group of independent computer systems (nodes) working together as a unified computing resource.</li>
+<li>cluster provides <code>high availability</code> and s<code>calability</code> to many types of server workloads including Hyper-V hosts, file servers, and different server applications such as Microsoft SQL Server and Microsoft Exchange Server that can run on both physical servers and virtual machines.</li>
+</ul>
+<h1 id="what-are-the-types-of-clusters">What are the types of clusters</h1>
+<p>There are two types of clusters as below:</p>
+<ul>
+<li><strong>Network load balancing (NLB)</strong> cluster filters and distributes TCP/IP traffic across a range of nodes, regulating connection load according to administrator-defined port rules.</li>
+<li><strong>Failover cluster (server cluster)</strong>  provides high availability for services, applications, and other resources through an architecture that maintains a consistent image of the cluster on all nodes and that allows nodes to transfer resource ownership on demand.</li>
+</ul>
+<h1 id="what-is-validation-wizard-">What is Validation wizard?</h1>
+<ul>
+<li>It will run tests to determine whether your <code>system</code>, <code>storage</code>, and <code>network configuration</code> is suitable for a cluster.  </li>
+<li>These tests include specific simulations of cluster actions, and fall into the following categories:</li>
+<li>System Configuration tests</li>
+<li>Network tests and Storage tests.</li>
+</ul>
+<h1 id="how-cluster-quorum-works">How cluster quorum works</h1>
+<h1 id="what-is-scale-out-file-server-sofs-">What is Scale-out File Server (SoFS)</h1>
+<h1 id="what-is-smb-3-0">What is SMB 3.0</h1>
+<h1 id="what-is-smb-multichannel">What is SMB Multichannel</h1>
+<h1 id="what-is-smb-direct">What is SMB Direct</h1>
+<h1 id="what-is-cluster-aware-updating-cau-">What is Cluster-Aware Updating (CAU)</h1>
+<h1 id="what-are-the-requirements-for-clustering-">What are the requirements for clustering?</h1>
+<ul>
+<li>Need a minimum of two servers (physical or virtual) that meet the minimum requirements of Windows Server 2012.</li>
+<li>Should have identical hardware components.</li>
+<li>Servers must run the same Windows Server 2012 Standard or Windows Server 2012 Datacenter including the same hardware version, 64-bit.</li>
+<li>should have the same software updates and service packs.</li>
+<li>The servers must also be part of the same domain.</li>
+<li>Cluster virtual server network name, and IP address assigned to it.</li>
+</ul>
+<h1 id="what-are-the-failover-cluster-components-">What are the failover cluster components?</h1>
+<ul>
+<li><code>Nodes</code> : Node are the servers that make up the cluster and that run the Cluster service and host the resources and applications associated to cluster.</li>
+<li><code>Network</code> : A common network that connects the cluster nodes. Three types of networks can be used in a cluster:<ul>
+<li>public</li>
+<li>private</li>
+<li>public-and-private.</li>
+</ul>
+</li>
+<li><code>Cluster storage</code> : A storage system that is shared between cluster nodes and usually connects
+using fiber channel or iSCSI.</li>
+<li><code>Cluster service</code> : The service that runs on Windows servers that manages and coordinates cluster resources to provide high availability</li>
+</ul>
+<h1 id="what-is-cluster-heartbeats-">What is Cluster heartbeats?</h1>
+<ul>
+<li>Cluster nodes are kept aware of the status of the other nodes and services through the use of heartbeats.</li>
+<li>Heartbeats transmit and receive using UDP <code>port 3343</code> unicast (legacy clusters used UDP broadcast).</li>
+</ul>
+<h1 id="what-happens-if-cluster-private-network-fails-">what happens if cluster private network fails?</h1>
+<p>The Windows Server 2012 Failover Cluster uses a virtual network adapter called <code>Microsoft Failover Cluster Virtual Adapter</code> to communicate between nodes in the cluster.</p>
+<ul>
+<li>It is assigned an APIPA address (169.254.0.0/16) and an fe80::/10 prefix.</li>
+<li>The <code>Microsoft Failover Cluster Virtual Adapter</code> is used as an alternative network if the private network or connection fails.</li>
+</ul>
+<h1 id="what-are-the-possible-quorum-configurations">What are the possible quorum configurations</h1>
+<ul>
+<li>there are <code>four</code> possible quorum configurations</li>
+<li><code>Node Majority</code> : Recommended for clusters with an odd number of nodes. It can sustain failures of half the nodes (rounding up) minus one.</li>
+<li><code>Node and Disk Majority</code> : Recommended for clusters with an even number of nodes. It can sustain failures of half the nodes (rounding up) if the disk witness remains online.</li>
+<li><code>Node and File Share Majority</code> : Used for clusters with special configurations. Instead of using a disk witness, it uses a file share witness.</li>
+<li><code>No Majority (Disk Only)</code> : Allows the cluster to function as long as one node is available and the disks are online. However, this configuration is not recommended because the disk might be a single point of failure.<blockquote>
+<p>If you use a witness disk, the disk must be at least 512 MB. It must be dedicated for cluster
+use and not assigned to a clustered role. It cannot be a volume that is a CSV.</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="cluster-storage-guidelines">Cluster storage guidelines</h1>
+<ul>
+<li>For the disk type, use basic disks, not dynamic disks.</li>
+<li>For the file system type, format the disk as <code>New Technology File System (NFTS)</code>.</li>
+<li>For the partition style of the disk, you can use either master boot record (MBR) or globally unique identifier (GUID) partition table (GPT).</li>
+<li>The storage device must follow the <code>SCSI Primary Commands-3 (SPC-3)</code> standard including supporting Persistent Reservations.</li>
+<li>The miniport driver used for the storage must work with the Storport storage driver.</li>
+<li>A storage device can be assigned to only one cluster. This is usually accomplished with logical unit number (LUN) masking or zoning.</li>
+</ul>
+<h1 id="what-is-cluster-aware-updating">What is Cluster-Aware Updating</h1>
+<ul>
+<li>Starting with <code>Windows Server 2012</code>, <code>Cluster-Aware Updating (CAU)</code> lets administrators update cluster nodes automatically, with little or no downtime, particularly if you use Hyper-V with live migration.</li>
+<li>You can use <code>CAU</code> in one of the following two modes:<ul>
+<li><code>Remote-updating</code> mode</li>
+<li><code>Self-updating</code> mode</li>
+</ul>
+</li>
+<li>In <code>self-updating</code> mode you can check progress via powershell command as below:<pre class="editor-colors lang-powershell"><div class="line"><span class="syntax--source syntax--powershell"><span class="syntax--support syntax--function syntax--powershell"><span>Get-CauRun</span></span></span></div></pre>
+</li>
+</ul>
+<h1 id="what-are-the-most-common-maintenance-tasks-performed-on-cluster-">What are the most common maintenance tasks performed on cluster.</h1>
+<ul>
+<li>To drain the roles (change roles to other nodes gracefully).<blockquote>
+<p>right-click a node, click Pause , and click Drain Roles</p>
+</blockquote>
+</li>
+<li>To resume a node<blockquote>
+<p>right-click the node, click Resume , and choose either Fail Roles Back or Do Not Fail Roles Back .</p>
+</blockquote>
+</li>
+<li>To stop the Cluster service.<blockquote>
+<p>right-click the node, click More Actions , and then click Stop
+Cluster Service .</p>
+</blockquote>
+</li>
+<li>To take a shared storage device offline used by a cluster.<blockquote>
+<p>right-click the disk and click Take Offline . When it asks if you are sure, click Yes .</p>
+</blockquote>
+</li>
+<li>To bring a shared storage device that has been taken offline.<blockquote>
+<p>right-click the drive and click Bring Online.</p>
+</blockquote>
+</li>
+<li>To manually change a shared disk or role.<blockquote>
+<p>right-click the shared disk or role, click Move , select
+Best Possible Node , or Select Node . When you choose Select Node, you will then be
+prompted for the node to change the disk or resource to.</p>
+</blockquote>
+</li>
+<li>To add a new node to the cluster.<blockquote>
+<p>right-click Node and click Add Node to run the Add
+Node Wizard.</p>
+</blockquote>
+</li>
+<li>To permanently remove a node from the cluster.<blockquote>
+<p>right-click the server that you want to
+remove, click More Actions and click Evict .</p>
+</blockquote>
+</li>
+<li>To delete a cluster.<blockquote>
+<p>right-click the cluster, click More Actions , and click Destroy Cluster .</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="what-are-the-types-of-clustered-role-">What are the types of clustered role?</h1>
+<ul>
+<li>Clustered roles are divided into the following two types:<ul>
+<li>Cluster-aware</li>
+<li>Generic</li>
+</ul>
+</li>
+<li>A <code>cluster-aware</code> clustered role is designed to work with Windows Server 2012 fail-over clusters.<ul>
+<li>Examples include the File Server clustered role and the Virtual Machine clustered role.</li>
+</ul>
+</li>
+<li>A <code>generic</code> clustered role provides high availability for a service, application, or script that is not originally designed to run in a cluster. As a result, the cluster cannot detect the state of the generic application, script, or service as it can with a cluster-aware role.<ul>
+<li><code>Generic application</code> : The cluster software starts the generic application, and then periodically queries the operating system to see whether the application still runs.</li>
+<li><code>Generic script</code> : You create a script that runs in Windows Script Host, which monitors and controls an application. The state of the application is determined by the script.</li>
+<li><code>Generic service</code> : The cluster software starts the service. Similar to generic applications, the cluster services periodically</li>
+</ul>
+</li>
+</ul>
+<h1 id="what-are-the-roles-available-to-configure-in-cluster">What are the roles available to Configure in cluster</h1>
+<p>In the High Availability Wizard, you can choose from the following services and applications</p>
+<ul>
+<li><code>DFS Namespace Server</code> : Provides a virtual view of shared folders in an organization,
+which allows users to access shared folders that are distributed among multiple folders.</li>
+<li><code>DHCP Server</code> : Automatically provides TCP/IP hosts with valid IP addresses.</li>
+<li><code>Distributed Transaction Coordinator (DTC)</code> : Supports distributed applications that
+perform transactions. A transaction is a set of related tasks, such as updates to databases
+that either succeed or fail as a unit.</li>
+<li><code>File Server</code> : Provides a central location on your network where you can store and share
+files with users.</li>
+<li><code>Generic Application</code>: Allows you to run an application that is not specifically designed
+to run on a cluster.</li>
+<li><code>Generic Script</code> : Allows you to run scripts that are used to start and monitor applications.</li>
+<li><code>Generic Service</code> : Allows you to run services that are not specifically designed to run on
+a cluster.</li>
+<li><code>iSCSI Target Server</code> : Allows you to provide iSCSI storage devices to iSCSI clients
+known as iSCSI initiators .</li>
+<li><code>Internet Storage Name Service (iSNS) Server</code> : Provides a directory of iSCSI targets.</li>
+<li><code>Message Queuing</code> : Enables distributed applications that are running at different
+times to communicate across heterogeneous networks and with computers that might
+be offline.</li>
+<li><code>Other Server</code> : Provides a client access point and storage only. Add an application after
+completing the wizard.</li>
+<li><code>Virtual Machine (VM)</code> : Runs on a physical computer as a virtualized computer system.
+Multiple virtual machines can run on one computer.</li>
+</ul></body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <title>Clustering_Win2012_win2012R2</title>
+  </head>
+  <body class='markdown-preview' data-use-github-style><h1 id="previous-enhancements-to-failover-clustering">Previous enhancements to Failover Clustering</h1>
+<p>Some of the many ways that Failover Clustering was enhanced in <code>Windows Server 2012</code> include:</p>
+<h4 id="improved-scalability">Improved scalability</h4>
+<ul>
+<li>The number of cluster nodes supported increased from <code>16 in (win2k8)</code> to <code>64 in Win2k12</code>.</li>
+<li>The number of clustered <code>roles (Apps)</code> or <code>VMs</code> also increased from 1,000 to 8,000 (<code>1,024 per node</code>)<h4 id="cluster-shared-volumes-enhancements">Cluster Shared Volumes enhancements</h4>
+</li>
+<li>In Windows Server 2008 R2, <code>Cluster Shared Volumes (CSV)</code> were introduced   to provide common storage for clustered virtual machines.</li>
+<li>In Windows Server 2012, CSV was enhanced and enabled to provide
+storage for additional clustered roles such as the new <code>Scale-out File Server (SoFS</code>) feature, which can provide continuously available and scalable file-based (SMB 3.0) server storage for Hyper-V and applications such as SQL Server.</li>
+<li>CSV could also be integrated with the new Storage Spaces feature of Windows Server 2012 to enable scale-out access to data by virtualizing cluster storage on groups of inexpensive disks (<code>JBODs</code>).</li>
+<li>CSV in Windows Server 2012 was also integrated with new <code>SMB 3.0</code> features like <code>SMB Multichannel</code> and <code>SMB Direct</code>, which allow CSV traffic to stream across multiple networks in the cluster and leverage network adapters
+that support Remote Direct Memory Access (RDMA).
+-In Server 2012 CSV support for BitLocker Drive Encryption,
+removal of external authentication dependencies, and improved file backup.<h4 id="updating-failover-cluster-nodes">Updating failover cluster nodes</h4>
+</li>
+<li><code>Cluster-Aware Updating (CAU)</code> was introduced in Windows Server 2012.</li>
+<li>It enable software updates to be applied automatically to the host operating system or other system components on the nodes while maintaining availability during the update process.</li>
+<li>CAU reduced maintenance time by automating what was previously a very repetitive task.<h4 id="quorum-improvements">Quorum improvements</h4>
+</li>
+<li>In Win2k12 included simplified quorum configuration,</li>
+<li>Support for specifying which cluster nodes had votes in determining quorum, and <code>dynamic quorum</code>, which provides the administrator the ability to automatically manage the quorum vote assignment for a node based on the state of the node.<h4 id="other-enhancements">Other enhancements</h4>
+</li>
+<li>Some of the many other enhancements to Failover Clustering in Windows Server 2012 include:<ul>
+<li>Simplified migration of the configuration settings of clustered roles.</li>
+<li>More robust integration with Active Directory Domain Services</li>
+<li>Improved cluster validation tests</li>
+<li>Improved Windows PowerShell support</li>
+<li>Node Maintenance Mode</li>
+<li>Clustered tasks</li>
+<li>New clustered roles like iSCSI Target, guest clusters using virtual Fibre Channel, and more.</li>
+<li>Many of the Hyper-V enhancements in Windows Server 2012 are also relevant to Failover Clustering, for example, virtual machine prioritization, pre-emption to shut down low-priority virtual machines, virtual machine health monitoring, Hyper-V Replica Broker, and so on.</li>
+</ul>
+</li>
+</ul>
+<h1 id="guest-clustering-using-shared-virtual-disks">Guest clustering using shared virtual disks</h1></body>
+</html>

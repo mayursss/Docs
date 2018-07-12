@@ -14,6 +14,11 @@
 
 ## Windows
 - [Windows AD](../Docs/html/Windows/Windows_AD.md.html)
+- [Windows_Other](../Docs/html/Windows/Windows_Other.md.html)
+- [Win2016](../Docs/html/Windows/Win2016.md.html)
+- [Clustering](../Docs/html/Windows/Clustering.md.html)
+- [Failover_Cluster_Troubleshooting](../Docs/html/Windows/Failover_Cluster_Troubleshooting.md.html)
+- [Clustering_Win2012_win2012R2](../Docs/html/Windows/Clustering_Win2012_win2012R2.md.html)
 
 ## DevOps
 - [DevOps](../Docs/html/DevOps/Main.md.html)

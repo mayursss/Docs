@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <title>Windows_Other</title>
+  </head>
+  <body class='markdown-preview' data-use-github-style><h1 id="what-is-dynamic-disk-">What is dynamic disk?</h1>
+<h1 id="how-you-will-add-and-partition-4tb-size-disk-">How you will add and partition 4TB size disk?</h1>
+<ul>
+<li>we need to use GUID partition table (GPT) disks</li>
+</ul>
+<h1 id="what-is-gpt-disks-">What is GPT disks?</h1>
+<ul>
+<li>GPT disks provide increased disk size and robustness.  Specifically, GPT disks can have partitions larger than two terabytes (that’s a lot) and have built-in redundancy in the way partition information is stored, unlike master boot record (MBR) disks.</li>
+</ul>
+<h1 id="what-is-resilient-file-system-refs-">What is Resilient File System (ReFS)</h1>
+<ul>
+<li>The Resilient File System (ReFS) is Microsoft's newest file system, designed to maximize data availability, scale efficiently to large data sets across diverse workloads, and provide data integrity by means of resiliency to corruption.</li>
+</ul>
+<h1 id="how-to-map-nfs-share-to-windows-server">How to map NFS share to windows server</h1>
+<ul>
+<li>Install <code>Client for NFS</code></li>
+<li>Use mount command to mount share<pre class="editor-colors lang-"><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>mount&nbsp;-user:Sam&nbsp;-p:MyPassword&nbsp;\\LNXSRV01\exports\dept&nbsp;Z:</span></span></div></pre><pre class="editor-colors lang-powershell"><div class="line"><span class="syntax--source syntax--powershell"><span class="syntax--support syntax--function syntax--powershell"><span>New-PSDrive</span></span><span>&nbsp;Z&nbsp;</span><span class="syntax--keyword syntax--operator syntax--assignment syntax--powershell"><span>-</span></span><span>PsProvider&nbsp;FileSystem&nbsp;</span><span class="syntax--keyword syntax--operator syntax--assignment syntax--powershell"><span>-</span></span><span>Root&nbsp;\\</span><span class="syntax--constant syntax--numeric syntax--scientific syntax--powershell"><span class="syntax--support syntax--constant syntax--powershell"><span>10.40</span></span></span><span>.</span><span class="syntax--constant syntax--numeric syntax--scientific syntax--powershell"><span class="syntax--support syntax--constant syntax--powershell"><span>1.1</span></span></span><span>\export\isos&nbsp;</span><span class="syntax--keyword syntax--operator syntax--assignment syntax--powershell"><span>-</span></span><span>Persist</span></span></div></pre>
+<blockquote>
+<p><strong>Note:</strong> <br>
+Persistent Mounts
+There is no method of creating a persistent mount of an NFS share on a Windows server. The only option to mount an NFS share at system boot or logon is to use a batch script.</p>
+</blockquote>
+</li>
+</ul></body>
+</html>

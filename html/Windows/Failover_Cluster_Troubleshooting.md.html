@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <title>Failover_Cluster_Troubleshooting</title>
+  </head>
+  <body class='markdown-preview' data-use-github-style><h1 id="troubleshooting-problems-with-failover-clusters">Troubleshooting problems with Failover Clusters</h1>
+<ul>
+<li>Always check Failover Cluster Manager to see which resources are online and which resources are offline.</li>
+<li>You can even run the Validate a Configuration Wizard and look at the results.</li>
+<li>If resources are offline, try to make the resources online.</li>
+<li>If you cannot access shared disks, make sure that the disks are available on the network cables are connected.</li>
+<li>If you use storage from a SAN, check the masking or security settings for storage.</li>
+<li>Check Cluster Events , use the Event Viewer and Performance and Reliability Monitor snap-in to review cluster and cluster-related events and performance metrics.</li>
+<li>When a specific disk or role fails, you can right-click the failed disk or role, click More Actions , and click Show Dependency Report to identify dependent resources that allow the disk or role to function.</li>
+</ul>
+<h1 id="backing-up-failover-cluster-configuration">Backing Up Failover Cluster Configuration</h1>
+<ul>
+<li>You can back up the cluster configuration and restore using Windows Server Backup or a non-Microsoft Backup tool.</li>
+<li>Before you perform a backup, the cluster needs to be running and it must have quorum.</li>
+<li>be sure to back up the <code>System State</code>, <code>Cluster folders</code>, and the <code>witness disk</code>.</li>
+<li>Also need to backup individual applications files and the associated data such as SQL databases, Exchange databases, or shared files</li>
+<li>To back up application data, you can install backup software on the cluster node that owns the disk resource, or you can run the backup against the clustered resource over the network.</li>
+<li>If you use CSV volumes, you can run backup from any node that is attached to the CSV volume.</li>
+</ul>
+<h1 id="resotre-failover-cluster-configuration">Resotre Failover Cluster Configuration</h1>
+<ul>
+<li>To restore the cluster, you can perform one of the two types of restores:</li>
+<li><code>Non-authoritative restore</code> : A type of restore that restores the information that was performed
+when originally backed up but is overwritten by current information stored on other cluster nodes.</li>
+<li><code>Authoritative restore</code> : A type of restore that restores the information that was performed
+when originally backed up but is marked as the current and authoritative configuration, which will then overwrite the configuration on the other nodes.</li>
+<li>If a single cluster node has failed, you can perform the non-authoritative restore. After fixing or replacing the failed node, perform a non-authoritative restore including the system state. When you restart the node, the restored node will join the cluster and automatically receive the latest cluster configuration from the other nodes or the witness disk.</li>
+<li>Alternatively, you can remove a node and add a new node to the cluster.</li>
+<li>The new node will automatically receive the cluster information.</li>
+<li>If an administrator accidentally removed clustered resources or modified other cluster settings and
+you need to restore the cluster back to a specific point in time before the changes were made,
+you will perform an authoritative restore.</li>
+<li>To perform an authoritative restore, you will need to stop the cluster restores on all nodes.</li>
+<li>You then perform a system state recovery on a single node. After the restore, restart the cluster service so that the cluster service will mark the current configuration as the most recent configuration.</li>
+<li>As you bring the remaining cluster nodes online and start the cluster service, the other nodes will receive the restored configuration.</li>
+</ul></body>
+</html>

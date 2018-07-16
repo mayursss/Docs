@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <title>Ansible_Env_Setup</title>
+      <link rel="stylesheet" href="../../styles.css">
+  </head>
+  <body class='markdown-preview' data-use-github-style><h1 id="ansible-environment-setup">Ansible environment setup</h1>
+<h3 id="introduction">Introduction</h3>
+<p>Ansible is an IT automation tool. It can configure systems, deploy software, and orchestrate more advanced IT tasks such as continuous deployments or zero downtime rolling updates. Ansible manages machines in an agent-less manner. There is never a question of how to upgrade remote daemons or the problem of not being able to manage systems because daemons are uninstalled. Because OpenSSH is one of the most peer-reviewed open source components, security exposure is greatly reduced. Ansible is decentralized–it relies on your existing OS credentials to control access to remote machines. This page uses the SSH Authentication mechanism to gain access to the remote machines from the controller machine.</p>
+<p>This documentation covers the 1.5.4 version of Ansible.</p>
+<h3 id="requirements">Requirements</h3>
+<p>This document deals with setting up an Ansible Controller node which will push ansible script into Ansible Managed nodes. We will be using only 1 managed node for this documentation. The assumption is that your host machine is a Windows 7 corporate machine with 64-bit OS running with at least 8 GB memory. Windows OS isn’t supported for the control machine, so setting up Ubuntu VM on Windows machine using VirtualBox is suggested for both the Ansible Controller and the Ansible Node. The configuration details for both the Ubuntu VMs are as below -</p>
+<ul>
+<li><label>
+  <input class="task-list-item-checkbox" type="checkbox">
+   OS – Ubuntu 14.04.2 Server (64 bit) (Python 2.7.6   is pre-installed.)
+</label></li>
+<li><label>
+  <input class="task-list-item-checkbox" type="checkbox">
+   RAM – 2048 MB (sufficient)
+</label></li>
+<li><label>
+  <input class="task-list-item-checkbox" type="checkbox">
+   Network – NAT and Host Only Adapter (so that machines can connect to internet and talk to each other)
+</label></li>
+</ul>
+<blockquote>
+<p>Windows OS isn’t supported for Ansible Controller.</p>
+</blockquote>
+<h3 id="vm-connectivity-with-ssh">VM Connectivity with SSH</h3>
+<p>Two Ubuntu VMs are installed with NAT and Host Only Adatpter Networks. The userid and password for both are ubuntu/ubuntu.</p>
+<ul>
+<li><label>
+  <input class="task-list-item-checkbox" type="checkbox">
+   Ansible Controller with IP <code>192.168.56.103</code>
+</label></li>
+<li><label>
+  <input class="task-list-item-checkbox" type="checkbox">
+   Ansible Managed Node with IP <code>192.168.56.104</code>
+</label></li>
+</ul>
+<blockquote>
+<p>SSH is tested from Ansible Controller to Ansible Managed Node –</p>
+</blockquote>
+<pre class="editor-colors lang-"><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>$&nbsp;ssh&nbsp;ubuntu@192.168.56.104</span></span></div></pre><p>So SSH is successful with Userid and Password.</p>
+<h3 id="enable-ssh-with-public-key-authentication">Enable SSH with Public Key Authentication</h3>
+<p>To enable SSH authentication with public key, an RSA based public-private key pair is to be generated in the Ansible Controller and the generated public key is to be appended the authorized_keys file of the Ansible Managed Node. The steps to do the same are as below -</p>
+<ul>
+<li><label>
+  <input class="task-list-item-checkbox" type="checkbox">
+   Generate an SSH key pair in Ansible Controller by –
+</label></li>
+</ul>
+<pre class="editor-colors lang-"><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>$&nbsp;ssh-keygen&nbsp;–t&nbsp;rsa</span></span></div></pre><blockquote>
+<p>This generates the keys - <code>~/.ssh/id_rsa</code> and <code>~/.ssh/id_rsa.pub</code>.</p>
+</blockquote>
+<ul>
+<li><label>
+  <input class="task-list-item-checkbox" type="checkbox">
+   Copy the public key id_rsa.pub file to Ansible Managed Node and append it to <code>~/.ssh/authorized_keys</code> file –
+</label></li>
+</ul>
+<pre class="editor-colors lang-"><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>$&nbsp;ssh-copy-id&nbsp;ubuntu@192.168.56.104</span></span></div></pre><p>Double check the file in Ansible Managed Node to see that the public key has got appended using <code>$ sudo vi ~/.ssh/authorized_keys</code></p>
+<ul>
+<li><label>
+  <input class="task-list-item-checkbox" type="checkbox">
+   Now ssh from Ansible Controller into Ansible Managed Node using –
+</label></li>
+</ul>
+<pre class="editor-colors lang-"><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>$&nbsp;ssh&nbsp;192.168.56.104</span></span></div></pre><blockquote>
+<p>You are in the Ansible Managed Node now !!!</p>
+</blockquote>
+<h3 id="installing-ansible">Installing Ansible</h3>
+<p>Apply current updates and patches -</p>
+<pre class="editor-colors lang-"><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>$&nbsp;sudo&nbsp;apt-get&nbsp;install&nbsp;software-properties-common</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>$&nbsp;sudo&nbsp;apt-get&nbsp;update</span></span></div></pre><p>Add the ansible ppa repository to the package-source list in ubuntu -</p>
+<p>if using proxy</p>
+<pre class="editor-colors lang-"><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>$&nbsp;export&nbsp;http_proxy=http://&lt;proxy&gt;:&lt;port&gt;</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>$&nbsp;export&nbsp;https_proxy=http://&lt;proxy&gt;:&lt;port&gt;</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>export&nbsp;https_proxy=&lt;username&gt;:&lt;password&gt;@&lt;proxy&gt;:&lt;port&gt;</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>$&nbsp;sudo&nbsp;-E&nbsp;add-apt-repository&nbsp;ppa:ansible/ansible</span></span></div></pre><p>else</p>
+<pre class="editor-colors lang-"><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>$&nbsp;sudo&nbsp;-E&nbsp;add-apt-repository&nbsp;ppa:ansible/ansible</span></span></div></pre><p>Install Ansible in Ansible Controller using –</p>
+<pre class="editor-colors lang-"><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>$&nbsp;sudo&nbsp;apt-get&nbsp;install&nbsp;ansible</span></span></div></pre><p>Check the ansible version that has been installed/</p>
+<pre class="editor-colors lang-"><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>$&nbsp;ansible&nbsp;--version</span></span></div></pre><blockquote>
+<p>This outputs - <code>ansible 1.5.4</code></p>
+</blockquote>
+<h3 id="configuring-ansible">Configuring Ansible</h3>
+<ul>
+<li>Ansible has a default inventory file used to define which servers it will be managing.</li>
+<li>After installation, there's an example one you can reference at <code>/etc/ansible/hosts</code>.</li>
+<li>Create a backup of the original host file using.<pre class="editor-colors lang-bash"><div class="line"><span class="syntax--source syntax--shell"><span>sudo&nbsp;mv&nbsp;/etc/ansible/hosts&nbsp;/etc/ansible/hosts.bkp</span></span></div></pre>
+</li>
+<li>Then create a new <code>/etc/asnible/hosts</code> file to contain the Ansible Node to manage -<pre class="editor-colors lang-bash"><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--meta syntax--scope syntax--logical-expression syntax--shell"><span class="syntax--punctuation syntax--definition syntax--logical-expression syntax--shell"><span>[</span></span><span>managed_node</span><span class="syntax--punctuation syntax--definition syntax--logical-expression syntax--shell"><span>]</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>192.168.56.104</span></span></div></pre>
+</li>
+</ul>
+<p>Since SSH Authentication is already eabled between the Ansible Contorller and the Anisble Managed Nodes, the below command can be used to check if ping is working from ansible.</p>
+<pre class="editor-colors lang-bash"><div class="line"><span class="syntax--source syntax--shell"><span>$&nbsp;ansible&nbsp;all&nbsp;-m&nbsp;ping&nbsp;--sudo&nbsp;--ask-sudo-pass</span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>Provide&nbsp;the&nbsp;sudo&nbsp;password:&nbsp;</span><span class="syntax--keyword syntax--operator syntax--redirect syntax--shell"><span>&lt;</span></span><span>passwprd</span><span class="syntax--keyword syntax--operator syntax--redirect syntax--shell"><span>&gt;</span></span></span></div></pre>
+<p>This outputs -</p>
+<pre class="editor-colors lang-bash"><div class="line"><span class="syntax--source syntax--shell"><span>192.168.56.104&nbsp;</span><span class="syntax--keyword syntax--operator syntax--pipe syntax--shell"><span>|</span></span><span>&nbsp;success&nbsp;</span><span class="syntax--keyword syntax--operator syntax--redirect syntax--shell"><span>&gt;&gt;</span></span><span>&nbsp;</span><span class="syntax--meta syntax--scope syntax--group syntax--shell"><span class="syntax--punctuation syntax--definition syntax--group syntax--shell"><span>{</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--meta syntax--scope syntax--group syntax--shell"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--string syntax--quoted syntax--double syntax--shell"><span class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--shell"><span>"</span></span><span>changed</span><span class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--shell"><span>"</span></span></span><span>:&nbsp;false,</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--meta syntax--scope syntax--group syntax--shell"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--string syntax--quoted syntax--double syntax--shell"><span class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--shell"><span>"</span></span><span>ping</span><span class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--shell"><span>"</span></span></span><span>:&nbsp;</span><span class="syntax--string syntax--quoted syntax--double syntax--shell"><span class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--shell"><span>"</span></span><span>pong</span><span class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--shell"><span>"</span></span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--meta syntax--scope syntax--group syntax--shell"><span class="syntax--punctuation syntax--definition syntax--group syntax--shell"><span>}</span></span></span></span></div></pre>
+<h3 id="modules">Modules</h3>
+<p>Ansible uses "modules" to accomplish most of its Tasks. Modules can do things like install software, copy files, use templates and much more. Modules are the way to use Ansible, as they can use available context ("Facts") in order to determine what actions, if any need to be done to accomplish a Task.</p>
+<p>Without modules, we'd be left running arbitrary shell commands like this:</p>
+<pre class="editor-colors lang-bash"><div class="line"><span class="syntax--source syntax--shell"><span>$&nbsp;ansible&nbsp;all&nbsp;-m&nbsp;shell&nbsp;-a&nbsp;</span><span class="syntax--string syntax--quoted syntax--single syntax--shell"><span class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--shell"><span>'</span></span><span>apt-get&nbsp;install&nbsp;ng-utils</span><span class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--shell"><span>'</span></span></span><span>&nbsp;--sudo&nbsp;--ask-sudo-pass</span></span></div></pre>
+<p>Here, the <code>sudo apt-get install ng-utils</code> command will be run using the "<code>shell</code>" module. The <code>-a</code> flag is used to pass any arguments to the module. However this isn't particularly powerful. While it's handy to be able to run these commands on all of our servers at once, we still only accomplish what any bash script might do. If we used a more appropriate module instead, we can run commands with an assurance of the result. Ansible modules ensure <code>indempotence</code> - we can run the same Tasks over and over without affecting the final result.</p>
+<p>For installing software on <code>Debian/Ubuntu</code> servers, the "apt" module will run the same command, but ensure <code>idempotence</code>.</p>
+<pre class="editor-colors lang-bash"><div class="line"><span class="syntax--source syntax--shell"><span>$&nbsp;ansible&nbsp;all&nbsp;-s&nbsp;-m&nbsp;apt&nbsp;-a&nbsp;</span><span class="syntax--string syntax--quoted syntax--single syntax--shell"><span class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--shell"><span>'</span></span><span>pkg=ng-utils&nbsp;state=installed&nbsp;update_cache=true</span><span class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--shell"><span>'</span></span></span></span></div></pre>
+<p>The output for it would be -</p>
+<pre class="editor-colors lang-bash"><div class="line"><span class="syntax--source syntax--shell"><span>192.168.56.104&nbsp;</span><span class="syntax--keyword syntax--operator syntax--pipe syntax--shell"><span>|</span></span><span>&nbsp;success&nbsp;</span><span class="syntax--keyword syntax--operator syntax--redirect syntax--shell"><span>&gt;&gt;</span></span><span>&nbsp;</span><span class="syntax--meta syntax--scope syntax--group syntax--shell"><span class="syntax--punctuation syntax--definition syntax--group syntax--shell"><span>{</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--meta syntax--scope syntax--group syntax--shell"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--string syntax--quoted syntax--double syntax--shell"><span class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--shell"><span>"</span></span><span>changed</span><span class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--shell"><span>"</span></span></span><span>:&nbsp;</span><span class="syntax--support syntax--function syntax--builtin syntax--shell"><span>false</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--meta syntax--scope syntax--group syntax--shell"><span class="syntax--punctuation syntax--definition syntax--group syntax--shell"><span>}</span></span></span></span></div></pre>
+<p>This will use the <code>apt</code> module to update the repository cache and install <code>ng-utils</code> (if not installed). The result of running the task was <code>"changed" : false</code>. This shows that there were no changes. <code>ng-utils</code> package was already installed, so this can be run command over and over without worrying about it affecting the desired result i.e, installing the same package if already installed.</p>
+<h3 id="playbooks">Playbooks</h3>
+<p>Playbooks can run multiple Tasks and provide some more advanced functionality that we would miss out on using <code>ad-hoc</code> commands. Playbooks use <code>Yaml</code> format. Lets look at how to create and run an ansible playbook.</p>
+<ul>
+<li><label>
+  <input class="task-list-item-checkbox" type="checkbox">
+   Create myplaybook.yml
+</label></li>
+</ul>
+<pre class="editor-colors lang-bash"><div class="line"><span class="syntax--source syntax--shell"><span>$&nbsp;vi&nbsp;myplaybook.yml</span></span></div></pre>
+<p>with the content below -</p>
+<pre class="editor-colors lang-yaml"><div class="line"><span class="syntax--source syntax--yaml"><span class="syntax--punctuation syntax--definition syntax--directives syntax--end syntax--yaml"><span>---</span></span></span></div><div class="line"><span class="syntax--source syntax--yaml"><span>&nbsp;&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--entry syntax--yaml"><span>-</span></span><span>&nbsp;</span><span class="syntax--entity syntax--name syntax--tag syntax--yaml"><span>name</span></span><span class="syntax--punctuation syntax--separator syntax--key-value syntax--yaml"><span>:</span></span><span>&nbsp;</span><span class="syntax--string syntax--unquoted syntax--yaml"><span>My&nbsp;First&nbsp;Playbook</span></span></span></div><div class="line"><span class="syntax--source syntax--yaml"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--entity syntax--name syntax--tag syntax--yaml"><span>hosts</span></span><span class="syntax--punctuation syntax--separator syntax--key-value syntax--yaml"><span>:</span></span><span>&nbsp;</span><span class="syntax--string syntax--unquoted syntax--yaml"><span>managed_node</span></span></span></div><div class="line"><span class="syntax--source syntax--yaml"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--entity syntax--name syntax--tag syntax--yaml"><span>tasks</span></span><span class="syntax--punctuation syntax--separator syntax--key-value syntax--yaml"><span>:</span></span><span>&nbsp;</span></span></div><div class="line"><span class="syntax--source syntax--yaml"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--entry syntax--yaml"><span>-</span></span><span>&nbsp;</span><span class="syntax--entity syntax--name syntax--tag syntax--yaml"><span>name</span></span><span class="syntax--punctuation syntax--separator syntax--key-value syntax--yaml"><span>:</span></span><span>&nbsp;</span><span class="syntax--string syntax--unquoted syntax--yaml"><span>Touch&nbsp;My&nbsp;File</span></span></span></div><div class="line"><span class="syntax--source syntax--yaml"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--entity syntax--name syntax--tag syntax--yaml"><span>shell</span></span><span class="syntax--punctuation syntax--separator syntax--key-value syntax--yaml"><span>:</span></span><span>&nbsp;</span><span class="syntax--string syntax--unquoted syntax--yaml"><span>touch&nbsp;~/myfile.txt</span></span></span></div></pre>
+<p>This is a simple playbook for demonstration which creates a file called <code>myfile.txt</code> in the <code>home</code> directory if not already present, otherwise it simply updates the <code>last modified</code> <code>timestamp</code>.</p>
+<ul>
+<li><label>
+  <input class="task-list-item-checkbox" type="checkbox">
+   Run myplaybook.yml
+</label></li>
+</ul>
+<pre class="editor-colors lang-bash"><div class="line"><span class="syntax--source syntax--shell"><span>$&nbsp;ansible-playbook&nbsp;-i&nbsp;/etc/ansible/hosts&nbsp;myplaybook.yml&nbsp;--sudo&nbsp;--ask-sudo-pass</span></span></div></pre>
+<p>sudo password :
+This would output -</p>
+<pre class="editor-colors lang-bash"><div class="line"><span class="syntax--source syntax--shell"><span>PLAY&nbsp;</span><span class="syntax--meta syntax--scope syntax--logical-expression syntax--shell"><span class="syntax--punctuation syntax--definition syntax--logical-expression syntax--shell"><span>[</span></span><span>My&nbsp;First&nbsp;Playbook</span><span class="syntax--punctuation syntax--definition syntax--logical-expression syntax--shell"><span>]</span></span></span><span class="syntax--keyword syntax--operator syntax--glob syntax--shell"><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>GATHERING&nbsp;FACTS</span><span class="syntax--keyword syntax--operator syntax--glob syntax--shell"><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>ok:&nbsp;</span><span class="syntax--meta syntax--scope syntax--logical-expression syntax--shell"><span class="syntax--punctuation syntax--definition syntax--logical-expression syntax--shell"><span>[</span></span><span>192.168.56.104</span><span class="syntax--punctuation syntax--definition syntax--logical-expression syntax--shell"><span>]</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>TASK:&nbsp;</span><span class="syntax--meta syntax--scope syntax--logical-expression syntax--shell"><span class="syntax--punctuation syntax--definition syntax--logical-expression syntax--shell"><span>[</span></span><span>Touch&nbsp;My&nbsp;File</span><span class="syntax--punctuation syntax--definition syntax--logical-expression syntax--shell"><span>]</span></span></span><span class="syntax--keyword syntax--operator syntax--glob syntax--shell"><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>changed:&nbsp;</span><span class="syntax--meta syntax--scope syntax--logical-expression syntax--shell"><span class="syntax--punctuation syntax--definition syntax--logical-expression syntax--shell"><span>[</span></span><span>192.168.56.104</span><span class="syntax--punctuation syntax--definition syntax--logical-expression syntax--shell"><span>]</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>PLAY&nbsp;RECAP</span><span class="syntax--keyword syntax--operator syntax--glob syntax--shell"><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span><span>*</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>192.168.56.104&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--support syntax--function syntax--builtin syntax--shell"><span>:</span></span><span>&nbsp;ok=2&nbsp;&nbsp;&nbsp;&nbsp;changed=1&nbsp;&nbsp;&nbsp;&nbsp;unreachable=0&nbsp;&nbsp;&nbsp;failed=0</span></span></div></pre>
+<p>This shows that the <code>touch</code> command has been fired and the "<code>changed</code>" status tells that the file <code>/root/myfile.txt</code> has been created or the modified timestamp of the file has been changed in the Ansible Managed Node.</p>
+<p>To check if the ansible script has run properly in the Ansible Managed Node, use the below commands.</p>
+<pre class="editor-colors lang-Bash"><div class="line"><span class="syntax--source syntax--shell"><span>$&nbsp;ssh&nbsp;192.168.56.104</span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>$&nbsp;sudo&nbsp;-i</span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--variable syntax--other syntax--special syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>$</span></span><span>#</span></span><span>&nbsp;ls&nbsp;-l</span></span></div></pre>
+<p>The output would be -</p>
+<pre class="editor-colors lang-Bash"><div class="line"><span class="syntax--source syntax--shell"><span>total&nbsp;0</span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>-rw-r--r--&nbsp;1&nbsp;root&nbsp;root&nbsp;0&nbsp;Jul&nbsp;17&nbsp;13:38&nbsp;myfile.txt</span></span></div></pre>
+<p>It shows that the first time, <code>/root/myfile.txt</code> is created and henceforth, every time the ansible playbook is run from the Ansbile Controller, the modified time stamp of the file is changed.</p></body>
+</html>

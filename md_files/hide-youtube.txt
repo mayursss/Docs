@@ -1,0 +1,19 @@
+// hide related video 
+document.getElementById('related').style.display = 'none'  
+
+// hide video heading info (like, dislike share etc...)
+document.getElementById('info').style.display = 'none'  
+
+
+// hide video description info 
+document.getElementById('meta').style.display = 'none' 
+
+// hide comments 
+document.getElementById('comments').style.display = 'none'  
+
+// hide masthead-container (youtube logo and search bar)
+
+document.getElementById('masthead-container').style.display = 'none'  
+
+// hide logo
+//document.getElementById('logo-icon-container').style.display = 'none' 

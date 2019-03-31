@@ -1,3 +1,12 @@
+<!-- TOC -->
+
+- [Powershell IMP Points](#powershell-imp-points)
+- [How to map a network drive in PowerShell?](#how-to-map-a-network-drive-in-powershell)
+- [What are the three ways that PowerShell uses to ‘Select’?](#what-are-the-three-ways-that-powershell-uses-to-select)
+- [How to rename variable](#how-to-rename-variable)
+
+<!-- /TOC -->
+
 # Powershell IMP Points
 
 # How to map a network drive in PowerShell?
@@ -17,3 +26,4 @@ $Net.MapNetworkDrive('S:','\\Server\testshare')
 $var1 = "test"
 Rename-Item -Path Variable:\var1 –NewName MyRenamedVar
 ```
+<!-- # How to install  -->

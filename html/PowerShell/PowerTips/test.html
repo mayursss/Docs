@@ -1,0 +1,1168 @@
+<html><head>
+<style id="_defaultStyles">
+    :root { --background-color: #121212;
+  --color: #bbbbbb;
+  --font-family: "Segoe WPC", "Segoe UI", sans-serif;
+  --font-size: 13px;
+  --font-weight: 400;
+  --link-active-color: #3794ff;
+  --link-color: #3794ff;
+  --vscode-activityBar-background: #1d1f23;
+  --vscode-activityBar-dropBackground: rgba(255, 255, 255, 0.12);
+  --vscode-activityBar-foreground: #d7dae0;
+  --vscode-activityBar-inactiveForeground: rgba(215, 218, 224, 0.6);
+  --vscode-activityBarBadge-background: #528bff;
+  --vscode-activityBarBadge-foreground: #f8fafd;
+  --vscode-badge-background: #4d4d4d;
+  --vscode-badge-foreground: #ffffff;
+  --vscode-breadcrumb-activeSelectionForeground: #e0e0e0;
+  --vscode-breadcrumb-background: #121212;
+  --vscode-breadcrumb-focusForeground: #e0e0e0;
+  --vscode-breadcrumb-foreground: rgba(204, 204, 204, 0.8);
+  --vscode-breadcrumbPicker-background: #181a1f;
+  --vscode-button-background: #528bff;
+  --vscode-button-foreground: #ffffff;
+  --vscode-button-hoverBackground: #95b9ff;
+  --vscode-debugExceptionWidget-background: #420b0d;
+  --vscode-debugExceptionWidget-border: #a31515;
+  --vscode-debugToolBar-background: #333333;
+  --vscode-descriptionForeground: rgba(204, 204, 204, 0.7);
+  --vscode-diffEditor-insertedTextBackground: rgba(0, 128, 155, 0.2);
+  --vscode-diffEditor-removedTextBackground: rgba(255, 0, 0, 0.2);
+  --vscode-dropdown-background: #1d1f23;
+  --vscode-dropdown-border: #181a1f;
+  --vscode-dropdown-foreground: #f0f0f0;
+  --vscode-editor-background: #121212;
+  --vscode-editor-findMatchBackground: #515c6a;
+  --vscode-editor-findMatchHighlightBackground: #314365;
+  --vscode-editor-findRangeHighlightBackground: rgba(58, 61, 65, 0.4);
+  --vscode-editor-focusedStackFrameHighlightBackground: rgba(122, 189, 122, 0.3);
+  --vscode-editor-font-family: "Segoe WPC", "Segoe UI", sans-serif;
+  --vscode-editor-font-size: 13px;
+  --vscode-editor-font-weight: 400;
+  --vscode-editor-foreground: #bbbbbb;
+  --vscode-editor-hoverHighlightBackground: rgba(38, 79, 120, 0.25);
+  --vscode-editor-inactiveSelectionBackground: rgba(62, 68, 81, 0.5);
+  --vscode-editor-lineHighlightBackground: #1d1f23;
+  --vscode-editor-lineHighlightBorder: #282828;
+  --vscode-editor-rangeHighlightBackground: rgba(255, 255, 255, 0.04);
+  --vscode-editor-selectionBackground: #3e4451;
+  --vscode-editor-selectionHighlightBackground: rgba(45, 50, 59, 0.6);
+  --vscode-editor-snippetFinalTabstopHighlightBorder: #525252;
+  --vscode-editor-snippetTabstopHighlightBackground: rgba(124, 124, 124, 0.3);
+  --vscode-editor-stackFrameHighlightBackground: rgba(255, 255, 0, 0.2);
+  --vscode-editor-wordHighlightBackground: rgba(87, 87, 87, 0.72);
+  --vscode-editor-wordHighlightStrongBackground: rgba(0, 73, 114, 0.72);
+  --vscode-editorActiveLineNumber-foreground: #c6c6c6;
+  --vscode-editorBracketMatch-background: rgba(0, 100, 0, 0.1);
+  --vscode-editorBracketMatch-border: #888888;
+  --vscode-editorCodeLens-foreground: #999999;
+  --vscode-editorCursor-foreground: #f8f8f0;
+  --vscode-editorError-foreground: #704040;
+  --vscode-editorGroup-background: #181a1f;
+  --vscode-editorGroup-border: #181a1f;
+  --vscode-editorGroup-dropBackground: rgba(83, 89, 93, 0.5);
+  --vscode-editorGroupHeader-noTabsBackground: #121212;
+  --vscode-editorGroupHeader-tabsBackground: #181a1f;
+  --vscode-editorGutter-addedBackground: #587c0c;
+  --vscode-editorGutter-background: #121212;
+  --vscode-editorGutter-commentRangeForeground: #c5c5c5;
+  --vscode-editorGutter-deletedBackground: #94151b;
+  --vscode-editorGutter-modifiedBackground: #0c7d9d;
+  --vscode-editorHint-foreground: rgba(238, 238, 238, 0.7);
+  --vscode-editorHoverWidget-background: #181a1f;
+  --vscode-editorHoverWidget-border: #181a1f;
+  --vscode-editorIndentGuide-activeBackground: #484a50;
+  --vscode-editorIndentGuide-background: #3b4048;
+  --vscode-editorInfo-foreground: #707040;
+  --vscode-editorLineNumber-activeForeground: #c6c6c6;
+  --vscode-editorLineNumber-foreground: #495162;
+  --vscode-editorLink-activeForeground: #4e94ce;
+  --vscode-editorMarkerNavigation-background: #2d2d30;
+  --vscode-editorMarkerNavigationError-background: #704040;
+  --vscode-editorMarkerNavigationInfo-background: #707040;
+  --vscode-editorMarkerNavigationWarning-background: #407040;
+  --vscode-editorOverviewRuler-addedForeground: rgba(0, 122, 204, 0.6);
+  --vscode-editorOverviewRuler-border: rgba(127, 127, 127, 0.3);
+  --vscode-editorOverviewRuler-bracketMatchForeground: #a0a0a0;
+  --vscode-editorOverviewRuler-commonContentForeground: rgba(96, 96, 96, 0.4);
+  --vscode-editorOverviewRuler-currentContentForeground: rgba(64, 200, 174, 0.5);
+  --vscode-editorOverviewRuler-deletedForeground: rgba(0, 122, 204, 0.6);
+  --vscode-editorOverviewRuler-errorForeground: rgba(255, 18, 18, 0.7);
+  --vscode-editorOverviewRuler-findMatchForeground: rgba(246, 185, 77, 0.7);
+  --vscode-editorOverviewRuler-incomingContentForeground: rgba(64, 166, 255, 0.5);
+  --vscode-editorOverviewRuler-infoForeground: rgba(18, 18, 136, 0.7);
+  --vscode-editorOverviewRuler-modifiedForeground: rgba(0, 122, 204, 0.6);
+  --vscode-editorOverviewRuler-rangeHighlightForeground: rgba(0, 122, 204, 0.6);
+  --vscode-editorOverviewRuler-selectionHighlightForeground: rgba(160, 160, 160, 0.8);
+  --vscode-editorOverviewRuler-warningForeground: rgba(18, 136, 18, 0.7);
+  --vscode-editorOverviewRuler-wordHighlightForeground: rgba(160, 160, 160, 0.8);
+  --vscode-editorOverviewRuler-wordHighlightStrongForeground: rgba(192, 160, 192, 0.8);
+  --vscode-editorPane-background: #121212;
+  --vscode-editorRuler-foreground: #484848;
+  --vscode-editorSuggestWidget-background: #181a1f;
+  --vscode-editorSuggestWidget-border: #181a1f;
+  --vscode-editorSuggestWidget-foreground: #bbbbbb;
+  --vscode-editorSuggestWidget-highlightForeground: #c5c5c5;
+  --vscode-editorSuggestWidget-selectedBackground: #2c313a;
+  --vscode-editorUnnecessaryCode-opacity: rgba(0, 0, 0, 0.67);
+  --vscode-editorWarning-foreground: #407040;
+  --vscode-editorWhitespace-foreground: #484a50;
+  --vscode-editorWidget-background: #181a1f;
+  --vscode-editorWidget-border: #454545;
+  --vscode-errorForeground: #f48771;
+  --vscode-extensionButton-prominentBackground: #327e36;
+  --vscode-extensionButton-prominentForeground: #ffffff;
+  --vscode-extensionButton-prominentHoverBackground: #28632b;
+  --vscode-focusBorder: #181a1f;
+  --vscode-foreground: #cccccc;
+  --vscode-gitDecoration-addedResourceForeground: #81b88b;
+  --vscode-gitDecoration-conflictingResourceForeground: #6c6cc4;
+  --vscode-gitDecoration-deletedResourceForeground: #c74e39;
+  --vscode-gitDecoration-ignoredResourceForeground: #8c8c8c;
+  --vscode-gitDecoration-modifiedResourceForeground: #e2c08d;
+  --vscode-gitDecoration-submoduleResourceForeground: #8db9e2;
+  --vscode-gitDecoration-untrackedResourceForeground: #73c991;
+  --vscode-input-background: #1d1f23;
+  --vscode-input-foreground: #cccccc;
+  --vscode-input-placeholderForeground: rgba(204, 204, 204, 0.5);
+  --vscode-inputOption-activeBorder: #007acc;
+  --vscode-inputValidation-errorBackground: #5a1d1d;
+  --vscode-inputValidation-errorBorder: #be1100;
+  --vscode-inputValidation-infoBackground: #063b49;
+  --vscode-inputValidation-infoBorder: #007acc;
+  --vscode-inputValidation-warningBackground: #352a05;
+  --vscode-inputValidation-warningBorder: #b89500;
+  --vscode-list-activeSelectionBackground: #121212;
+  --vscode-list-activeSelectionForeground: #d7dae0;
+  --vscode-list-dropBackground: #383e4a;
+  --vscode-list-errorForeground: #f88070;
+  --vscode-list-focusBackground: #383e4a;
+  --vscode-list-highlightForeground: #c5c5c5;
+  --vscode-list-hoverBackground: #121212;
+  --vscode-list-inactiveFocusBackground: #313135;
+  --vscode-list-inactiveSelectionBackground: #121212;
+  --vscode-list-inactiveSelectionForeground: #d7dae0;
+  --vscode-list-invalidItemForeground: #b89500;
+  --vscode-list-warningForeground: #4d9e4d;
+  --vscode-listFilterWidget-background: #653723;
+  --vscode-listFilterWidget-noMatchesOutline: #be1100;
+  --vscode-listFilterWidget-outline: rgba(0, 0, 0, 0);
+  --vscode-menu-background: #1d1f23;
+  --vscode-menu-foreground: #f0f0f0;
+  --vscode-menu-selectionBackground: #121212;
+  --vscode-menu-selectionForeground: #d7dae0;
+  --vscode-menu-separatorBackground: #bbbbbb;
+  --vscode-menubar-selectionBackground: rgba(255, 255, 255, 0.1);
+  --vscode-menubar-selectionForeground: #9da5b4;
+  --vscode-merge-commonContentBackground: rgba(96, 96, 96, 0.16);
+  --vscode-merge-commonHeaderBackground: rgba(96, 96, 96, 0.4);
+  --vscode-merge-currentContentBackground: rgba(64, 200, 174, 0.2);
+  --vscode-merge-currentHeaderBackground: rgba(64, 200, 174, 0.5);
+  --vscode-merge-incomingContentBackground: rgba(64, 166, 255, 0.2);
+  --vscode-merge-incomingHeaderBackground: rgba(64, 166, 255, 0.5);
+  --vscode-notificationCenterHeader-background: #1f2228;
+  --vscode-notificationLink-foreground: #3794ff;
+  --vscode-notifications-background: #181a1f;
+  --vscode-notifications-border: #1f2228;
+  --vscode-panel-background: #121212;
+  --vscode-panel-border: rgba(128, 128, 128, 0.35);
+  --vscode-panel-dropBackground: rgba(255, 255, 255, 0.12);
+  --vscode-panelTitle-activeBorder: rgba(128, 128, 128, 0.35);
+  --vscode-panelTitle-activeForeground: #e7e7e7;
+  --vscode-panelTitle-inactiveForeground: rgba(231, 231, 231, 0.6);
+  --vscode-peekView-border: #202020;
+  --vscode-peekViewEditor-background: #202020;
+  --vscode-peekViewEditor-matchHighlightBackground: rgba(255, 143, 0, 0.6);
+  --vscode-peekViewEditorGutter-background: #202020;
+  --vscode-peekViewResult-background: #252526;
+  --vscode-peekViewResult-fileForeground: #ffffff;
+  --vscode-peekViewResult-lineForeground: #bbbbbb;
+  --vscode-peekViewResult-matchHighlightBackground: rgba(234, 92, 0, 0.3);
+  --vscode-peekViewResult-selectionBackground: rgba(51, 153, 255, 0.2);
+  --vscode-peekViewResult-selectionForeground: #ffffff;
+  --vscode-peekViewTitle-background: #1e1e1e;
+  --vscode-peekViewTitleDescription-foreground: rgba(204, 204, 204, 0.7);
+  --vscode-peekViewTitleLabel-foreground: #ffffff;
+  --vscode-pickerGroup-border: #3f3f46;
+  --vscode-pickerGroup-foreground: #3794ff;
+  --vscode-progressBar-background: #0e70c0;
+  --vscode-scrollbar-shadow: #000000;
+  --vscode-scrollbarSlider-activeBackground: rgba(116, 125, 145, 0.5);
+  --vscode-scrollbarSlider-background: rgba(78, 86, 102, 0.5);
+  --vscode-scrollbarSlider-hoverBackground: rgba(90, 99, 117, 0.5);
+  --vscode-settings-checkboxBackground: #1d1f23;
+  --vscode-settings-checkboxBorder: #181a1f;
+  --vscode-settings-checkboxForeground: #f0f0f0;
+  --vscode-settings-dropdownBackground: #1d1f23;
+  --vscode-settings-dropdownBorder: #181a1f;
+  --vscode-settings-dropdownForeground: #f0f0f0;
+  --vscode-settings-dropdownListBorder: #454545;
+  --vscode-settings-headerForeground: #e7e7e7;
+  --vscode-settings-modifiedItemIndicator: #0c7d9d;
+  --vscode-settings-numberInputBackground: #1d1f23;
+  --vscode-settings-numberInputForeground: #cccccc;
+  --vscode-settings-textInputBackground: #1d1f23;
+  --vscode-settings-textInputForeground: #cccccc;
+  --vscode-sideBar-background: #181a1f;
+  --vscode-sideBar-border: #1d1f23;
+  --vscode-sideBar-dropBackground: rgba(255, 255, 255, 0.12);
+  --vscode-sideBarSectionHeader-background: #181a1f;
+  --vscode-statusBar-background: #020202;
+  --vscode-statusBar-debuggingBackground: #020202;
+  --vscode-statusBar-debuggingForeground: #9da5b4;
+  --vscode-statusBar-foreground: #9da5b4;
+  --vscode-statusBar-noFolderBackground: #020202;
+  --vscode-statusBar-noFolderForeground: #9da5b4;
+  --vscode-statusBarItem-activeBackground: rgba(255, 255, 255, 0.18);
+  --vscode-statusBarItem-hostBackground: #388a34;
+  --vscode-statusBarItem-hoverBackground: #2c313a;
+  --vscode-statusBarItem-prominentBackground: #388a34;
+  --vscode-statusBarItem-prominentHoverBackground: #369432;
+  --vscode-tab-activeBackground: #121212;
+  --vscode-tab-activeForeground: #ffffff;
+  --vscode-tab-activeModifiedBorder: #3399cc;
+  --vscode-tab-border: #181a1f;
+  --vscode-tab-inactiveBackground: #181a1f;
+  --vscode-tab-inactiveForeground: rgba(255, 255, 255, 0.5);
+  --vscode-tab-inactiveModifiedBorder: rgba(51, 153, 204, 0.5);
+  --vscode-tab-unfocusedActiveForeground: rgba(255, 255, 255, 0.5);
+  --vscode-tab-unfocusedActiveModifiedBorder: rgba(51, 153, 204, 0.5);
+  --vscode-tab-unfocusedInactiveForeground: rgba(255, 255, 255, 0.25);
+  --vscode-tab-unfocusedInactiveModifiedBorder: rgba(51, 153, 204, 0.25);
+  --vscode-terminal-ansiBlack: #000000;
+  --vscode-terminal-ansiBlue: #2472c8;
+  --vscode-terminal-ansiBrightBlack: #666666;
+  --vscode-terminal-ansiBrightBlue: #3b8eea;
+  --vscode-terminal-ansiBrightCyan: #29b8db;
+  --vscode-terminal-ansiBrightGreen: #23d18b;
+  --vscode-terminal-ansiBrightMagenta: #d670d6;
+  --vscode-terminal-ansiBrightRed: #f14c4c;
+  --vscode-terminal-ansiBrightWhite: #e5e5e5;
+  --vscode-terminal-ansiBrightYellow: #f5f543;
+  --vscode-terminal-ansiCyan: #11a8cd;
+  --vscode-terminal-ansiGreen: #0dbc79;
+  --vscode-terminal-ansiMagenta: #bc3fbc;
+  --vscode-terminal-ansiRed: #cd3131;
+  --vscode-terminal-ansiWhite: #e5e5e5;
+  --vscode-terminal-ansiYellow: #e5e510;
+  --vscode-terminal-background: #121212;
+  --vscode-terminal-border: rgba(128, 128, 128, 0.35);
+  --vscode-terminal-foreground: #cccccc;
+  --vscode-terminal-selectionBackground: rgba(255, 255, 255, 0.25);
+  --vscode-textBlockQuote-background: rgba(127, 127, 127, 0.1);
+  --vscode-textBlockQuote-border: rgba(0, 122, 204, 0.5);
+  --vscode-textCodeBlock-background: rgba(10, 10, 10, 0.4);
+  --vscode-textLink-activeForeground: #3794ff;
+  --vscode-textLink-foreground: #3794ff;
+  --vscode-textPreformat-foreground: #d7ba7d;
+  --vscode-textSeparator-foreground: rgba(255, 255, 255, 0.18);
+  --vscode-titleBar-activeBackground: #020202;
+  --vscode-titleBar-activeForeground: #9da5b4;
+  --vscode-titleBar-inactiveBackground: #020202;
+  --vscode-titleBar-inactiveForeground: #6b717d;
+  --vscode-widget-shadow: #000000; }
+  
+  body {
+    background-color: var(--vscode-editor-background);
+    color: var(--vscode-editor-foreground);
+    font-family: var(--vscode-editor-font-family);
+    font-weight: var(--vscode-editor-font-weight);
+    font-size: var(--vscode-editor-font-size);
+    margin: 0;
+    padding: 0 20px;
+  }
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  a {
+    color: var(--vscode-textLink-foreground);
+  }
+
+  a:hover {
+    color: var(--vscode-textLink-activeForeground);
+  }
+
+  a:focus,
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: 1px solid -webkit-focus-ring-color;
+    outline-offset: -1px;
+  }
+
+  code {
+    color: var(--vscode-textPreformat-foreground);
+  }
+
+  blockquote {
+    background: var(--vscode-textBlockQuote-background);
+    border-color: var(--vscode-textBlockQuote-border);
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--vscode-scrollbarSlider-background);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--vscode-scrollbarSlider-hoverBackground);
+  }
+  ::-webkit-scrollbar-thumb:active {
+    background-color: var(--vscode-scrollbarSlider-activeBackground);
+  }
+</style>
+<script>
+      const acquireVsCodeApi = (function() {
+        const originalPostMessage = window.parent.postMessage.bind(window.parent);
+        let acquired = false;
+
+        let state = undefined;
+
+        return () => {
+          if (acquired) {
+            throw new Error('An instance of the VS Code API has already been acquired');
+          }
+          acquired = true;
+          return Object.freeze({
+            postMessage: function(msg) {
+              return originalPostMessage({ command: 'onmessage', data: msg }, '*');
+            },
+            setState: function(newState) {
+              state = newState;
+              originalPostMessage({ command: 'do-update-state', data: JSON.stringify(newState) }, '*');
+              return newState;
+            },
+            getState: function() {
+              return state;
+            }
+          });
+        };
+      })();
+      delete window.parent;
+      delete window.top;
+      delete window.frameElement;
+</script>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<!-- <script src="./media/pre.js" nonce="1551186285293293"></script> -->
+<script src="./media/pre.js"></script>
+<link rel="stylesheet" type="text/css" href="./media/markdown.css">
+<link rel="stylesheet" type="text/css" href="./media/highlight.css">  
+<!-- <style nonce="1551186285293293"> -->
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+</style>
+  
+  <style>
+</style>
+</head>
+<body class="vscode-body scrollBeyondLastLine wordWrap showEditorSelection vscode-dark">
+  <!-- TOC -->
+  <ul>
+    <li data-line="2" class="code-line"><a href="#1-resolving-paths" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#1-resolving-paths">1. Resolving Paths</a></li>
+    <li data-line="3" class="code-line"><a href="#2-sophisticated-directory-filtering-in-powershell-30" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#2-sophisticated-directory-filtering-in-powershell-30">2. Sophisticated Directory Filtering in PowerShell 3.0</a></li>
+    <li data-line="4" class="code-line"><a href="#3-finding-files-only-or-folders-only" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#3-finding-files-only-or-folders-only">3. Finding Files Only or Folders Only</a></li>
+    <li data-line="5" class="code-line"><a href="#4-adding-personal-drives-in-powershell" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#4-adding-personal-drives-in-powershell">4. Adding Personal Drives in PowerShell</a></li>
+    <li data-line="6" class="code-line"><a href="#5-discovering-file-system-related-cmdlets" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#5-discovering-file-system-related-cmdlets">5. Discovering File System-related Cmdlets</a></li>
+    <li data-line="7" class="code-line"><a href="#6-clean-your-temp-folder-with-powershell" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#6-clean-your-temp-folder-with-powershell">6. Clean Your Temp Folder with PowerShell</a></li>
+    <li data-line="8" class="code-line"><a href="#7-unblocking-and-unpacking-zip-files" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#7-unblocking-and-unpacking-zip-files">7. Unblocking and Unpacking ZIP Files</a></li>
+    <li data-line="9" class="code-line"><a href="#8-find-open-files" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#8-find-open-files">8. Find Open Files</a></li>
+    <li data-line="10" class="code-line"><a href="#9-finding-newest-or-oldest-files" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#9-finding-newest-or-oldest-files">9. Finding Newest or Oldest Files</a></li>
+    <li data-line="11" class="code-line"><a href="#10-finding-duplicate-files" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#10-finding-duplicate-files">10. Finding Duplicate Files</a></li>
+    <li data-line="12" class="code-line"><a href="#11-finding-old-files" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#11-finding-old-files">11. Finding Old Files</a></li>
+    <li data-line="13" class="code-line"><a href="#12-finding-system-folders" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#12-finding-system-folders">12. Finding System Folders</a></li>
+    <li data-line="14" class="code-line"><a href="#13-hiding-drive-letters" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#13-hiding-drive-letters">13. Hiding Drive Letters</a></li>
+    <li data-line="15" class="code-line"><a href="#14-checking-total-size-of-downloads-folder" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#14-checking-total-size-of-downloads-folder">14. Checking Total Size of Downloads-Folder</a></li>
+    <li data-line="16" class="code-line"><a href="#15-sharing-folders" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#15-sharing-folders">15. Sharing Folders</a></li>
+    <li data-line="17" class="code-line"><a href="#16-shrinking-paths" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#16-shrinking-paths">16. Shrinking Paths</a></li>
+    <li data-line="18" class="code-line"><a href="#17-how-large-are-my-folders" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#17-how-large-are-my-folders">17. How Large Are My Folders?</a></li>
+    <li data-line="19" class="code-line"><a href="#18-bulk-renaming-files" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#18-bulk-renaming-files">18. Bulk-Renaming Files</a></li>
+    <li data-line="20" class="code-line"><a href="#19-monitoring-folder-content" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#19-monitoring-folder-content">19. Monitoring Folder Content</a></li>
+    <li data-line="21" class="code-line"><a href="#20-open-file-exclusively" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#20-open-file-exclusively">20. Open File Exclusively</a></li>
+    <li data-line="22" class="code-line"><a href="#21-removing-file-extensions" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#21-removing-file-extensions">21. Removing File Extensions</a></li>
+    <li data-line="23" class="code-line"><a href="#22-quickly-changing-file-extensions" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#22-quickly-changing-file-extensions">22. Quickly Changing File Extensions</a></li>
+    <li data-line="24" class="code-line"><a href="#23-grouping-files-based-on-size" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#23-grouping-files-based-on-size">23. Grouping Files Based on Size</a></li>
+    <li data-line="25" class="code-line"><a href="#24-open-many-files-with-one-command" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#24-open-many-files-with-one-command">24. Open Many Files with One Command</a></li>
+    <li data-line="26" class="code-line"><a href="#25-use-multiple-wildcards" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#25-use-multiple-wildcards">25. Use Multiple Wildcards</a></li>
+    <li data-line="27" class="code-line"><a href="#26-filtering-multiple-file-types" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#26-filtering-multiple-file-types">26. Filtering Multiple File Types</a></li>
+    <li data-line="28" class="code-line"><a href="#27-creating-shortcuts-on-your-desktop" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#27-creating-shortcuts-on-your-desktop">27. Creating Shortcuts on your Desktop</a></li>
+    <li data-line="29" class="code-line"><a href="#28-create-files-and-folders-in-one-step" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#28-create-files-and-folders-in-one-step">28. Create Files and Folders in One Step</a></li>
+    <li data-line="30" class="code-line"><a href="#29-remove-recents-folder" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#29-remove-recents-folder">29. Remove Recents Folder</a></li>
+    <li data-line="31" class="code-line"><a href="#30-displaying-hex-dumps" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#30-displaying-hex-dumps">30. Displaying Hex Dumps</a></li>
+    <li data-line="32" class="code-line"><a href="#31-reading-file-magic-number" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#31-reading-file-magic-number">31. Reading File “Magic Number”</a></li>
+    <li data-line="33" class="code-line"><a href="#32-rename-drive-label" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#32-rename-drive-label">32. Rename Drive Label</a></li>
+    <li data-line="34" class="code-line"><a href="#33-no-need-for-virtual-drives" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#33-no-need-for-virtual-drives">33. No Need for Virtual Drives</a></li>
+    <li data-line="35" class="code-line"><a href="#34-temporary-file-name" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#34-temporary-file-name">34. Temporary File Name</a></li>
+    <li data-line="36" class="code-line"><a href="#35-creating-large-dummy-files-with-net" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#35-creating-large-dummy-files-with-net">35. Creating Large Dummy Files with .NET</a></li>
+    <li data-line="37" class="code-line"><a href="#36-does-a-folder-contain-a-specific-file" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#36-does-a-folder-contain-a-specific-file">36. Does a Folder Contain a Specific File?</a></li>
+    <li data-line="38" class="code-line"><a href="#37-file-or-folder-find-out" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#37-file-or-folder-find-out">37. File or Folder? Find Out!</a></li>
+    <li data-line="39" class="code-line"><a href="#38-list-hidden-files" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#38-list-hidden-files">38. List Hidden Files</a></li>
+    <li data-line="40" class="code-line"><a href="#39-converting-file-system-to-ntfs" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#39-converting-file-system-to-ntfs">39. Converting File System to NTFS</a></li>
+    <li data-line="41" class="code-line"><a href="#40-reading-and-writing-drive-labels" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#40-reading-and-writing-drive-labels">40. Reading and Writing Drive Labels</a></li>
+    <li data-line="42" class="code-line"><a href="#41-determining-a-drives-file-system" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#41-determining-a-drives-file-system">41. Determining a Drives’ File System</a></li>
+    <li data-line="43" class="code-line"><a href="#42-removing-illegal-file-name-characters" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#42-removing-illegal-file-name-characters">42. Removing Illegal File Name Characters</a></li>
+    <li data-line="44" class="code-line"><a href="#43-using-simple-path-analysis" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#43-using-simple-path-analysis">43. Using Simple Path Analysis</a></li>
+    <li data-line="45" class="code-line"><a href="#44-getting-real-paths" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#44-getting-real-paths">44. Getting Real Paths</a></li>
+    <li data-line="46" class="code-line"><a href="#45-select-folder-dialog" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#45-select-folder-dialog">45. Select Folder-Dialog</a></li>
+    <li data-line="47" class="code-line"><a href="#46-quick-drive-info" title="vscode-resource:/c:/Users/mayur/Documents/GitHub/Docs/md_files/PowerShell/PowerTips/PowerTips_vol1.md#46-quick-drive-info">46. Quick Drive Info</a></li>
+  </ul>
+  <!-- /TOC -->
+<h1 id="1-resolving-paths" data-line="50" class="code-line">1. Resolving Paths</h1>
+<p data-line="51" class="code-line">Paths can be relative, such as <code>“.\file.txt”</code>. To resolve such a path and display its full path, you could use Resolve-Path:</p>
+<pre><code data-line="52" class="code-line language-powershell"><div><span class="hljs-built_in">Resolve-Path</span> .\file.txt
+</div></code></pre>
+<p data-line="55" class="code-line">Unfortunately, though, Resolve-Path expects the file to really exist, so you cannot use it on hypothetical paths. To resolve all paths, whether they exist or not, use this line instead:</p>
+<pre><code data-line="57" class="code-line language-powershell"><div><span class="hljs-variable">$ExecutionContext</span>.SessionState.Path.GetUnresolvedProviderPathFromPSPath(<span class="hljs-string">'.\file.txt'</span>)
+</div></code></pre>
+<pre><code data-line="60" class="code-line"><code><div>C:\Users\Tobias\file.txt
+</div></code></code></pre>
+<h1 id="2-sophisticated-directory-filtering-in-powershell-30" data-line="63" class="code-line">2. Sophisticated Directory Filtering in PowerShell 3.0</h1>
+<p data-line="64" class="code-line">In PowerShell 3.0, <code>Get-ChildItem</code> now supports sophisticated filtering through its <code>-Attributes</code> parameter. To get all files in your Windows
+folder or one of its subfolders that are not system files but are encrypted or compressed, use something like this:</p>
+<pre><code data-line="66" class="code-line language-powershell"><div><span class="hljs-built_in">Get-ChildItem</span> <span class="hljs-variable">$env:windir</span> -Attributes !Directory+!System+Encrypted,!Directory+!System+Compressed
+-Recurse -ErrorAction SilentlyContinue
+</div></code></pre>
+<blockquote data-line="70" class="code-line">
+<p data-line="70" class="code-line">(Note how “!” negates the filter.)<br>
+The -Attributes parameter supports these attributes: Archive, Compressed, Device, Directory, Encrypted, Hidden, Normal,
+NotContentIndexed, Offline, ReadOnly, ReparsePoint, SparseFile, System, and Temporary.</p>
+</blockquote>
+<h1 id="3-finding-files-only-or-folders-only" data-line="74" class="code-line">3. Finding Files Only or Folders Only</h1>
+<p data-line="75" class="code-line">In PowerShell 2.0, to list only files or only folders you had to do filtering yourself:</p>
+<pre><code data-line="76" class="code-line language-powershell"><div><span class="hljs-built_in">Get-ChildItem</span> <span class="hljs-variable">$env:windir</span> | <span class="hljs-built_in">Where-Object</span> { <span class="hljs-variable">$_</span>.PSIsContainer <span class="hljs-nomarkup">-eq</span> <span class="hljs-literal">$true</span> }
+<span class="hljs-built_in">Get-ChildItem</span> <span class="hljs-variable">$env:windir</span> | <span class="hljs-built_in">Where-Object</span> { <span class="hljs-variable">$_</span>.PSIsContainer <span class="hljs-nomarkup">-eq</span> <span class="hljs-literal">$false</span> }
+</div></code></pre>
+<p data-line="80" class="code-line">In PowerShell 3.0, Get-ChildItem is smart enough to do that for you:</p>
+<pre><code data-line="81" class="code-line language-powershell"><div><span class="hljs-built_in">Get-ChildItem</span> <span class="hljs-variable">$env:windir</span> -File
+<span class="hljs-built_in">Get-ChildItem</span> <span class="hljs-variable">$env:windir</span> -Directory
+</div></code></pre>
+<h1 id="4-adding-personal-drives-in-powershell" data-line="85" class="code-line">4. Adding Personal Drives in PowerShell</h1>
+<p data-line="86" class="code-line">PowerShell enables you to create custom drives with custom drive names (New-PSDrive). Here’s a piece of code that you can place into
+your profile script (path to this script is found in $profile, and the profile script may be created first).
+It adds useful system folders as named PowerShell drives to your PowerShell environment:</p>
+<pre><code data-line="89" class="code-line language-powershell"><div><span class="hljs-keyword">Function</span> Add-PersonalDrive {
+[System.Enum]::GetNames([System.Environment+SpecialFolder]) |
+<span class="hljs-built_in">ForEach-Object</span> {
+<span class="hljs-variable">$name</span> = <span class="hljs-variable">$_</span>
+<span class="hljs-variable">$target</span> = [System.Environment]::GetFolderPath(<span class="hljs-variable">$_</span>)
+<span class="hljs-built_in">New-PSDrive</span> <span class="hljs-variable">$name</span> FileSystem <span class="hljs-variable">$target</span> -Scope Global
+}
+}
+</div></code></pre>
+<p data-line="99" class="code-line">Once you run the function, you get a whole lot of new drives, for example Desktop: or MyDocuments:</p>
+<pre><code data-line="100" class="code-line"><code><div>Name Used (GB) Free (GB) Provider Root
+---- --------- --------- -------- ----
+Desktop 2,39 FileSystem C:\Users\Tobias\Desktop
+Programs 2,39 FileSystem C:\Users\Tobias\AppData\Roaming\...
+MyDocuments 2,39 FileSystem C:\Users\Tobias\Documents
+Personal 2,39 FileSystem C:\Users\Tobias\Documents
+(...)
+</div></code></code></pre>
+<h1 id="5-discovering-file-system-related-cmdlets" data-line="110" class="code-line">5. Discovering File System-related Cmdlets</h1>
+<p data-line="111" class="code-line">Here’s a simple line that returns all file system-related cmdlets:</p>
+<pre><code data-line="112" class="code-line language-powershell"><div><span class="hljs-built_in">Get-Command</span> -Noun item*, path
+</div></code></pre>
+<p data-line="115" class="code-line">Many of these cmdlets have historic aliases that will help you guess what they are doing:</p>
+<pre><code data-line="116" class="code-line language-powershell"><div><span class="hljs-built_in">Get-Alias</span> -Definition *-item*, *-path* |
+<span class="hljs-built_in">Select-Object</span> Name, Definition |
+<span class="hljs-built_in">Out-GridView</span>
+</div></code></pre>
+<h1 id="6-clean-your-temp-folder-with-powershell" data-line="122" class="code-line">6. Clean Your Temp Folder with PowerShell</h1>
+<p data-line="123" class="code-line">When disk space gets low, you may want to clean up your temporary folder. The code deletes all files that are older than 30 days to make
+sure you’re not dumping anything that’s still needed:</p>
+<pre><code data-line="125" class="code-line language-powershell"><div><span class="hljs-variable">$cutoff</span> = (<span class="hljs-built_in">Get-Date</span>) - (<span class="hljs-built_in">New-TimeSpan</span> -Days <span class="hljs-number">30</span>)
+<span class="hljs-variable">$before</span> = (<span class="hljs-built_in">Get-ChildItem</span> <span class="hljs-variable">$env:temp</span> | <span class="hljs-built_in">Measure-Object</span> Length -Sum).Sum
+<span class="hljs-built_in">Get-ChildItem</span> <span class="hljs-variable">$env:temp</span> |
+<span class="hljs-built_in">Where-Object</span> { <span class="hljs-variable">$_</span>.Length <span class="hljs-nomarkup">-ne</span> <span class="hljs-literal">$null</span> } |
+<span class="hljs-built_in">Where-Object</span> { <span class="hljs-variable">$_</span>.LastWriteTime <span class="hljs-nomarkup">-lt</span> <span class="hljs-variable">$cutoff</span> } |
+<span class="hljs-comment"># simulation only, no files and folders will be deleted</span>
+<span class="hljs-comment"># replace -WhatIf with -Confirm to confirm each delete</span>
+<span class="hljs-comment"># remove -WhatIf altogether to delete without confirmation (at your own risk)</span>
+<span class="hljs-built_in">Remove-Item</span> -Force -ErrorAction SilentlyContinue -Recurse -WhatIf
+<span class="hljs-variable">$after</span> = (<span class="hljs-built_in">Get-ChildItem</span> <span class="hljs-variable">$env:temp</span> | <span class="hljs-built_in">Measure-Object</span> Length -Sum).Sum
+<span class="hljs-variable">$freed</span> = <span class="hljs-variable">$before</span> - <span class="hljs-variable">$after</span>
+‘Cleanup freed {<span class="hljs-number">0</span>:<span class="hljs-number">0.0</span>} MB.’ -f (<span class="hljs-variable">$freed</span>/<span class="hljs-number">1</span>MB)
+</div></code></pre>
+<p data-line="139" class="code-line">Since deleting stuff is always risky, we left a -WhatIf in the code so you can check that you are actually deleting your temp folder and
+not anything else (due to a typo for example). Once you are comfortable, remove -WhatIf to invoke the cleanup process automatically, or
+replace -WhatIf by -Confirm to confirm each delete manually.
+You may be surprised how much garbage can be removed.</p>
+<pre><code data-line="143" class="code-line"><code><div>PS&gt; C:\Users\Tobias\Documents\temp\Untitled2.powershell
+WARNING: Size of TEMP folder is currently 879,02 MB
+WARNING: Freed 329,27 MB disk space
+</div></code></code></pre>
+<h1 id="7-unblocking-and-unpacking-zip-files" data-line="148" class="code-line">7. Unblocking and Unpacking ZIP Files</h1>
+<p data-line="149" class="code-line">Before you can unpack ZIP files downloaded from the Internet, you will want to unblock them - or else executable files like <code>*.exe</code> or <code>*.dll</code>
+will not work. Here is a script that uses PowerShell 3.0’s new Unblock-File cmdlet to first unblock a ZIP file, then uses the File Explorer integrated
+ZIP functionality to unpack its contents:
+Note that this requires the built-in Windows ZIP support to be present and not replaced with other ZIP tools.</p>
+<pre><code data-line="154" class="code-line language-powershell"><div><span class="hljs-variable">$Source</span> = ‘c:\some\zipfile.zip’
+<span class="hljs-variable">$Destination</span> = ‘c:\unpackfolder’ <span class="hljs-comment"># this folder MUST exist</span>
+<span class="hljs-built_in">Unblock-File</span> <span class="hljs-variable">$Destination</span> <span class="hljs-comment"># use this in PowerShell 3.0 to unblock downloaded data</span>
+<span class="hljs-comment"># remove this in PowerShell 2.0 and unblock manually if needed</span>
+<span class="hljs-variable">$helper</span> = <span class="hljs-built_in">New-Object</span> -ComObject Shell.Application
+<span class="hljs-variable">$files</span> = <span class="hljs-variable">$helper</span>.NameSpace(<span class="hljs-variable">$Source</span>).Items()
+<span class="hljs-variable">$helper</span>.NameSpace(<span class="hljs-variable">$Destination</span>).CopyHere(<span class="hljs-variable">$files</span>)
+</div></code></pre>
+<h1 id="8-find-open-files" data-line="163" class="code-line">8. Find Open Files</h1>
+<p data-line="164" class="code-line">To find open files on a remote system, use openfiles.exe and convert the results to rich objects. Here is a sample (replace “storage1” with
+the name of a remote computer you have access permissions):</p>
+<pre><code data-line="166" class="code-line language-powershell"><div>PS&gt; openfiles /Query /S storage1 /FO CSV /V | <span class="hljs-built_in">ConvertFrom-Csv</span> | <span class="hljs-built_in">Out-GridView</span>
+</div></code></pre>
+<p data-line="169" class="code-line">Openfiles.exe cannot find open files on the local machine (unless you configure your local machine to monitor open files).</p>
+<h1 id="9-finding-newest-or-oldest-files" data-line="170" class="code-line">9. Finding Newest or Oldest Files</h1>
+<p data-line="171" class="code-line">In PowerShell 3.0, Measure-Object can be applied not just to numeric data but to anything that is comparable. In PowerShell 2.0, this line
+would return the smallest and largest file size in your Windows folder:</p>
+<pre><code data-line="173" class="code-line language-powershell"><div><span class="hljs-built_in">Get-ChildItem</span> <span class="hljs-variable">$env:windir</span> |
+<span class="hljs-built_in">Measure-Object</span> -Property Length -Minimum -Maximum |
+<span class="hljs-built_in">Select-Object</span> -Property Minimum,Maximum
+</div></code></pre>
+<p data-line="178" class="code-line">In PowerShell 3.0, you could also measure properties like LastWriteTime, telling you the oldest and newest dates:</p>
+<pre><code data-line="179" class="code-line language-powershell"><div><span class="hljs-built_in">Get-ChildItem</span> <span class="hljs-variable">$env:windir</span> |
+<span class="hljs-built_in">Measure-Object</span> -Property LastWriteTime -Minimum -Maximum |
+<span class="hljs-built_in">Select-Object</span> -Property Minimum,Maximum
+</div></code></pre>
+<p data-line="184" class="code-line">Or, you could get the minimum and maximum start times of all the running processes. Make sure you use Where-Object to exclude any
+process that has no StartTime value:</p>
+<pre><code data-line="186" class="code-line language-powershell"><div><span class="hljs-built_in">Get-Process</span> |
+<span class="hljs-built_in">Where-Object</span> StartTime |
+<span class="hljs-built_in">Measure-Object</span> -Property StartTime -Minimum -Maximum |
+<span class="hljs-built_in">Select-Object</span> -Property Minimum,Maximum
+</div></code></pre>
+<h1 id="10-finding-duplicate-files" data-line="192" class="code-line">10. Finding Duplicate Files</h1>
+<p data-line="193" class="code-line">Hash tables are a great way to find duplicates. Simply use the hash table as lookup to see if the file (or element) was already added to the
+hash table. The following script would find all files and folder with same name in the current folder, the Windows folder and its System32
+subfolder.</p>
+<pre><code data-line="197" class="code-line language-powershell"><div><span class="hljs-keyword">Function</span> Find-DuplicateName
+{
+<span class="hljs-variable">$Input</span> | <span class="hljs-built_in">ForEach-Object</span> {
+<span class="hljs-keyword">if</span> (<span class="hljs-variable">$lookup</span>.ContainsKey(<span class="hljs-variable">$_</span>.Name)){
+  ‘{<span class="hljs-number">0</span>} ({<span class="hljs-number">1</span>}) already exists <span class="hljs-keyword">in</span> {<span class="hljs-number">2</span>}.’ -f <span class="hljs-variable">$_</span>.Name, <span class="hljs-variable">$_</span>.FullName, <span class="hljs-variable">$lookup</span>.$(<span class="hljs-variable">$_</span>.Name)
+}
+<span class="hljs-keyword">else</span>
+{
+  <span class="hljs-variable">$lookup</span>.Add(<span class="hljs-variable">$_</span>.Name, <span class="hljs-variable">$_</span>.FullName)
+}
+}
+}
+<span class="hljs-variable">$lookup</span> = @{}
+<span class="hljs-built_in">Get-ChildItem</span> <span class="hljs-variable">$home</span> | Find-DuplicateName
+<span class="hljs-built_in">Get-ChildItem</span> <span class="hljs-variable">$env:windir</span> | Find-DuplicateName
+<span class="hljs-built_in">Get-ChildItem</span> <span class="hljs-variable">$env:windir</span>\system32 | Find-DuplicateName
+</div></code></pre>
+<h1 id="11-finding-old-files" data-line="215" class="code-line">11. Finding Old Files</h1>
+<p data-line="216" class="code-line">Occasionally, you might want to find files that are older than a give number of days to delete or backup those. A simple filter can provide
+that functionality:</p>
+<pre><code data-line="219" class="code-line language-powershell"><div><span class="hljs-keyword">Filter</span> Filter-Age(<span class="hljs-variable">$Days</span>=<span class="hljs-number">30</span>){
+<span class="hljs-keyword">if</span> ((<span class="hljs-variable">$_</span>.CreationTime <span class="hljs-nomarkup">-le</span> (<span class="hljs-built_in">Get-Date</span>).AddDays(<span class="hljs-variable">$days</span> * -<span class="hljs-number">1</span>) )) {<span class="hljs-variable">$_</span>}
+}
+</div></code></pre>
+<p data-line="224" class="code-line">Pipe the result of a Dir into the Filter-Age filter, and it will only let those files and folders pass that are at least the specified number of days
+old. The following line finds all logfiles in your Windows folder that are at least 10 days old:</p>
+<pre><code data-line="226" class="code-line language-powershell"><div>Dir <span class="hljs-variable">$env:windir</span> *.log -Recurse -ea <span class="hljs-number">0</span> | Filter-Age -Days <span class="hljs-number">10</span>
+</div></code></pre>
+<p data-line="229" class="code-line">You could easily delete or backup the resulting files. This would delete them:</p>
+<pre><code data-line="230" class="code-line language-powershell"><div>Dir <span class="hljs-variable">$env:windir</span> *.log -Recurse -ea <span class="hljs-number">0</span> | Filter-Age -Days <span class="hljs-number">10</span> | Del -WhatIf
+</div></code></pre>
+<h1 id="12-finding-system-folders" data-line="234" class="code-line">12. Finding System Folders</h1>
+<p data-line="235" class="code-line">You may want to know where special folders such as MyPictures or Documents are located. The Environment .NET class provides a static
+method named GetFolderPath() which provides this information. To find the location of your desktop, for example, use this:</p>
+<pre><code data-line="238" class="code-line language-powershell"><div>[Environment]::GetFolderPath(‘Desktop’)
+
+</div></code></pre>
+<p data-line="242" class="code-line">Simply specify an invalid keyword, and the exception will list all valid keywords:</p>
+<pre><code data-line="244" class="code-line language-powershell"><div>PS&gt; [Environment]::GetFolderPath(‘give me more!’)
+Cannot convert argument “folder”, with value: “give me more!”, <span class="hljs-keyword">for</span> “GetFolderPath” to type “System.
+Environment+SpecialFolder”: “Cannot convert value
+“give me more!” to type “System.Environment+SpecialFolder”. Error: “Unable to match the identifier
+name give me more! to a valid enumerator name.
+Specify one of the following enumerator names and <span class="hljs-keyword">try</span> again: Desktop, Programs, MyDocuments,
+Personal, Favorites, Startup, Recent, SendTo, StartMenu,
+MyMusic, MyVideos, DesktopDirectory, MyComputer, NetworkShortcuts, Fonts, Templates,
+CommonStartMenu, CommonPrograms, CommonStartup,
+CommonDesktopDirectory, ApplicationData, PrinterShortcuts, LocalApplicationData, InternetCache,
+Cookies, History, CommonApplicationData, Windows,
+System, ProgramFiles, MyPictures, UserProfile, SystemX86, ProgramFilesX86, CommonProgramFiles,
+CommonProgramFilesX86, CommonTemplates,
+CommonDocuments, CommonAdminTools, AdminTools, CommonMusic, CommonPictures, CommonVideos, Resources,
+LocalizedResources, CommonOemLinks, CDBurning””
+</div></code></pre>
+<h1 id="13-hiding-drive-letters" data-line="261" class="code-line">13. Hiding Drive Letters</h1>
+<p data-line="262" class="code-line">Sometimes you may want to hide drive letters in Explorer from users. There’s a Registry key that can do this for you. It takes a bit mask
+where each drive has a bit. When the bit is set, the drive is hidden. Here’s the function that automatically manages the bitmasks and
+registry entries to hide selected drive letters:</p>
+<pre><code data-line="265" class="code-line language-powershell"><div><span class="hljs-keyword">Function</span> Hide-Drive {
+<span class="hljs-keyword">param</span> (
+<span class="hljs-variable">$DriveLetter</span>
+)
+<span class="hljs-variable">$key</span> = @{
+Path = <span class="hljs-string">'HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer'</span>
+Name = <span class="hljs-string">'NoDrives'</span>
+}
+<span class="hljs-keyword">if</span> (<span class="hljs-variable">$DriveLetter</span> <span class="hljs-nomarkup">-eq</span> <span class="hljs-literal">$null</span>){
+<span class="hljs-built_in">Remove-ItemProperty</span> @key
+} <span class="hljs-keyword">else</span> {
+<span class="hljs-variable">$mask</span> = <span class="hljs-number">0</span>
+<span class="hljs-variable">$DriveLetter</span> |
+<span class="hljs-built_in">ForEach-Object</span> { <span class="hljs-variable">$_</span>.toUpper()[<span class="hljs-number">0</span>] } |
+<span class="hljs-built_in">Sort-Object</span> |
+<span class="hljs-built_in">ForEach-Object</span> { <span class="hljs-variable">$mask</span> += [Math]::Pow(<span class="hljs-number">2</span>,(([Byte]<span class="hljs-variable">$_</span>) -<span class="hljs-number">65</span>)) }
+<span class="hljs-built_in">Set-ItemProperty</span> @key -Value <span class="hljs-variable">$mask</span> -type DWORD
+}
+}
+</div></code></pre>
+<p data-line="286" class="code-line">For example, to hide drives A, B, E, and Z, you would use it like this:</p>
+<pre><code data-line="287" class="code-line language-powershell"><div>PS&gt; Hide-Drive A,B,E,Z
+</div></code></pre>
+<p data-line="290" class="code-line">To display all drives, call Hide-Drive without any argument:</p>
+<pre><code data-line="291" class="code-line language-powershell"><div>PS&gt; Hide-Drive
+</div></code></pre>
+<blockquote data-line="294" class="code-line">
+<p data-line="294" class="code-line">Note that you need to have administrative privileges to change policies, and that policies may be overridden by group policy settings set
+up by your corporate IT.
+For the changes to take effect, you need to log off and on again or kill your explorer.exe and restart it.</p>
+</blockquote>
+<h1 id="14-checking-total-size-of-downloads-folder" data-line="298" class="code-line">14. Checking Total Size of Downloads-Folder</h1>
+<p data-line="299" class="code-line">Whenever you download something with IE, by default the files get stored in your personal download folder. Often, over time a lot of
+garbage can accumulate. This line tells you just how much data you store in this folder:</p>
+<pre><code data-line="301" class="code-line language-powershell"><div><span class="hljs-variable">$folder</span> = <span class="hljs-string">"<span class="hljs-variable">$env:userprofile</span>\Downloads"</span>
+<span class="hljs-built_in">Get-ChildItem</span> -Path <span class="hljs-variable">$folder</span> -Recurse -Force -ea <span class="hljs-number">0</span> |
+<span class="hljs-built_in">Measure-Object</span> -Property Length -Sum |
+<span class="hljs-built_in">ForEach-Object</span> {
+<span class="hljs-variable">$sum</span> = <span class="hljs-variable">$_</span>.Sum / <span class="hljs-number">1</span>MB
+<span class="hljs-string">"Your Downloads folder currently occupies {0:#,##0.0} MB storage"</span> -f <span class="hljs-variable">$sum</span>
+}
+</div></code></pre>
+<p data-line="310" class="code-line">You may be surprised just how much stuff has been collected there.</p>
+<h1 id="15-sharing-folders" data-line="311" class="code-line">15. Sharing Folders</h1>
+<p data-line="312" class="code-line">Console commands are first class PowerShell citizens, so sometimes it may be easier to use classic console commands to solve a
+problem. Here is a function that creates a local folder and also shares it so others can use it via network. Just be aware that the net.exe
+used to share the folder requires you to have full admin privileges:</p>
+<pre><code data-line="315" class="code-line language-powershell"><div><span class="hljs-keyword">Function</span> New-Share {
+<span class="hljs-keyword">param</span> (
+<span class="hljs-variable">$Path</span>,
+<span class="hljs-variable">$Name</span>
+)
+<span class="hljs-keyword">try</span> {
+<span class="hljs-variable">$ErrorActionPreference</span> = ’Stop’
+<span class="hljs-keyword">if</span> ((<span class="hljs-built_in">Test-Path</span> <span class="hljs-variable">$Path</span>) <span class="hljs-nomarkup">-eq</span> <span class="hljs-literal">$false</span>){
+<span class="hljs-literal">$null</span> = <span class="hljs-built_in">New-Item</span> -Path <span class="hljs-variable">$Path</span> -ItemType Directory
+}
+net.exe share <span class="hljs-variable">$Name</span>=<span class="hljs-variable">$Path</span>
+}
+<span class="hljs-keyword">catch</span> {
+<span class="hljs-built_in">Write-Warning</span> ”Create Share: Failed, <span class="hljs-variable">$_</span>”
+}
+}
+</div></code></pre>
+<p data-line="333" class="code-line">And this is how you share new folders:</p>
+<pre><code data-line="334" class="code-line language-powershell"><div>PS&gt; New-Share c:\myfolder sharedplace
+</div></code></pre>
+<p data-line="337" class="code-line">sharedplace was shared successfully.</p>
+<h1 id="16-shrinking-paths" data-line="339" class="code-line">16. Shrinking Paths</h1>
+<p data-line="340" class="code-line">Many file-related .NET Framework methods fail when the overall path length exceeds a certain length. Use low-level methods to convert
+lengthy paths to the old 8.3 notation which is a lot shorter in many cases:</p>
+<pre><code data-line="342" class="code-line language-powershell"><div><span class="hljs-keyword">Function</span> Get-ShortPath {
+<span class="hljs-keyword">param</span> (
+[Parameter(Mandatory=<span class="hljs-literal">$true</span>)]
+<span class="hljs-variable">$Path</span>
+)
+<span class="hljs-variable">$code</span> = <span class="hljs-string">@'[DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError=true)]
+public static extern uint GetShortPathName(string longPath,
+StringBuildershortPath,uint bufferSize);
+'@
+
+$API = Add-Type -MemberDefinition $code -Name Path -UsingNamespace System.Text -PassThru
+$shortBuffer = New-Object Text.StringBuilder ($Path.Length * 2)
+$rv = $API::GetShortPathName( $Path, $shortBuffer, $shortBuffer.Capacity )
+if ($rv -ne 0) {
+$shortBuffer.ToString()
+} else {
+Write-Warning "Path '$path' not found."
+}
+}
+</span></div></code></pre>
+<p data-line="363" class="code-line">Here is how you can use the new function:</p>
+<pre><code data-line="365" class="code-line language-powershell"><div>PS&gt; <span class="hljs-literal">$null</span> = md c:\thisIsALongName\VeryLongPath\MayExceed260chars -ea <span class="hljs-number">0</span>
+PS&gt; Get-ShortPath <span class="hljs-string">'c:\thisIsALongName\VeryLongPath\MayExceed260chars'</span>
+c:\THISIS~<span class="hljs-number">1</span>\VERYLO~<span class="hljs-number">1</span>\MAYEXC~<span class="hljs-number">1</span>
+</div></code></pre>
+<h1 id="17-how-large-are-my-folders" data-line="370" class="code-line">17. How Large Are My Folders?</h1>
+<p data-line="371" class="code-line">To find out the total size of all subfolders in a directory, try this function:</p>
+<pre><code data-line="373" class="code-line language-powershell"><div><span class="hljs-keyword">Function</span> Get-FolderSize
+{
+<span class="hljs-keyword">param</span> (
+<span class="hljs-variable">$Path</span>=<span class="hljs-variable">$home</span>
+)
+<span class="hljs-variable">$code</span> = { (‘{<span class="hljs-number">0</span>:<span class="hljs-comment">#,##0.0} MB’ -f ($this/1MB)) }</span>
+<span class="hljs-built_in">Get-ChildItem</span> -Path <span class="hljs-variable">$Path</span>|
+<span class="hljs-built_in">Where-Object</span> { <span class="hljs-variable">$_</span>.PSIsContainer } |
+<span class="hljs-built_in">ForEach-Object</span> {
+<span class="hljs-built_in">Write-Progress</span> -Activity ’Calculating Total Size <span class="hljs-keyword">for</span>:’ -Status <span class="hljs-variable">$_</span>.FullName
+<span class="hljs-variable">$sum</span> = <span class="hljs-built_in">Get-ChildItem</span> <span class="hljs-variable">$_</span>.FullName -Recurse -ErrorAction SilentlyContinue |
+<span class="hljs-built_in">Measure-Object</span> -Property Length -Sum -ErrorAction SilentlyContinue
+<span class="hljs-variable">$bytes</span> = <span class="hljs-variable">$sum</span>.Sum
+<span class="hljs-keyword">if</span> (<span class="hljs-variable">$bytes</span> <span class="hljs-nomarkup">-eq</span> <span class="hljs-literal">$null</span>) {
+<span class="hljs-variable">$bytes</span> = <span class="hljs-number">0</span>
+}
+<span class="hljs-variable">$result</span> = <span class="hljs-number">1</span> | <span class="hljs-built_in">Select-Object</span> -Property Path, TotalSize
+<span class="hljs-variable">$result</span>.Path = <span class="hljs-variable">$_</span>.FullName
+<span class="hljs-variable">$result</span>.TotalSize = <span class="hljs-variable">$bytes</span> |
+<span class="hljs-built_in">Add-Member</span> -MemberType ScriptMethod -Name toString -Value <span class="hljs-variable">$code</span> -Force -PassThru
+<span class="hljs-variable">$result</span>
+}
+}
+</div></code></pre>
+<p data-line="398" class="code-line">And this is what a result would typically look like:</p>
+<pre><code data-line="400" class="code-line language-powershell"><div>PS&gt; Get-FolderSize <span class="hljs-variable">$env:windir</span>
+Path TotalSize
+---- ----
+C:\Windows\addins <span class="hljs-number">0</span>,<span class="hljs-number">0</span> MB
+C:\Windows\AppCompat <span class="hljs-number">0</span>,<span class="hljs-number">0</span> MB
+C:\Windows\apppatch <span class="hljs-number">11</span>,<span class="hljs-number">8</span> MB
+C:\Windows\assembly <span class="hljs-number">2.279</span>,<span class="hljs-number">4</span> MB
+C:\Windows\AUInstallAgent <span class="hljs-number">0</span>,<span class="hljs-number">0</span> MB
+C:\Windows\Boot <span class="hljs-number">36</span>,<span class="hljs-number">8</span> MB
+C:\Windows\Branding <span class="hljs-number">2</span>,<span class="hljs-number">2</span> MB
+C:\Windows\BrowserChoice <span class="hljs-number">1</span>,<span class="hljs-number">1</span> MB
+(...)
+</div></code></pre>
+<h1 id="18-bulk-renaming-files" data-line="414" class="code-line">18. Bulk-Renaming Files</h1>
+<p data-line="415" class="code-line">Rename-Item can rename hundreds of files in one step. Have a look:</p>
+<pre><code data-line="417" class="code-line language-powershell"><div><span class="hljs-variable">$global:i</span> = <span class="hljs-number">1</span>
+<span class="hljs-built_in">Get-ChildItem</span> -Path c:\test1\ -Filter *.jpg |
+<span class="hljs-built_in">Rename-Item</span> -NewName { “picture_<span class="hljs-variable">$i</span>.jpg”; <span class="hljs-variable">$global:i</span>++}
+</div></code></pre>
+<p data-line="422" class="code-line">This code assumes there is a folder called <code>c:\test1</code> that contains a number of <code>*.jpg</code> files. Get-ChildItem gets all the <code>*.jpg</code>
+files and pipes them to Rename-Item. Rename-Item then renames all of these files as “picture_X.jpg” where X is an incrementing
+number.</p>
+<h1 id="19-monitoring-folder-content" data-line="426" class="code-line">19. Monitoring Folder Content</h1>
+<p data-line="427" class="code-line">You can use a FileSystemWatcher object to monitor a folder and write a log for all newly created files. Here is a script that demonstrates
+this.</p>
+<pre><code data-line="429" class="code-line language-powershell"><div><span class="hljs-comment"># make sure this folder exists. Script will monitor changes to this folder:</span>
+<span class="hljs-variable">$folder</span> = ’C:\SomeFolder’
+<span class="hljs-variable">$timeout</span> = <span class="hljs-number">1000</span>
+<span class="hljs-variable">$FileSystemWatcher</span> = <span class="hljs-built_in">New-Object</span> System.IO.FileSystemWatcher <span class="hljs-variable">$folder</span>
+<span class="hljs-built_in">Write-Host</span> ”Press CTRL+C to abort monitoring <span class="hljs-variable">$folder</span>”
+<span class="hljs-keyword">while</span> (<span class="hljs-literal">$true</span>) {
+<span class="hljs-variable">$result</span> = <span class="hljs-variable">$FileSystemWatcher</span>.WaitForChanged(‘all’, <span class="hljs-variable">$timeout</span>)
+<span class="hljs-keyword">if</span> (<span class="hljs-variable">$result</span>.TimedOut <span class="hljs-nomarkup">-eq</span> <span class="hljs-literal">$false</span>)
+{
+<span class="hljs-built_in">Write-Warning</span> (‘File {<span class="hljs-number">0</span>} : {<span class="hljs-number">1</span>}’ -f <span class="hljs-variable">$result</span>.ChangeType, <span class="hljs-variable">$result</span>.name)
+}
+}
+<span class="hljs-built_in">Write-Host</span> ’Monitoring aborted.’
+</div></code></pre>
+<p data-line="444" class="code-line">It monitors the folder <code>c:\somefolder</code> (which you should create before you run this script). Next, while the script is running, any change to
+the folder is reported. For example, if you open the monitored folder in Windows Explorer, add a new text file, rename it and then delete it,
+here’s the result:</p>
+<pre><code data-line="447" class="code-line language-powershell"><div>PS&gt; C:\testscript.powershell
+Press CTRL+C to abort monitoring C:\Users\Tobias
+WARNING: File Created : New Text Document.txt
+WARNING: File Renamed : test.txt
+WARNING: File Deleted : test.txt
+</div></code></pre>
+<h1 id="20-open-file-exclusively" data-line="455" class="code-line">20. Open File Exclusively</h1>
+<p data-line="456" class="code-line">To open a file in a locked state so no one else can open, access, read, or write the file, you can use the low-level .NET methods like this:</p>
+<pre><code data-line="457" class="code-line language-powershell"><div><span class="hljs-variable">$path</span> = ”<span class="hljs-variable">$env:temp</span>\somefile.txt” <span class="hljs-comment"># MUST EXIST!</span>
+<span class="hljs-keyword">if</span> ( (<span class="hljs-built_in">Test-Path</span><span class="hljs-variable">$path</span>) <span class="hljs-nomarkup">-eq</span><span class="hljs-literal">$false</span>)
+{
+Set-Content-Value’test’-Path<span class="hljs-variable">$path</span>
+}
+<span class="hljs-variable">$file</span> = [System.io.File]::Open(<span class="hljs-variable">$path</span>, ’Open’, ’Read’, ’None’)
+<span class="hljs-variable">$reader</span> = <span class="hljs-built_in">New-Object</span> System.IO.StreamReader(<span class="hljs-variable">$file</span>)
+<span class="hljs-variable">$text</span> = <span class="hljs-variable">$reader</span>.ReadToEnd()
+<span class="hljs-variable">$reader</span>.Close()
+<span class="hljs-built_in">Read-Host</span> ’Press ENTER to release file!’
+<span class="hljs-variable">$file</span>.Close()
+</div></code></pre>
+<p data-line="470" class="code-line">This will lock a file and read its content. To illustrate the lock, the file will remain locked until you press ENTER.</p>
+<h1 id="21-removing-file-extensions" data-line="472" class="code-line">21. Removing File Extensions</h1>
+<p data-line="473" class="code-line">To remove file extensions, use .NET methods:</p>
+<pre><code data-line="474" class="code-line language-powershell"><div>PS&gt; [system.io.path]::GetFileNameWithoutExtension(<span class="hljs-string">'c:\test\report.txt'</span>)
+</div></code></pre>
+<h1 id="22-quickly-changing-file-extensions" data-line="478" class="code-line">22. Quickly Changing File Extensions</h1>
+<p data-line="479" class="code-line">If you want to quickly exchange a file extension to create a “bak” backup version or generate a new file name for output, you should use
+the ChangeExtension() method:</p>
+<pre><code data-line="482" class="code-line language-powershell"><div><span class="hljs-variable">$oldpath</span> = <span class="hljs-string">'c:\test\datei.csv'</span>
+<span class="hljs-variable">$newpath</span> = [System.IO.Path]::ChangeExtension(<span class="hljs-variable">$oldpath</span>, <span class="hljs-string">'.xls'</span>)
+<span class="hljs-variable">$oldpath</span>
+<span class="hljs-variable">$newpath</span>
+</div></code></pre>
+<h1 id="23-grouping-files-based-on-size" data-line="489" class="code-line">23. Grouping Files Based on Size</h1>
+<p data-line="490" class="code-line">Group-Object can auto-create hash tables so that you can easily create groups of objects of a kind.
+Here is an example:</p>
+<pre><code data-line="492" class="code-line language-powershell"><div><span class="hljs-variable">$criteria</span> = {
+<span class="hljs-keyword">if</span> (<span class="hljs-variable">$_</span>.Length <span class="hljs-nomarkup">-lt</span> <span class="hljs-number">1</span>KB) {
+<span class="hljs-string">'tiny'</span>
+} <span class="hljs-keyword">elseif</span> (<span class="hljs-variable">$_</span>.length <span class="hljs-nomarkup">-lt</span> <span class="hljs-number">1</span>MB) {
+<span class="hljs-string">'average'</span>
+} <span class="hljs-keyword">else</span> {
+<span class="hljs-string">'huge'</span> }
+}
+<span class="hljs-variable">$myFiles</span> = dir <span class="hljs-variable">$env:windir</span> | <span class="hljs-built_in">Group-Object</span> -Property <span class="hljs-variable">$criteria</span> -asHash -asString
+</div></code></pre>
+<p data-line="503" class="code-line">Next, you can output the results, or use your keywords to access the file groups:</p>
+<pre><code data-line="504" class="code-line language-powershell"><div>PS&gt; <span class="hljs-variable">$myFiles</span>
+Name Value
+---- -----
+huge {explorer.exe, WindowsUpdate.log}
+tiny {addins, AppCompat, AppPatch, assembly...}
+average {bfsvc.exe, bootstat.dat, ColorPicker <span class="hljs-keyword">for</span> PowerPoint Setup Log.txt,
+DPINST.LOG...}
+PS&gt; <span class="hljs-variable">$myFiles</span>.huge
+Directory: C:\Windows
+Mode LastWriteTime Length Name
+---- ------------- ------ ----
+-a--- <span class="hljs-number">25.02</span>.<span class="hljs-number">2011</span> <span class="hljs-number">07</span>:<span class="hljs-number">19</span> <span class="hljs-number">2871808</span> explorer.exe
+-a--- <span class="hljs-number">20.02</span>.<span class="hljs-number">2013</span> <span class="hljs-number">13</span>:<span class="hljs-number">21</span> <span class="hljs-number">1975208</span> WindowsUpdate.log
+PS&gt;
+</div></code></pre>
+<h1 id="24-open-many-files-with-one-command" data-line="520" class="code-line">24. Open Many Files with One Command</h1>
+<p data-line="521" class="code-line">To quickly open all files of a kind, such as all text or script files found in a folder, you should try the Open-File function. It will accept a
+simple pattern, such as <code>*.txt</code> which opens all text files, or a*.powershell which opens all PowerShell scripts that start with “a”:</p>
+<pre><code data-line="523" class="code-line language-powershell"><div><span class="hljs-keyword">function</span> Open-file{
+<span class="hljs-keyword">param</span>(
+[Parameter(Mandatory=<span class="hljs-literal">$true</span>)]
+<span class="hljs-variable">$path</span>
+)
+<span class="hljs-variable">$paths</span> = <span class="hljs-built_in">Resolve-Path</span> <span class="hljs-variable">$path</span> -ea SilentlyContinue
+<span class="hljs-keyword">if</span> (<span class="hljs-variable">$paths</span> <span class="hljs-nomarkup">-ne</span> <span class="hljs-literal">$null</span>) {
+<span class="hljs-variable">$paths</span> | <span class="hljs-built_in">Foreach-Object</span> { <span class="hljs-built_in">Invoke-Item</span> <span class="hljs-variable">$_</span> }
+} <span class="hljs-keyword">else</span> {
+“No file matched <span class="hljs-variable">$path</span>.”
+}
+}
+</div></code></pre>
+<p data-line="537" class="code-line">The next command then would open all text files in your current folder with the program that is associated with .txt-files (like Notepad editor):</p>
+<pre><code data-line="539" class="code-line language-powershell"><div>PS &gt; Open-File *.txt
+</div></code></pre>
+<h1 id="25-use-multiple-wildcards" data-line="543" class="code-line">25. Use Multiple Wildcards</h1>
+<p data-line="544" class="code-line">Did you know that you can use multiple wildcards in paths? This will give you a lot of control.
+This line will find all DLL files in all subfolders up to two levels below your Windows folder (it will take a couple of seconds for Resolve-Path
+to gather all files):</p>
+<pre><code data-line="548" class="code-line language-powershell"><div><span class="hljs-built_in">Resolve-Path</span> <span class="hljs-variable">$env:windir</span>\*\*\*.dll -ea <span class="hljs-number">0</span>
+</div></code></pre>
+<p data-line="551" class="code-line">And this line will lists the Desktop folder content for all user accounts on your computer—provided that you have sufficient privileges:</p>
+<pre><code data-line="553" class="code-line language-powershell"><div>dir c:\users\*\desktop\*
+</div></code></pre>
+<h1 id="26-filtering-multiple-file-types" data-line="557" class="code-line">26. Filtering Multiple File Types</h1>
+<p data-line="558" class="code-line">If you want to filter files based on multiple extensions, you can use this filter:</p>
+<pre><code data-line="560" class="code-line language-powershell"><div><span class="hljs-keyword">Filter</span> Where-Extension {
+<span class="hljs-keyword">param</span> (
+[String[]]
+<span class="hljs-variable">$extension</span> = (‘.bmp’, ’.jpg’, ’.wmv’)
+)
+<span class="hljs-variable">$_</span> |
+<span class="hljs-built_in">Where-Object</span> {
+<span class="hljs-variable">$extension</span> <span class="hljs-nomarkup">-contains</span> <span class="hljs-variable">$_</span>.Extension
+}
+}
+</div></code></pre>
+<p data-line="572" class="code-line">To find all <code>*.log-files</code> and all <code>*.txt-files</code> in your Windows folder, use it like this:</p>
+<pre><code data-line="574" class="code-line language-powershell"><div>dir <span class="hljs-variable">$env:windir</span> -Recurse -ea <span class="hljs-number">0</span> | Where-Extension .log,.txt
+</div></code></pre>
+<h1 id="27-creating-shortcuts-on-your-desktop" data-line="578" class="code-line">27. Creating Shortcuts on your Desktop</h1>
+<p data-line="579" class="code-line">PowerShell and .NET can do amazing things, but they are not good at creating shortcuts. However, you can create a shortcut on your
+Desktop with just a few lines of code using COM objects instead:</p>
+<pre><code data-line="581" class="code-line language-powershell"><div><span class="hljs-variable">$shell</span> = <span class="hljs-built_in">New-Object</span> -ComObject WScript.Shell
+<span class="hljs-variable">$desktop</span> = [System.Environment]::GetFolderPath(<span class="hljs-string">'Desktop'</span>)
+<span class="hljs-variable">$shortcut</span> = <span class="hljs-variable">$shell</span>.CreateShortcut(<span class="hljs-string">"<span class="hljs-variable">$desktop</span>\clickme.lnk"</span>)
+<span class="hljs-variable">$shortcut</span>.TargetPath = <span class="hljs-string">"notepad.exe"</span>
+<span class="hljs-variable">$shortcut</span>.IconLocation = <span class="hljs-string">"shell32.dll,23"</span>
+<span class="hljs-variable">$shortcut</span>.Save()
+</div></code></pre>
+<h1 id="28-create-files-and-folders-in-one-step" data-line="590" class="code-line">28. Create Files and Folders in One Step</h1>
+<p data-line="591" class="code-line">Use New-Item like this when you want to create a file plus all the folders necessary to host the file:</p>
+<pre><code data-line="593" class="code-line language-powershell"><div>PS&gt; <span class="hljs-built_in">New-Item</span> -Path c:\subfolder\anothersubfolder\yetanotherone\test1.txt -Type File -Force
+</div></code></pre>
+<p data-line="597" class="code-line">This will create the necessary folders first and then insert a blank file into the last folder. You can then edit the file easily using Notepad.
+The magic is done by -Force, but this parameter will also overwrite the file if it already exists. You may want to use Test-Path first to check whether the file exists if you must make sure it won’t get overwritten.</p>
+<h1 id="29-remove-recents-folder" data-line="600" class="code-line">29. Remove Recents Folder</h1>
+<p data-line="601" class="code-line">Windows uses the special recent folder to remember which files you have opened. You can have a look at the information Windows has
+accumulated. Remove the -WhatIf parameter if you want to get rid of the files:</p>
+<pre><code data-line="603" class="code-line language-powershell"><div><span class="hljs-built_in">Get-ChildItem</span> ([Environment]::GetFolderPath(<span class="hljs-string">"Recent"</span>)) | <span class="hljs-built_in">Remove-Item</span> -Recurse -WhatIf
+</div></code></pre>
+<h1 id="30-displaying-hex-dumps" data-line="607" class="code-line">30. Displaying Hex Dumps</h1>
+<p data-line="608" class="code-line">PowerShell can read plain text, but it can also read binary content. Here is a little function that creates a “hex dump” of any binary file:</p>
+<pre><code data-line="609" class="code-line language-powershell"><div><span class="hljs-keyword">Function</span> Get-HexDump {
+<span class="hljs-keyword">param</span> (
+<span class="hljs-variable">$path</span>,
+<span class="hljs-variable">$width</span>=<span class="hljs-number">10</span>,
+<span class="hljs-variable">$bytes</span>=-<span class="hljs-number">1</span>
+)
+<span class="hljs-variable">$OFS</span>=<span class="hljs-string">''</span>
+<span class="hljs-built_in">Get-Content</span> -Encoding byte <span class="hljs-variable">$path</span> -ReadCount <span class="hljs-variable">$width</span> `
+-TotalCount <span class="hljs-variable">$bytes</span> | <span class="hljs-built_in">ForEach-Object</span> {
+<span class="hljs-variable">$byte</span> = <span class="hljs-variable">$_</span>
+<span class="hljs-keyword">if</span> ((<span class="hljs-variable">$byte</span> <span class="hljs-nomarkup">-eq</span> <span class="hljs-number">0</span>).count <span class="hljs-nomarkup">-ne</span> <span class="hljs-variable">$width</span>) {
+<span class="hljs-variable">$hex</span> = <span class="hljs-variable">$byte</span> | <span class="hljs-built_in">ForEach-Object</span> {
+<span class="hljs-string">' '</span> + (<span class="hljs-string">'{0:x}'</span>-f <span class="hljs-variable">$_</span>).PadLeft(<span class="hljs-number">2</span>,<span class="hljs-string">'0'</span>)
+}
+<span class="hljs-variable">$char</span> = <span class="hljs-variable">$byte</span> | <span class="hljs-built_in">ForEach-Object</span> {
+  <span class="hljs-keyword">if</span> ([char]::IsLetterOrDigit(<span class="hljs-variable">$_</span>))
+  {
+    [char] <span class="hljs-variable">$_</span>
+  } <span class="hljs-keyword">else</span> {
+  <span class="hljs-string">'.'</span>
+  }
+}
+<span class="hljs-string">"<span class="hljs-variable">$hex</span> <span class="hljs-variable">$char</span>"</span>
+}
+}
+}
+</div></code></pre>
+<p data-line="637" class="code-line">And this is an example on how to call the function:</p>
+<pre><code data-line="638" class="code-line"><code><div>PS&gt; Get-HexDump $env:windir\explorer.exe -width 15 -bytes 150
+4d 5a 90 00 03 00 00 00 04 00 00 00 ffff 00 MZ..........ÿÿ.
+00 b8 00 00 00 00 00 00 00 40 00 00 00 00 00 ...............
+e0 00 00 00 0e 1f ba 0e 00 b4 09 cd 21 b8 01 à.....º....Í...
+4c cd 21 54 68 69 73 20 70 72 6f 67 72 61 6d LÍ.This.program
+20 63 61 6e 6e 6f 74 20 62 65 20 72 75 6e 20 .cannot.be.run.
+69 6e 20 44 4f 53 20 6d 6f 64 65 2e 0d 0d 0a in.DOS.mode....
+24 00 00 00 00 00 00 00 93 83 28 37 d7 e2 46 ...........7.âF
+64 d7 e2 46 64 d7 e2 46 64 de 9a c2 64 9d e2 d.âFd.âFdÞ.Âd.â
+PS&gt;
+</div></code></code></pre>
+<h1 id="31-reading-file-magic-number" data-line="650" class="code-line">31. Reading File “Magic Number”</h1>
+<p data-line="651" class="code-line">File types are not entirely dependent on file extension. Rather, binary files have internal ID numbers called “magic numbers” that tell
+Windows what type of file it is. Here is a function to read and display the magic number:</p>
+<pre><code data-line="653" class="code-line language-powershell"><div><span class="hljs-keyword">Function</span> Get-MagicNumber {
+<span class="hljs-keyword">param</span> (
+<span class="hljs-variable">$path</span>
+)
+<span class="hljs-built_in">Resolve-Path</span> <span class="hljs-variable">$path</span> | <span class="hljs-built_in">ForEach-Object</span> {
+<span class="hljs-variable">$magicnumber</span> = <span class="hljs-built_in">Get-Content</span> -Encoding byte <span class="hljs-variable">$_</span> -ReadCount <span class="hljs-number">4</span> -TotalCount <span class="hljs-number">4</span>
+<span class="hljs-variable">$hex1</span> = (<span class="hljs-string">'{0:x}'</span> -f (<span class="hljs-variable">$magicnumber</span>[<span class="hljs-number">0</span>] * <span class="hljs-number">256</span> + <span class="hljs-variable">$magicnumber</span>[<span class="hljs-number">1</span>])).PadLeft(<span class="hljs-number">4</span>,<span class="hljs-string">'0'</span>)
+<span class="hljs-variable">$hex2</span> = (<span class="hljs-string">'{0:x}'</span> -f (<span class="hljs-variable">$magicnumber</span>[<span class="hljs-number">2</span>] * <span class="hljs-number">256</span> + <span class="hljs-variable">$magicnumber</span>[<span class="hljs-number">3</span>])).PadLeft(<span class="hljs-number">4</span>,<span class="hljs-string">'0'</span>)
+[string] <span class="hljs-variable">$chars</span> = <span class="hljs-variable">$magicnumber</span>|<span class="hljs-built_in">ForEach-Object</span>{
+<span class="hljs-keyword">if</span> ([char]::IsLetterOrDigit(<span class="hljs-variable">$_</span>)) {
+  [char] <span class="hljs-variable">$_</span>
+} <span class="hljs-keyword">else</span> {
+  <span class="hljs-string">'.'</span>
+}
+}
+<span class="hljs-string">"{0} {1} '{2}'"</span> -f <span class="hljs-variable">$hex1</span>, <span class="hljs-variable">$hex2</span>, <span class="hljs-variable">$chars</span>
+}
+}
+</div></code></pre>
+<p data-line="673" class="code-line">Executable files use the two letters “MZ” (which coincidentally are the initials of Mark Zbikowski, one of the original developers of MS
+DOS). Data files use different signatures.</p>
+<pre><code data-line="676" class="code-line language-powershell"><div>PS&gt; Get-MagicNumber C:\Windows\explorer.exe
+<span class="hljs-number">4</span>d5a <span class="hljs-number">9000</span> ‘M Z . .’
+PS&gt; Get-MagicNumber C:\Windows\bootstat.dat
+<span class="hljs-number">2000</span> <span class="hljs-number">0000</span> ‘. . . .’
+PS&gt; Get-MagicNumber C:\Windows\notepad.exe
+<span class="hljs-number">4</span>d5a <span class="hljs-number">9000</span> ‘M Z . .’
+</div></code></pre>
+<h1 id="32-rename-drive-label" data-line="685" class="code-line">32. Rename Drive Label</h1>
+<p data-line="686" class="code-line">WMI can read any drive label (the name that appears next to a drive inside Explorer), and you can change the drive label, too—provided
+you have administrator privileges. This code renames drive c:\ to “My Harddrive”:</p>
+<pre><code data-line="689" class="code-line language-powershell"><div><span class="hljs-variable">$drive</span> = [wmi]”Win32_LogicalDisk=’C:’”
+<span class="hljs-variable">$drive</span>.VolumeName = ”My Harddrive”
+<span class="hljs-variable">$drive</span>.Put()
+</div></code></pre>
+<p data-line="694" class="code-line">Just make sure to call Put() so your changes will get written back to the original object.</p>
+<h1 id="33-no-need-for-virtual-drives" data-line="696" class="code-line">33. No Need for Virtual Drives</h1>
+<p data-line="697" class="code-line">You do not need to use drive letters to access information provided by PowerShell providers. For example, use this to list the HKEY_
+CLASSES_ROOT in your Registry:</p>
+<pre><code data-line="700" class="code-line language-powershell"><div>Dir Registry::HKEY_CLASSES_ROOT
+</div></code></pre>
+<p data-line="704" class="code-line">By pre-pending the path with the provider name that PowerShell should use, you no longer need drive letters. This is basically the same as adding a new virtual drive and specifying the provider PowerShell should use:</p>
+<pre><code data-line="706" class="code-line language-powershell"><div><span class="hljs-built_in">New-PSDrive</span> HKCR Registry HKEY_CLASSES_ROOT
+Dir HKCR:
+</div></code></pre>
+<h1 id="34-temporary-file-name" data-line="711" class="code-line">34. Temporary File Name</h1>
+<p data-line="712" class="code-line">Thanks to Get-Date, you can easily create unique temporary file names with a timestamp:</p>
+<pre><code data-line="714" class="code-line language-powershell"><div>(<span class="hljs-built_in">Get-Date</span> -format <span class="hljs-string">'yyyy-MM-ddhh-mm-ss'</span>) + <span class="hljs-string">'.tmp'</span>
+</div></code></pre>
+<h1 id="35-creating-large-dummy-files-with-net" data-line="718" class="code-line">35. Creating Large Dummy Files with .NET</h1>
+<p data-line="719" class="code-line">If you need to create large dummy files, the following code is a very fast way to generate really large test files. This for example creates a 1GB file in a fraction of a second:</p>
+<pre><code data-line="721" class="code-line language-powershell"><div><span class="hljs-variable">$path</span> = <span class="hljs-string">"<span class="hljs-variable">$env:temp</span>\testfile.txt"</span>
+<span class="hljs-variable">$file</span> = [io.file]::Create(<span class="hljs-variable">$path</span>)
+<span class="hljs-variable">$file</span>.SetLength(<span class="hljs-number">1</span>gb)
+<span class="hljs-variable">$file</span>.Close()
+<span class="hljs-built_in">Get-Item</span> <span class="hljs-variable">$path</span>
+</div></code></pre>
+<h1 id="36-does-a-folder-contain-a-specific-file" data-line="729" class="code-line">36. Does a Folder Contain a Specific File?</h1>
+<p data-line="730" class="code-line">Test-Path supports wildcards so if you’d like to know whether there are any PowerShell script files located in your home folder, try this:</p>
+<pre><code data-line="731" class="code-line language-powershell"><div><span class="hljs-built_in">Test-Path</span> <span class="hljs-variable">$home</span>\*.powershell
+</div></code></pre>
+<p data-line="734" class="code-line">To get the actual number of PowerShell scripts, use Get-Childitem and count the result:</p>
+<pre><code data-line="735" class="code-line language-powershell"><div>@(<span class="hljs-built_in">Get-ChildItem</span> <span class="hljs-variable">$home</span>\*.powershell).Count
+</div></code></pre>
+<p data-line="738" class="code-line">Note the @() converts any result into an array so even if there is only one file or none, the result will be an array so you can safely query its Count property. This step isn’t necessary anymore in PowerShell 3.0, but it won’t do any harm there and keeps your code compatible.</p>
+<h1 id="37-file-or-folder-find-out" data-line="740" class="code-line">37. File or Folder? Find Out!</h1>
+<p data-line="741" class="code-line">Test-Path can check whether a file or folder exists, but this does not tell you whether the path specified was actually a file or a folder. If you’d like to check whether the folder c:\test exists, use this:</p>
+<pre><code data-line="743" class="code-line language-powershell"><div><span class="hljs-built_in">Test-Path</span> c:\test -PathType Container
+</div></code></pre>
+<p data-line="746" class="code-line">If c:\test was a file (without extension), Test-Path would still return false because with the -PathType parameter, you explicitly looked for
+folders. Likewise, if you want to explicitly check for files, use the parameter -PathType leaf.</p>
+<h1 id="38-list-hidden-files" data-line="749" class="code-line">38. List Hidden Files</h1>
+<p data-line="750" class="code-line">Did you notice that Dir, ls or Get-ChildItem do not return hidden files?
+To see hidden files, you need to specify the -Force parameter:</p>
+<pre><code data-line="752" class="code-line language-powershell"><div><span class="hljs-built_in">Get-ChildItem</span> <span class="hljs-variable">$env:windir</span> -Force
+</div></code></pre>
+<p data-line="755" class="code-line">But what if you just wanted to see hidden files only? Filter the result, for example like this:</p>
+<pre><code data-line="756" class="code-line language-powershell"><div><span class="hljs-built_in">Get-ChildItem</span> <span class="hljs-variable">$env:windir</span> -Force | <span class="hljs-built_in">Where-Object</span> { <span class="hljs-variable">$_</span>.Mode <span class="hljs-nomarkup">-like</span> <span class="hljs-string">'*h*'</span> }
+</div></code></pre>
+<p data-line="759" class="code-line">In PowerShell 3.0, you can also use:</p>
+<pre><code data-line="760" class="code-line language-powershell"><div><span class="hljs-built_in">Get-ChildItem</span> <span class="hljs-variable">$env:windir</span> -Attributes h
+</div></code></pre>
+<h1 id="39-converting-file-system-to-ntfs" data-line="764" class="code-line">39. Converting File System to NTFS</h1>
+<p data-line="765" class="code-line">You probably know about the convert.exe utility which can convert a file system to NTFS without data loss. This tool cannot be run automatically though because it wants a manual confirmation and asks for the drive label of the drive you want to convert.
+Here is an example how PowerShell can embrace convert.exe and turn it into a more sophisticated tool that converts drives without manual confirmation. Of course, this imposes risk because converting a file system cannot be undone.</p>
+<pre><code data-line="767" class="code-line language-powershell"><div><span class="hljs-keyword">Function</span> ConvertTo-NTFS {
+<span class="hljs-keyword">param</span> (
+<span class="hljs-variable">$letter</span>=<span class="hljs-string">'C:'</span>
+)
+<span class="hljs-keyword">if</span> (!(<span class="hljs-built_in">Test-Path</span> <span class="hljs-variable">$letter</span>)) {
+<span class="hljs-keyword">Throw</span> <span class="hljs-string">"Drive <span class="hljs-variable">$letter</span> does not exist."</span>
+}
+<span class="hljs-variable">$drive</span> = [wmi]<span class="hljs-string">"Win32_LogicalDisk='<span class="hljs-variable">$letter</span>'"</span>
+<span class="hljs-variable">$label</span> = <span class="hljs-variable">$drive</span>.VolumeName
+<span class="hljs-variable">$filesystem</span> = <span class="hljs-variable">$drive</span>.FileSystem
+
+<span class="hljs-keyword">if</span> (<span class="hljs-variable">$filesystem</span> <span class="hljs-nomarkup">-eq</span> <span class="hljs-string">'NTFS'</span>){
+<span class="hljs-keyword">Throw</span> <span class="hljs-string">'Drive already uses NTFS filesystem'</span>
+}
+<span class="hljs-string">"Label is <span class="hljs-variable">$label</span>"</span>
+<span class="hljs-variable">$label</span> | convert.exe <span class="hljs-variable">$letter</span> /FS:NTFS /X
+}
+</div></code></pre>
+<p data-line="786" class="code-line">Make sure the drive you want to convert is not in use or else the conversion may be scheduled to take place at next reboot.</p>
+<h1 id="40-reading-and-writing-drive-labels" data-line="788" class="code-line">40. Reading and Writing Drive Labels</h1>
+<p data-line="789" class="code-line">Drive labels are the names attached to logical disks. Using WMI, you can both read and write (change) drive labels.
+To read the existing drive label, use this function:</p>
+<pre><code data-line="791" class="code-line language-powershell"><div><span class="hljs-keyword">Function</span> Get-DriveLabel {
+<span class="hljs-keyword">param</span> (
+<span class="hljs-variable">$letter</span>=<span class="hljs-string">'C:'</span>
+)
+<span class="hljs-keyword">if</span> (!(<span class="hljs-built_in">Test-Path</span> <span class="hljs-variable">$letter</span>)) {
+<span class="hljs-keyword">Throw</span> <span class="hljs-string">"Drive <span class="hljs-variable">$letter</span> does not exist."</span>
+}
+([wmi]<span class="hljs-string">"Win32_LogicalDisk='<span class="hljs-variable">$letter</span>'"</span>).VolumeName
+}
+</div></code></pre>
+<pre><code data-line="802" class="code-line language-powershell"><div>PS&gt; Get-DriveLabel
+BOOTCAMP
+PS&gt;
+</div></code></pre>
+<p data-line="807" class="code-line">To actually change the drive label, try this one:</p>
+<pre><code data-line="808" class="code-line language-powershell"><div><span class="hljs-keyword">Function</span> Set-DriveLabel {
+<span class="hljs-keyword">param</span> (
+<span class="hljs-variable">$letter</span>=<span class="hljs-string">'C:'</span>,
+<span class="hljs-variable">$label</span>=<span class="hljs-string">'New Label'</span>
+)
+<span class="hljs-keyword">if</span> (!(<span class="hljs-built_in">Test-Path</span> <span class="hljs-variable">$letter</span>)){
+<span class="hljs-keyword">Throw</span> <span class="hljs-string">"Drive <span class="hljs-variable">$letter</span> does not exist."</span>
+}
+<span class="hljs-variable">$instance</span>= ([wmi]<span class="hljs-string">"Win32_LogicalDisk='<span class="hljs-variable">$letter</span>'"</span>)
+<span class="hljs-variable">$instance</span>.VolumeName = <span class="hljs-variable">$label</span>
+<span class="hljs-variable">$instance</span>.Put()
+}
+</div></code></pre>
+<p data-line="822" class="code-line">So to set a new drive label for disk D:, use this:</p>
+<pre><code data-line="823" class="code-line language-powershell"><div>Set-DriveLabel D: <span class="hljs-string">'A new label'</span>
+</div></code></pre>
+<p data-line="826" class="code-line">Be aware that changing a drive label requires Admin privileges.</p>
+<h1 id="41-determining-a-drives-file-system" data-line="828" class="code-line">41. Determining a Drives’ File System</h1>
+<p data-line="829" class="code-line">If you ever needed a tool to find out the type of file system for any drive, take a look at this simple PowerShell function:</p>
+<pre><code data-line="831" class="code-line language-powershell"><div><span class="hljs-keyword">Function</span> Get-FileSystem {
+<span class="hljs-keyword">param</span> (
+<span class="hljs-variable">$letter</span>=<span class="hljs-string">'C:'</span>
+)
+<span class="hljs-keyword">if</span> (!(<span class="hljs-built_in">Test-Path</span> <span class="hljs-variable">$letter</span>)) {
+<span class="hljs-keyword">Throw</span> <span class="hljs-string">"Drive <span class="hljs-variable">$letter</span> does not exist."</span>
+}
+([wmi]<span class="hljs-string">"Win32_LogicalDisk='<span class="hljs-variable">$letter</span>'"</span>).FileSystem
+}
+</div></code></pre>
+<p data-line="843" class="code-line">Get-FileSystem accepts a drive letter such as “D:”, defaults to drive “C:” otherwise, and returns the file system used by that drive.</p>
+<pre><code data-line="845" class="code-line language-powershell"><div>PS&gt; Get-FileSystem
+NTFS
+PS&gt;
+</div></code></pre>
+<h1 id="42-removing-illegal-file-name-characters" data-line="851" class="code-line">42. Removing Illegal File Name Characters</h1>
+<p data-line="852" class="code-line">If you need to batch-process hundreds of file names, you may want to make sure all file names are legal and automatically remove all
+illegal characters. Here is how you can check for illegal file names (and optionally remove illegal characters from it):</p>
+<pre><code data-line="855" class="code-line language-powershell"><div><span class="hljs-variable">$file</span> = <span class="hljs-string">'this*file\\is_illegal&lt;&gt;.txt'</span>
+<span class="hljs-variable">$file</span>
+<span class="hljs-variable">$pattern</span> = <span class="hljs-string">'[{0}]'</span> -f ([Regex]::Escape([String] `
+[System.IO.Path]::GetInvalidFileNameChars()))
+<span class="hljs-variable">$newfile</span> = [Regex]::Replace(<span class="hljs-variable">$file</span>, <span class="hljs-variable">$pattern</span>,<span class="hljs-string">''</span>)
+<span class="hljs-variable">$newfile</span>
+</div></code></pre>
+<h1 id="43-using-simple-path-analysis" data-line="864" class="code-line">43. Using Simple Path Analysis</h1>
+<p data-line="865" class="code-line">PowerShell comes with the Split-Path cmdlet, which helps you disassemble paths and find the interesting information. Take a look:</p>
+<pre><code data-line="866" class="code-line language-powershell"><div><span class="hljs-built_in">Split-Path</span> c:\test\file.txt
+<span class="hljs-built_in">Split-Path</span> c:\test\file.txt -IsAbsolute
+<span class="hljs-built_in">Split-Path</span> c:\test\file.txt -Leaf
+<span class="hljs-built_in">Split-Path</span> c:\test\file.txt -NoQualifier
+<span class="hljs-built_in">Split-Path</span> c:\test\file.txt -Parent
+<span class="hljs-built_in">Split-Path</span> c:\test\file.txt -Qualifier
+</div></code></pre>
+<h1 id="44-getting-real-paths" data-line="875" class="code-line">44. Getting Real Paths</h1>
+<p data-line="876" class="code-line">PowerShell uses virtual drives, which sometimes have a close mapping to the “real” drives you see in Windows Explorer. However,
+sometimes these drives have no apparent real-world relation. Let’s say you have created the following drive “test”:</p>
+<pre><code data-line="878" class="code-line language-powershell"><div><span class="hljs-built_in">New-PSDrive</span> test FileSystem <span class="hljs-variable">$env:windir</span>
+dir test:
+</div></code></pre>
+<p data-line="882" class="code-line">The virtual drive “test” now points to your Windows folder. To “translate” virtual paths to real paths, use Convert-Path:</p>
+<pre><code data-line="883" class="code-line language-powershell"><div>PS&gt; <span class="hljs-built_in">Convert-Path</span> test:\system32
+C:\Windows\system32
+PS&gt;
+</div></code></pre>
+<h1 id="45-select-folder-dialog" data-line="889" class="code-line">45. Select Folder-Dialog</h1>
+<p data-line="890" class="code-line">Want to provide your users with a neat dialog to select folders? Simply use a COM object called Shell.Application, which provides the
+BrowseForFolder method:
+Function Select-Folder {
+param (
+$message= 'Select a folder',
+$path = 0
+)
+$object = New-Object -ComObject Shell.Application
+$folder = $object.BrowseForFolder(0, $message, 0, $path)
+if ($folder -ne $null) {
+$folder.self.Path
+}
+}</p>
+<pre><code data-line="904" class="code-line language-powershell"><div>Select-Folder <span class="hljs-string">'Select the folder you want!'</span> Select-Folder -message <span class="hljs-string">'Select some folder!'</span> -path
+<span class="hljs-variable">$env:windir</span>
+</div></code></pre>
+<h1 id="46-quick-drive-info" data-line="909" class="code-line">46. Quick Drive Info</h1>
+<p data-line="910" class="code-line">Want to quickly get a number of interesting details for any drive? Use the .NET System.IO.DriveInfo class like this:</p>
+<pre><code data-line="912" class="code-line language-powershell"><div>PS&gt; <span class="hljs-variable">$drive</span> = <span class="hljs-built_in">New-Object</span> System.io.DriveInfo <span class="hljs-string">'C:'</span>
+PS&gt; <span class="hljs-variable">$drive</span>.DriveFormat
+NTFS
+PS&gt; <span class="hljs-variable">$drive</span>.VolumeLabel
+BOOTCAMP
+PS&gt; <span class="hljs-variable">$drive</span>
+Name : C:\
+DriveType : Fixed
+DriveFormat : NTFS
+IsReady : True
+AvailableFreeSpace : <span class="hljs-number">6212796416</span>
+TotalFreeSpace : <span class="hljs-number">6212796416</span>
+TotalSize : <span class="hljs-number">125139152896</span>
+RootDirectory : C:\
+VolumeLabel : BOOTCAMP
+PS&gt;
+      </div>
+    </code>
+  </pre>
+
+    <div class="code-line" data-line="931"></div>
+    <script async="" src="./media/index.js" nonce="1551186285293293" charset="UTF-8"></script>
+  </body>
+</html>

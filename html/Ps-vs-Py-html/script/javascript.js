@@ -26,6 +26,9 @@ function unhidefirstItem(){
     if (grid_item[i].children[3] != null){
       grid_item[i].children[3].style.display = "none";
     }
+    if (grid_item[i].children[4] != null){
+      grid_item[i].children[4].style.display = "none";
+    }
   }
 }
 
@@ -40,7 +43,7 @@ function addEvent(){
 
 function hideContent(e){
   // run clearElementSiblingStyle() on current element
-  // clearElementSiblingStyle(e)
+  clearElementSiblingStyle(e)
   //button
   var grid_item = e.target.parentNode.parentNode.children;
   if (e.target.innerText == "Python"){
@@ -67,7 +70,20 @@ function hideContent(e){
       }
     }
   }
-if (e.target.innerText == "Output"){
+  if (e.target.innerText == "Bash"){
+    for(i=0;i < grid_item.length;i++){
+      if (grid_item[i].classList.contains('lang-bash')){
+      grid_item[i].style.display='block';
+      }
+      else if (grid_item[i].className == 'b_head'){
+      }
+      else{
+        grid_item[i].style.display='none';
+      }
+    }
+  }
+
+  if (e.target.innerText == "Output"){
     for(i=0;i < grid_item.length;i++){
       if (grid_item[i].classList.contains('lang-')){
       grid_item[i].style.display='block';
@@ -81,13 +97,13 @@ if (e.target.innerText == "Output"){
   }
 }
 
-// function clearElementSiblingStyle(e){
-//   // select all child element of div with class name of 'b_head'
-//     var children = e.target.parentNode.children;
-//     for (i = 0 ; i < children.length; i++) {
-//       // assign selected child node a 'button' style
-//     children[i].className = "button";
-//     }
-//     // assign current element 'button active' style
-//     e.target.className = "button active"
-// }
+function clearElementSiblingStyle(e){
+  // select all child element of div with class name of 'b_head'
+    var children = e.target.parentNode.children;
+    for (i = 0 ; i < children.length; i++) {
+      // assign selected child node a 'button' style
+    children[i].className = "button";
+    }
+    // assign current element 'button active' style
+    e.target.className = "button active"
+}

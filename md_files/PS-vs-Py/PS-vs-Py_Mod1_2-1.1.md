@@ -42,7 +42,15 @@ $student_name[1]
 $student_name[2]
 $student_name[3]
 $student_name[4]
-$student_name[5]
+```
+```bash
+#!/bin/bash
+name="Alton"
+echo "${name:0:1} <-- first character at index 0"
+echo ${name:1:1}
+echo ${name:2:1}
+echo ${name:3:1}
+echo ${name:4:1}
 ```
 ```
 A <-- first character at index 0
@@ -74,6 +82,19 @@ else{
     "Not a match, try again tomorrow: $student_name"
 }
 ```
+```bash
+#!/bin/bash
+student_name="Jin"
+first_char=${student_name:0:1} # get first char
+first_char=`echo ${first_char,,}` # make first char lowercase
+
+if [ $first_char == "a" ]; then
+     echo "Winner! Name starts with A: $student_name"
+elif [ $first_char == "j" ]; then
+     echo "Winner! Name starts with J: $student_name"
+else echo "Not a match, try again tomorrow: $student_name"
+fi
+```
 ```
 Winner! Name starts with J: Jin
 ```
@@ -89,6 +110,10 @@ print(street_name[0],street_name[2],street_name[4])
 ``` powershell
 $street_name = "longstreet"
 "$($street_name[0]) $($street_name[2]) $($street_name[4])"
+```
+``` bash
+street_name="longstreet"
+echo "${street_name:0:1} ${street_name:2:1} ${street_name:4:1}"
 ```
 ```
 l n s
@@ -134,6 +159,20 @@ else{
     "Enter at least 2 char name"
 }
 ```
+``` bash
+echo "Please enter team name with second letter 'i', 'o' , or 'u': "
+read team_name
+if [ ${#team_name} -ge 2 ]; then
+    second_char=${team_name:1:1}
+    second_char=`echo ${second_char,,}`
+
+    if [[ "$second_char" == [iou] ]]; then
+        echo "team name has $second_char"
+    else echo "team name does not have $second_char"
+    fi
+else echo "Enter at least 2 char name"
+fi
+```
 ```
 Please enter team name with second letter 'i', 'o' , or 'u': timber
 team name has i
@@ -165,6 +204,12 @@ $student_name = "Joana"
 $end_letter = $student_name[-1]
 "$student_name ends with '$end_letter'"
 ```
+``` bash
+## negative index
+student_name="Joana"
+end_letter=${student_name:${#student_name}-1:1} # get name length and -1 to get last index
+echo "$student_name ends with '$end_letter'" # print last char
+```
 ```
 Joana ends with 'a'
 ```
@@ -176,6 +221,11 @@ print(student_name,"has 2nd to last letter of", "'" + second_last_letter + "'")
 ``` powershell
 $second_last_letter = $student_name[-2]
 "$student_name has 2nd to last letter of '$second_last_letter'"
+```
+```bash
+# second last letter
+second_last_letter=${student_name:${#student_name}-2:1} # get the name length and -2 to get second last index
+echo "$student_name has 2nd to last letter of '$second_last_letter'" # print second last char
 ```
 ```
 Joana has 2nd to last letter of 'n'
@@ -192,6 +242,12 @@ print("index -2 =","'" + student_name[-2] + "'")
 "index 3 =  $($student_name[3])"
 "index -2 = $($student_name[-2])"
 ```
+```bash
+# 3rd and -2 index
+echo "for $student_name"
+echo "index 3 = ${student_name:3:1}"
+echo "index -2 = ${student_name:${#student_name}-2:1}"
+```
 ```
 for Joana
 index 3 = 'n'
@@ -201,12 +257,17 @@ index -2 = 'n'
 >- print the last 3 characters of street_name
 
 ``` python
-student_name = "longstreet"
+street_name = "longstreet"
 print(street_name[-1],street_name[-2],street_name[-3])
 ```
 ``` powershell
-$student_name = "longstreet"
+$street_name = "longstreet"
 -join $street_name[-1,-2,-3]
+```
+```bash
+# print the last 3 characters of street_name
+street_name="longstreet"
+echo "${street_name:${#street_name}-1:1} ${street_name:${#street_name}-2:1} ${street_name:${#street_name}-3:1}"
 ```
 ```
 t e e
@@ -221,6 +282,10 @@ print(first_name[0],first_name[-1])
 ``` powershell
 $first_name = "mayur"
 -join $first_name[0,-1]
+```
+```bash
+first_name="mayur"
+echo "${first_name:0:1} ${first_name:${#first_name}-1:1}"
 ```
 ```
 m r
